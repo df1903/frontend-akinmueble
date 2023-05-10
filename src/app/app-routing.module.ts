@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '', // Empty path
     pathMatch: 'full',
-    redirectTo: '/home,',
+    redirectTo: '/home',
   },
   {
     path: 'security', // Security module path

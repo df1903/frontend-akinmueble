@@ -1,0 +1,9 @@
+.title{
+    font-size:12px;
+    color: #000000;
+}
+.Rectangle{
+    width: 100px;
+    height: 150px;
+    background-color: aquamarine;
+}
