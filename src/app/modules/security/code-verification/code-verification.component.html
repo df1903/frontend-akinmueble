@@ -1,1 +1,32 @@
-<p>code-verification works!</p>
+<body ng-app="mainModule" ng-controller="mainController">
+  <div id="login-page" class="row">
+    <div id="login-card" class="col s12 z-depth-6 card-panel">
+      <img
+        src="../../../../assets/svg//2fa.svg"
+        alt="login-icon"
+        width="200px"
+        height="200px"
+      />
+      <form class="login-form">
+        <div class="row"></div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <input id="password" />
+            <label for="password">Verification Code</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a
+              href="#"
+              id="login-btn"
+              class="btn waves-effect waves-light col s12"
+              >Verificate</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
