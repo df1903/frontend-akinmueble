@@ -1,7 +1,7 @@
 <!-- Header -->
 <nav class="colorPage">
   <div class="nav-wrapper">
-    <a routerLink="/home" class="brand-logo"
+    <a [routerLink]="['/home']" class="brand-logo"
       ><img
         class="icon"
         src="../../../../assets/svg/Akinmueble_icon_xl.svg"
@@ -10,15 +10,23 @@
         height="60px"
     /></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="" class="link">Home</a></li>
+      <li><a routerLink="" class="link" [routerLink]="['/home']">Home</a></li>
       <li><a routerLink="" class="link">Services</a></li>
       <li><a routerLink="" class="link">Information</a></li>
       <li><a routerLink="" class="link">Contact</a></li>
       <li>
-        <button routerLink="" class="sign-up">Sign Up</button>
+        <button
+          routerLink=""
+          class="sign-up"
+          [routerLink]="['/security/register']"
+        >
+          Sign Up
+        </button>
       </li>
       <li>
-        <button routerLink="/security/login" class="log-in">Log In</button>
+        <button [routerLink]="['/security/login']" class="log-in">
+          Log In
+        </button>
       </li>
     </ul>
   </div>
