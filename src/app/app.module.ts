@@ -10,6 +10,7 @@ import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-f
 import { ServerErrorComponent } from './public/errors/server-error/server-error.component';
 import { HomeComponent } from './public/home/home.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
+import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterSwitchComponent } from './public/register-switch/register-switc
     PathNotFoundComponent,
     ServerErrorComponent,
     HomeComponent,
-    RegisterSwitchComponent
+    RegisterSwitchComponent,
+    PublicRegistryRequestingAdviceComponent
   ],
   imports: [
     BrowserModule,
