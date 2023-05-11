@@ -5,26 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './public/master-page/header/header.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
-import { SideNavComponent } from './public/master-page/side-nav/side-nav.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
 import { ServerErrorComponent } from './public/errors/server-error/server-error.component';
 import { HomeComponent } from './public/home/home.component';
+import { BodyComponent } from './public/home/body/body.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SideNavComponent,
     PathNotFoundComponent,
     ServerErrorComponent,
-    HomeComponent
+    HomeComponent,
+    BodyComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

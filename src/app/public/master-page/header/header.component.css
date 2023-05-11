@@ -1,3 +1,89 @@
-.colorPage{
-    background-color: #3ddb8f;
+.colorPage {
+  background-color: #3ddb8f;
+}
+
+.icon {
+  padding: 5px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .sign-up {
+    font-size: 18px;
+    border: solid 2px #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    color: #ffffff;
+  }
+
+  .sign-up:hover {
+    background-color: #ffffff;
+    color: #3ddb8f;
+  }
+
+  .log-in {
+    font-size: 18px;
+    border: solid 2px #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    color: #ffffff;
+  }
+
+  .log-in:hover {
+    background-color: #ffffff;
+    color: #3ddb8f;
+  }
+
+  .link {
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .link:hover {
+    color: #ffffff;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .sign-up {
+    font-size: 18px;
+    border: solid 2px #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    color: #ffffff;
+  }
+
+  .sign-up:hover {
+    background-color: #ffffff;
+    color: #3ddb8f;
+  }
+
+  .log-in {
+    font-size: 18px;
+    border: solid 2px #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    color: #ffffff;
+  }
+
+  .log-in:hover {
+    background-color: #ffffff;
+    color: #3ddb8f;
+  }
+
+  .link {
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .link:hover {
+    color: #ffffff;
+  }
 }

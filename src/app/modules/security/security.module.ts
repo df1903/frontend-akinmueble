@@ -11,7 +11,7 @@ import { DeleteUserComponent } from './user/delete-user/delete-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { LogOutComponent } from './log-out/log-out.component';
-
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -23,11 +23,8 @@ import { LogOutComponent } from './log-out/log-out.component';
     DeleteUserComponent,
     EditUserComponent,
     ListUserComponent,
-    LogOutComponent
+    LogOutComponent,
   ],
-  imports: [
-    CommonModule,
-    SecurityRoutingModule
-  ]
+  imports: [CommonModule, SecurityRoutingModule, NgxCaptchaModule],
 })
-export class SecurityModule { }
+export class SecurityModule {}

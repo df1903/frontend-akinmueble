@@ -1,0 +1,45 @@
+@media only screen and (min-width: 1000px) {
+  .separator {
+    width: 100%;
+    height: 100px;
+  }
+
+  .img-xl {
+    display: flex;
+    margin: auto;
+    width: 60%;
+    height: 25%;
+    padding: 10px;
+  }
+
+  .img-secondary {
+    display: flex;
+    justify-content: center;
+  }
+
+  .img-n {
+    width: 20%;
+    height: 10%;
+    padding: 10px;
+  }
+
+  .section-1 {
+    display: flex;
+    width: 60%;
+    margin: auto;
+  }
+
+  .section-1 img {
+    width: 50%;
+    height: 30%;
+    padding: 10px;
+    margin: auto;
+  }
+
+  .section-1 p {
+    width: 50%;
+    height: 30%;
+    padding: 10px;
+    font-size: 20px;
+  }
+}
