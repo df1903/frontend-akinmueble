@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
+import { ContactComponent } from './public/contact/contact.component';
 
 const routes: Routes = [
   {
     path: 'home', // Home path
     component: HomeComponent,
+  },
+  {
+    path: 'contact', // Contact path
+    component: ContactComponent,
   },
   {
     path: '', // Empty path

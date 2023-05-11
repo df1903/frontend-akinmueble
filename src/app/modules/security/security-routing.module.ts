@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'log-out', // Log out path
     component: LogOutComponent,
   },
+
   // User crud
   {
     path: 'create-user', // Create user path

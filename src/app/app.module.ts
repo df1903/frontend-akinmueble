@@ -9,6 +9,7 @@ import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-f
 import { ServerErrorComponent } from './public/errors/server-error/server-error.component';
 import { HomeComponent } from './public/home/home.component';
 import { BodyComponent } from './public/home/body/body.component';
+import { ContactComponent } from './public/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BodyComponent } from './public/home/body/body.component';
     ServerErrorComponent,
     HomeComponent,
     BodyComponent,
+    ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
