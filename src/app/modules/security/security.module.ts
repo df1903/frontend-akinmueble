@@ -26,14 +26,14 @@ import { PublicUserRegistryComponent } from './public-user-registry/public-user-
     EditUserComponent,
     ListUserComponent,
     LogOutComponent,
-    PublicUserRegistryComponent
+    PublicUserRegistryComponent,
   ],
   imports: [
-    CommonModule, 
-    SecurityRoutingModule, 
-    NgxCaptchaModule, 
+    CommonModule,
+    SecurityRoutingModule,
+    NgxCaptchaModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-
+})
 export class SecurityModule {}

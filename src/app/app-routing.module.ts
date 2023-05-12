@@ -6,7 +6,6 @@ import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 
-
 const routes: Routes = [
   {
     path: 'home', // Home path
@@ -17,17 +16,12 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: '', // Empty path
-    pathMatch: 'full',
-    redirectTo: '/home',
+    path: 'register-switch', // Register Switch path
+    component: RegisterSwitchComponent,
   },
   {
-    path:'register-switch',
-    component: RegisterSwitchComponent
-  },
-  {
-    path:"register-adviser-requesting",
-    component: PublicRegistryRequestingAdviceComponent
+    path: 'register-adviser-requesting', // Register Adviser path
+    component: PublicRegistryRequestingAdviceComponent,
   },
   {
     path: 'security', // Security module path
@@ -35,6 +29,11 @@ const routes: Routes = [
       import('src/app/modules/security/security.module').then(
         (m) => m.SecurityModule
       ),
+  },
+  {
+    path: '', // Empty path
+    pathMatch: 'full',
+    redirectTo: '/home',
   },
   {
     path: '**', // Path not found
