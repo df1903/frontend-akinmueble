@@ -1,10 +1,4 @@
-function startSideNav() {
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, {
-
-        });
-    });
-}
-
-startSideNav()
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems, options);
+});

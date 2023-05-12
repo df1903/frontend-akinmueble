@@ -1,3 +1,11 @@
-.colorPage{
-    background-color: #3ddb8f;
+.colorPage {
+  background-color: #3ddb8f;
+}
+
+.contact-icons {
+  display: flex;
+}
+
+.contact-icons li a img {
+  padding: 5px;
 }

@@ -2,13 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
+import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
+
 
 const routes: Routes = [
   {
     path: 'home', // Home path
     component: HomeComponent,
+  },
+  {
+    path: 'contact', // Contact path
+    component: ContactComponent,
   },
   {
     path: '', // Empty path

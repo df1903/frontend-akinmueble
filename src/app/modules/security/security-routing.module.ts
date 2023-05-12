@@ -13,37 +13,38 @@ import { CodeVerificationComponent } from './code-verification/code-verification
 
 const routes: Routes = [
   {
-    path:"login", // Login path
-    component: LoginComponent
+    path: 'login', // Login path
+    component: LoginComponent,
   },
   {
-    path:"recovery-password", // Recovery password path
-    component: RecoveryPasswordComponent
+    path: 'recovery-password', // Recovery password path
+    component: RecoveryPasswordComponent,
   },
   {
-    path:"change-password", // Change password path
-    component: ChangePasswordComponent
+    path: 'change-password', // Change password path
+    component: ChangePasswordComponent,
   },
   {
-    path:"code-verification", // Code verification path
-    component: CodeVerificationComponent
+    path: 'code-verification', // Code verification path
+    component: CodeVerificationComponent,
   },
   {
-    path:"log-out", // Log out path
-    component: LogOutComponent
+    path: 'log-out', // Log out path
+    component: LogOutComponent,
   },
+
   // User crud
   {
-    path:"create-user", // Create user path
-    component: CreateUserComponent
+    path: 'create-user', // Create user path
+    component: CreateUserComponent,
   },
   {
-    path:"edit-user", // Edit user path
-    component: EditUserComponent
+    path: 'edit-user', // Edit user path
+    component: EditUserComponent,
   },
   {
-    path:"list-user", // List user path
-    component: ListUserComponent
+    path: 'list-user', // List user path
+    component: ListUserComponent,
   },
   {
     path:"delete-user", // Delete user path
@@ -57,6 +58,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SecurityRoutingModule { }
+export class SecurityRoutingModule {}

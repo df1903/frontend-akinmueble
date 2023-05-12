@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { SecurityRoutingModule } from './security-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -11,9 +12,8 @@ import { DeleteUserComponent } from './user/delete-user/delete-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { LogOutComponent } from './log-out/log-out.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
-
 
 @NgModule({
   declarations: [
@@ -29,10 +29,11 @@ import { PublicUserRegistryComponent } from './public-user-registry/public-user-
     PublicUserRegistryComponent
   ],
   imports: [
-    CommonModule,
-    SecurityRoutingModule,
+    CommonModule, 
+    SecurityRoutingModule, 
+    NgxCaptchaModule, 
     ReactiveFormsModule,
     FormsModule
-  ]
-})
-export class SecurityModule { }
+  ],
+
+export class SecurityModule {}
