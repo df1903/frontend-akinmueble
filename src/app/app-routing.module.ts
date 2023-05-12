@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
+import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
+import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 
 const routes: Routes = [
   {
@@ -11,7 +13,15 @@ const routes: Routes = [
   {
     path: '', // Empty path
     pathMatch: 'full',
-    redirectTo: '/home,',
+    redirectTo: '/home',
+  },
+  {
+    path:'register-switch',
+    component: RegisterSwitchComponent
+  },
+  {
+    path:"register-adviser-requesting",
+    component: PublicRegistryRequestingAdviceComponent
   },
   {
     path: 'security', // Security module path

@@ -9,7 +9,8 @@ import { SideNavComponent } from './public/master-page/side-nav/side-nav.compone
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
 import { ServerErrorComponent } from './public/errors/server-error/server-error.component';
 import { HomeComponent } from './public/home/home.component';
-
+import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
+import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,9 @@ import { HomeComponent } from './public/home/home.component';
     SideNavComponent,
     PathNotFoundComponent,
     ServerErrorComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterSwitchComponent,
+    PublicRegistryRequestingAdviceComponent
   ],
   imports: [
     BrowserModule,

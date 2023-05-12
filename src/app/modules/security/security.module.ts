@@ -11,6 +11,8 @@ import { DeleteUserComponent } from './user/delete-user/delete-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { LogOutComponent } from './log-out/log-out.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
 
 
 @NgModule({
@@ -23,11 +25,14 @@ import { LogOutComponent } from './log-out/log-out.component';
     DeleteUserComponent,
     EditUserComponent,
     ListUserComponent,
-    LogOutComponent
+    LogOutComponent,
+    PublicUserRegistryComponent
   ],
   imports: [
     CommonModule,
-    SecurityRoutingModule
+    SecurityRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SecurityModule { }

@@ -8,6 +8,8 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { DeleteUserComponent } from './user/delete-user/delete-user.component';
+import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
+import { CodeVerificationComponent } from './code-verification/code-verification.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,7 @@ const routes: Routes = [
   },
   {
     path:"code-verification", // Code verification path
-    component: ChangePasswordComponent
+    component: CodeVerificationComponent
   },
   {
     path:"log-out", // Log out path
@@ -46,6 +48,10 @@ const routes: Routes = [
   {
     path:"delete-user", // Delete user path
     component: DeleteUserComponent
+  },
+  {
+    path:"user-registration", // User registration
+    component: PublicUserRegistryComponent
   }
 ];
 
