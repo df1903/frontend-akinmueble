@@ -1,24 +1,22 @@
 import { Injectable } from '@angular/core';
 import { BackendRouteConfiguration } from '../config/backend.route.configuration';
 import { HttpClient } from '@angular/common/http';
-import { UserModel } from '../models/user.model';
+import { UserModel } from '../models/User.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BusinessLogicService {
-  
-  urlLogic:string = BackendRouteConfiguration.urlBusinessLogic
+  urlLogic: string = BackendRouteConfiguration.urlBusinessLogic;
 
-  constructor( private http : HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-
-  RegisterPublicUser(data: any): Observable<UserModel>{
-    return this.http.post<UserModel>(`${this.urlLogic}client-sign-up`,data);
+  RegisterPublicUser(data: any): Observable<UserModel> {
+    return this.http.post<UserModel>(`${this.urlLogic}client-sign-up`, data);
   }
-  
-  RegisterPublicAdviser(data: any): Observable<UserModel>{
-    return this.http.post<UserModel>(`${this.urlLogic}advisor-sign-up`,data);
+
+  RegisterPublicAdviser(data: any): Observable<UserModel> {
+    return this.http.post<UserModel>(`${this.urlLogic}advisor-sign-up`, data);
   }
 }

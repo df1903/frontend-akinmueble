@@ -16,8 +16,6 @@ import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
-import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -31,7 +29,7 @@ import { ReactiveFormsModule} from '@angular/forms'
     ContactComponent,
     RegisterSwitchComponent,
     PublicRegistryRequestingAdviceComponent,
-    MissionAndVisionComponent
+    MissionAndVisionComponent,
   ],
   imports: [
     BrowserModule,
