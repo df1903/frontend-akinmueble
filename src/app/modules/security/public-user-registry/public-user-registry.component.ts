@@ -45,10 +45,10 @@ export class PublicUserRegistryComponent {
       }
       this.businessLogicService.RegisterPublicUser(data).subscribe({
         next: (response:UserModel) => {
-          alert ("Registro correcto, verifica tu correo")
+          alert ("Registration successful, please check your email.")
         },
         error:(err) => {
-          alert ("se ha producido un error")
+          alert ("An error has occurred.")
         }
         
       })

@@ -17,4 +17,8 @@ export class BusinessLogicService {
   RegisterPublicUser(data: any): Observable<UserModel>{
     return this.http.post<UserModel>(`${this.urlLogic}client-sign-up`,data);
   }
+  
+  RegisterPublicAdviser(data: any): Observable<UserModel>{
+    return this.http.post<UserModel>(`${this.urlLogic}advisor-sign-up`,data);
+  }
 }
