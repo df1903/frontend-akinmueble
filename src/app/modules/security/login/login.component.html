@@ -7,35 +7,70 @@
         width="200px"
         height="200px"
       />
-      <form class="login-form">
+      <form class="login-form" [formGroup]="fGroup">
         <div class="row"></div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">mail_outline</i>
-            <input class="validate" id="email" type="email" />
+            <input
+              formControlName="user"
+              class="validate"
+              id="email"
+              type="email"
+            />
             <label for="email" data-error="wrong" data-success="right"
               >Email</label
             >
+            <div
+              class="show-errors"
+              *ngIf="
+                getFormGroup['user'].errors &&
+                (getFormGroup['user'].dirty || getFormGroup['user'].touched)
+              "
+            >
+              <strong>This field is required.</strong>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">lock_outline</i>
-            <input id="password" type="password" />
+            <input formControlName="password" id="password" type="password" />
             <label for="password">Password</label>
+            <div
+              class="show-errors"
+              *ngIf="
+                getFormGroup['password'].errors &&
+                (getFormGroup['password'].dirty ||
+                  getFormGroup['password'].touched)
+              "
+            >
+              <strong>This field is required</strong>
+            </div>
           </div>
         </div>
         <div id="recaptcha" class="row">
-          <ngx-recaptcha2 #captchaElem [siteKey]="siteKey"> </ngx-recaptcha2>
+          <re-captcha formControlName="recaptcha"></re-captcha>
+          <div
+            class="show-errors"
+            *ngIf="
+              getFormGroup['recaptcha'].errors &&
+              (getFormGroup['recaptcha'].dirty ||
+                getFormGroup['recaptcha'].touched)
+            "
+          >
+            <strong>This field is required</strong>
+          </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a
-              [routerLink]="['/security/code-verification']"
+            <button
+              (click)="userLogin()"
               id="login-btn"
               class="btn waves-effect waves-light col s12"
-              >Login</a
             >
+              Login
+            </button>
           </div>
         </div>
 
