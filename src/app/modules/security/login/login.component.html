@@ -50,17 +50,18 @@
           </div>
         </div>
         <div id="recaptcha" class="row">
-          <re-captcha formControlName="recaptcha"></re-captcha>
-          <div
-            class="show-errors"
-            *ngIf="
-              getFormGroup['recaptcha'].errors &&
-              (getFormGroup['recaptcha'].dirty ||
-                getFormGroup['recaptcha'].touched)
-            "
+          <re-captcha formControlName="recaptcha"
+            ><div
+              class="show-errors"
+              *ngIf="
+                getFormGroup['recaptcha'].errors &&
+                (getFormGroup['recaptcha'].dirty ||
+                  getFormGroup['recaptcha'].touched)
+              "
+            >
+              <strong>This field is required</strong>
+            </div></re-captcha
           >
-            <strong>This field is required</strong>
-          </div>
         </div>
         <div class="row">
           <div class="input-field col s12">

@@ -35,20 +35,24 @@ export class LoginComponent implements OnInit {
 
   userLogin() {
     if (this.fGroup.invalid) {
-      alert('Incorrect Credentials');
+      alert('Incomplete Data');
     } else {
       let user = this.getFormGroup['user'].value;
       let password = this.getFormGroup['password'].value;
       let encryptedPassword = MD5(password).toString();
+      console.log(user, password);
       this.securityService.userLogin(user, encryptedPassword).subscribe({
         next: (data: UserModel) => {
-          console.log(data);
-          if (this.securityService.storeUserData(data)) {
-            this.router.navigate(['/security/code-verification']);
+          if (data._id == undefined || data._id == null) {
+            alert('Incorrect Credentials');
+          } else {
+            if (this.securityService.storeUserData(data)) {
+              this.router.navigate(['/security/code-verification']);
+            }
           }
         },
         error: (err) => {
-          console.log(err);
+          console.log('error ' + err);
         },
       });
     }

@@ -38,4 +38,25 @@ export class SecurityService {
       return true;
     }
   }
+
+  /**
+   * Get user data in Local Storage
+   * @returns user data
+   */
+  getUserData(): UserModel | null {
+    let localStorageData = localStorage.getItem('user-data');
+    if (localStorageData) {
+      let data = JSON.parse(localStorageData);
+      return data;
+    } else {
+      return null;
+    }
+  }
+
+  userCodeVerification(userId: string, code: string): Observable<object> {
+    return this.http.post<UserModel>(`${this.urlSecurity}/code-verification`, {
+      userId: userId,
+      code2FA: code,
+    });
+  }
 }

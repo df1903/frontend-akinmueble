@@ -1,29 +1,38 @@
 <body ng-app="mainModule" ng-controller="mainController">
-  <div id="login-page" class="row">
-    <div id="login-card" class="col s12 z-depth-6 card-panel">
+  <div id="verification-code-page" class="row">
+    <div id="verification-code-card" class="col s12 z-depth-6 card-panel">
       <img
         src="../../../../assets/svg//2fa.svg"
-        alt="login-icon"
+        alt="verification-code-icon"
         width="200px"
         height="200px"
       />
-      <form class="login-form">
-        <div class="row"></div>
+      <form class="verification-code-form" [formGroup]="fGroup">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">lock</i>
-            <input id="password" />
-            <label for="password">Verification Code</label>
+            <input formControlName="code" id="code" type="text" />
+            <label for="code">Verification Code</label>
+          </div>
+          <div
+            class="show-errors"
+            *ngIf="
+              getFormGroup['code'].errors &&
+              (getFormGroup['code'].dirty || getFormGroup['code'].touched)
+            "
+          >
+            <strong>This field is required</strong>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a
-              [routerLink]="['/home']"
-              id="login-btn"
+            <button
+              (click)="verificationCode()"
+              id="check-btn"
               class="btn waves-effect waves-light col s12"
-              >Verificate</a
             >
+              check me
+            </button>
           </div>
         </div>
       </form>
