@@ -40,3 +40,6 @@
     font-weight: bolder;
   }
 }
+.show-errors{
+  color: red;
+}
