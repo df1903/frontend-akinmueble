@@ -8,7 +8,7 @@
 
 @media only screen and (min-width: 1000px) {
   .sign-up {
-    font-size: 18px;
+    font-size: 20px;
     border: solid 2px #ffffff;
     border-radius: 10px;
     background-color: transparent;
@@ -23,7 +23,7 @@
   }
 
   .log-in {
-    font-size: 18px;
+    font-size: 20px;
     border: solid 2px #ffffff;
     border-radius: 10px;
     background-color: transparent;
@@ -35,6 +35,22 @@
   .log-in:hover {
     background-color: #ffffff;
     color: #3ddb8f;
+  }
+
+  .log-out {
+    font-size: 20px;
+    border: solid 2px #ff0000;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    color: #ffffff;
+    background-color: #ff0000;
+  }
+
+  .log-out:hover {
+    background-color: #ffffff;
+    color: #ff0000;
   }
 
   .link {
@@ -76,6 +92,21 @@
   .log-in:hover {
     background-color: #ffffff;
     color: #3ddb8f;
+  }
+
+  .log-out {
+    font-size: 18px;
+    border: solid 2px #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    color: #ffffff;
+  }
+
+  .log-out:hover {
+    background-color: #ffffff;
+    color: #ff0000;
   }
 
   .link {

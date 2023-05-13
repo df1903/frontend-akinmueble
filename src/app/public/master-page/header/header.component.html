@@ -17,13 +17,26 @@
         <a class="link" [routerLink]="['/contact']">Contact</a>
       </li>
       <li>
-        <button class="sign-up" [routerLink]="['/register-switch']">
+        <button
+          *ngIf="!activeSession"
+          class="sign-up"
+          [routerLink]="['/register-switch']"
+        >
           Sign Up
         </button>
       </li>
       <li>
-        <button class="log-in" [routerLink]="['/security/login']">
+        <button
+          *ngIf="!activeSession"
+          class="log-in"
+          [routerLink]="['/security/login']"
+        >
           Log In
+        </button>
+      </li>
+      <li>
+        <button *ngIf="activeSession" class="log-out" [routerLink]="['/home']">
+          Log Out
         </button>
       </li>
     </ul>

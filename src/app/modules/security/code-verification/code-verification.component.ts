@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserValidatedModel } from 'src/app/models/UserValidated.model copy';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
@@ -40,8 +41,10 @@ export class CodeVerificationComponent implements OnInit {
     } else {
       let code = this.getFormGroup['code'].value;
       this.securityService.userCodeVerification(this.userId, code).subscribe({
-        next: (data: object) => {
+        next: (data: UserValidatedModel) => {
           console.log(data);
+          this.securityService.storeUserValidatedData(data);
+          this.router.navigate(['']);
         },
         error: (err) => {
           console.log(err);

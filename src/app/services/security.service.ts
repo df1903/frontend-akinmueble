@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { UserModel } from '../models/User.model';
 import { HttpClient } from '@angular/common/http';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { UserValidatedModel } from '../models/UserValidated.model copy';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SecurityService {
   urlSecurity: string = RoutesBackendConfig.urlSecurity;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.sessionValidation();
+  }
 
   /**
    * Login User
@@ -25,7 +28,7 @@ export class SecurityService {
   }
 
   /**
-   * Store user data
+   * Store user data in Local Storage
    * @param data
    */
   storeUserData(data: UserModel): boolean {
@@ -53,10 +56,53 @@ export class SecurityService {
     }
   }
 
-  userCodeVerification(userId: string, code: string): Observable<object> {
-    return this.http.post<UserModel>(`${this.urlSecurity}/code-verification`, {
-      userId: userId,
-      code2FA: code,
-    });
+  userCodeVerification(
+    userId: string,
+    code: string
+  ): Observable<UserValidatedModel> {
+    return this.http.post<UserValidatedModel>(
+      `${this.urlSecurity}/code-verification`,
+      {
+        userId: userId,
+        code2FA: code,
+      }
+    );
+  }
+
+  /**
+   * Store user validated data in Local Storage
+   * @param data
+   * @returns
+   */
+  storeUserValidatedData(data: UserValidatedModel): boolean {
+    let userData = JSON.stringify(data);
+    let localStorageData = localStorage.getItem('session-data');
+    if (localStorageData != null) {
+      return false;
+    } else {
+      localStorage.setItem('session-data', userData);
+      return true;
+    }
+  }
+
+  /** SESSION ADMINISTRATION */
+
+  userValidatedData = new BehaviorSubject<UserValidatedModel>(
+    new UserValidatedModel()
+  );
+  getSessionData(): Observable<UserValidatedModel> {
+    return this.userValidatedData.asObservable();
+  }
+
+  sessionValidation() {
+    let ls = localStorage.getItem('session-data');
+    if (ls) {
+      let objUser = JSON.parse(ls);
+      this.updateUserBehavior(objUser);
+    }
+  }
+
+  updateUserBehavior(data: UserValidatedModel) {
+    return this.userValidatedData.next(data);
   }
 }
