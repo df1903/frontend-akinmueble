@@ -10,6 +10,7 @@ import { UserValidatedModel } from '../models/UserValidated.model copy';
 })
 export class SecurityService {
   urlSecurity: string = RoutesBackendConfig.urlSecurity;
+
   constructor(private http: HttpClient) {
     this.sessionValidation();
   }
@@ -81,6 +82,7 @@ export class SecurityService {
       return false;
     } else {
       localStorage.setItem('session-data', userData);
+      this.updateUserBehavior(data);
       return true;
     }
   }
@@ -90,19 +92,49 @@ export class SecurityService {
   userValidatedData = new BehaviorSubject<UserValidatedModel>(
     new UserValidatedModel()
   );
+
+  /**
+   * Get session data
+   * @returns session data
+   */
   getSessionData(): Observable<UserValidatedModel> {
     return this.userValidatedData.asObservable();
   }
 
-  sessionValidation() {
+  /**
+   * Session validation with behavior update
+   */
+  sessionValidation(): UserValidatedModel | null {
     let ls = localStorage.getItem('session-data');
     if (ls) {
       let objUser = JSON.parse(ls);
       this.updateUserBehavior(objUser);
+      return objUser;
     }
+    return null;
   }
 
+  /**
+   * Update user behavior
+   * @param data session data
+   * @returns update behavior
+   */
   updateUserBehavior(data: UserValidatedModel) {
     return this.userValidatedData.next(data);
+  }
+
+  /**
+   * Remove sesion data
+   */
+  deleteSessionData() {
+    let userData = localStorage.getItem('user-data');
+    let sessionData = localStorage.getItem('session-data');
+    if (userData) {
+      localStorage.removeItem('user-data');
+    }
+    if (sessionData) {
+      localStorage.removeItem('session-data');
+    }
+    this.updateUserBehavior(new UserValidatedModel());
   }
 }

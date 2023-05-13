@@ -47,13 +47,13 @@ const routes: Routes = [
     component: ListUserComponent,
   },
   {
-    path:"delete-user", // Delete user path
-    component: DeleteUserComponent
+    path: 'delete-user', // Delete user path
+    component: DeleteUserComponent,
   },
   {
-    path:"user-registration", // User registration
-    component: PublicUserRegistryComponent
-  }
+    path: 'user-registration', // User registration
+    component: PublicUserRegistryComponent,
+  },
 ];
 
 @NgModule({

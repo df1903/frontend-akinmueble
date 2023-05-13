@@ -35,7 +35,11 @@
         </button>
       </li>
       <li>
-        <button *ngIf="activeSession" class="log-out" [routerLink]="['/home']">
+        <button
+          *ngIf="activeSession"
+          class="log-out"
+          [routerLink]="['/security/log-out']"
+        >
           Log Out
         </button>
       </li>

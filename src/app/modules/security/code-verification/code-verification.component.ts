@@ -43,8 +43,16 @@ export class CodeVerificationComponent implements OnInit {
       this.securityService.userCodeVerification(this.userId, code).subscribe({
         next: (data: UserValidatedModel) => {
           console.log(data);
-          this.securityService.storeUserValidatedData(data);
-          this.router.navigate(['']);
+          if (
+            data.token != null &&
+            data.token != undefined &&
+            data.token != ''
+          ) {
+            this.securityService.storeUserValidatedData(data);
+            this.router.navigate(['']);
+          } else {
+            alert('Invalid Code');
+          }
         },
         error: (err) => {
           console.log(err);
