@@ -13,6 +13,8 @@ import { BodyComponent } from './public/home/body/body.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
+import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { PublicRegistryRequestingAdviceComponent } from './public/public-registr
     BodyComponent,
     ContactComponent,
     RegisterSwitchComponent,
-    PublicRegistryRequestingAdviceComponent
+    PublicRegistryRequestingAdviceComponent,
+    MissionAndVisionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

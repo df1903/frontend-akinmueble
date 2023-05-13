@@ -33,7 +33,7 @@ import { PublicUserRegistryComponent } from './public-user-registry/public-user-
     SecurityRoutingModule,
     NgxCaptchaModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
   ],
 })
 export class SecurityModule {}

@@ -1,73 +1,93 @@
 <div class="Container">
   <div class="container-1">
     <div class="row1">
-      <form class="col s12">
+      <form [formGroup] ='fGroup' class="col s12">
         <div class="row">
           <h1 class="titulo">Register</h1>
         </div>
         <div class="row">
           <div class="input-field center-align">
             <input
-              formControlName="FirstName"
-              id="FirstName"
+              formControlName="firstName"
+              id="firstName"
               type="text"
               class="validate"
             />
-            <label for="FirstName">First Name *</label>
+            <label for="firstName">First Name *</label>
+            <div class="show-errors" *ngIf="GetFormGroup['firstName'].errors 
+             && (GetFormGroup['firstName'].dirty || GetFormGroup['firstName'].touched)">
+            <strong>This field is required</strong>
+            </div>
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="SecondName"
-              id="SecondName"
+              formControlName="secondName"
+              id="secondName"
               type="text"
               class="validate"
             />
-            <label for="SecondName">Second Name</label>
+            <label for="secondName">Second Name</label>
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="FirstLastName"
-              id="FirstLastName"
+              formControlName="firstLastName"
+              id="firstLastName"
               type="text"
               class="validate"
             />
-            <label for="FirstLastName">First Last Name *</label>
+            <label for="firstLastName">First Last Name *</label>
+            <div class="show-errors" *ngIf="GetFormGroup['firstLastName'].errors 
+             && (GetFormGroup['firstLastName'].dirty || GetFormGroup['firstLastName'].touched)">
+            <strong>This field is required</strong>
+            </div>
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="SecondLastName"
-              id="SecondLastName"
+              formControlName="secondLastName"
+              id="secondLastName"
               type="text"
               class="validate"
             />
-            <label for="SecondLastName">Second Last Name</label>
+            <label for="secondLastName">Second Last Name</label>
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="Document"
-              id="Document"
+              formControlName="document"
+              id="document"
               type="text"
               class="validate"
             />
-            <label for="Document">Document *</label>
+            <label for="document">Document *</label>
+            <div class="show-errors" *ngIf="GetFormGroup['document'].errors 
+             && (GetFormGroup['document'].dirty || GetFormGroup['document'].touched)">
+            <strong>This field is required</strong>
+            </div>
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="Email"
+              formControlName="email"
               id="email"
               type="email"
               class="validate"
             />
-            <label for="Email">Email *</label>
+            <label for="email">Email *</label>
+            <div class="show-errors" *ngIf="GetFormGroup['email'].errors 
+             && (GetFormGroup['email'].dirty || GetFormGroup['email'].touched)">
+            <strong>This field is required</strong>
+            </div>
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="Phone"
-              id="Phone"
+              formControlName="phone"
+              id="phone"
               type="text"
               class="validate"
             />
-            <label for="Phone">Phone *</label>
+            <label for="phone">Phone *</label>
+            <div class="show-errors" *ngIf="GetFormGroup['phone'].errors 
+             && (GetFormGroup['phone'].dirty || GetFormGroup['phone'].touched)">
+            <strong>This field is required</strong>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -76,6 +96,7 @@
               class="btn"
               type="button"
               routerLink="/security/code-verification"
+              (click)="Register()"
             >
               Sign Up
             </button>
