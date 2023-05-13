@@ -8,6 +8,11 @@ import { PublicRegistryRequestingAdviceComponent } from './public/public-registr
 
 const routes: Routes = [
   {
+    path: '', // Empty path
+    pathMatch: 'full',
+    redirectTo: '/home',
+  },
+  {
     path: 'home', // Home path
     component: HomeComponent,
   },
@@ -30,11 +35,7 @@ const routes: Routes = [
         (m) => m.SecurityModule
       ),
   },
-  {
-    path: '', // Empty path
-    pathMatch: 'full',
-    redirectTo: '/home',
-  },
+
   {
     path: '**', // Path not found
     component: PathNotFoundComponent,

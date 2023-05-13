@@ -10,20 +10,37 @@
         height="60px"
     /></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="" class="link" [routerLink]="['/home']">Home</a></li>
-      <li><a routerLink="" class="link">Services</a></li>
-      <li><a routerLink="" class="link">About us</a></li>
+      <li><a class="link" [routerLink]="['/home']">Home</a></li>
+      <li><a class="link">Services</a></li>
+      <li><a class="link">About Us</a></li>
       <li>
-        <a routerLink="" class="link" [routerLink]="['/contact']">Contact</a>
+        <a class="link" [routerLink]="['/contact']">Contact</a>
       </li>
       <li>
-        <button class="sign-up" [routerLink]="['/register-switch']">
+        <button
+          *ngIf="!activeSession"
+          class="sign-up"
+          [routerLink]="['/register-switch']"
+        >
           Sign Up
         </button>
       </li>
       <li>
-        <button [routerLink]="['/security/login']" class="log-in">
+        <button
+          *ngIf="!activeSession"
+          class="log-in"
+          [routerLink]="['/security/login']"
+        >
           Log In
+        </button>
+      </li>
+      <li>
+        <button
+          *ngIf="activeSession"
+          class="log-out"
+          [routerLink]="['/security/log-out']"
+        >
+          Log Out
         </button>
       </li>
     </ul>
