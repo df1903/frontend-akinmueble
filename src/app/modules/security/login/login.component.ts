@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GeneralConfig } from 'src/app/config/general.config';
+import { UserModel } from 'src/app/models/User.model';
+import { SecurityService } from 'src/app/services/security.service';
+import { MD5 } from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,11 @@ export class LoginComponent implements OnInit {
   siteKey: string = GeneralConfig.recaptchaSiteKey;
   fGroup: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private securityService: SecurityService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.formBuild();
@@ -30,6 +37,20 @@ export class LoginComponent implements OnInit {
     if (this.fGroup.invalid) {
       alert('Incorrect Credentials');
     } else {
+      let user = this.getFormGroup['user'].value;
+      let password = this.getFormGroup['password'].value;
+      let encryptedPassword = MD5(password).toString();
+      this.securityService.userLogin(user, encryptedPassword).subscribe({
+        next: (data: UserModel) => {
+          console.log(data);
+          if (this.securityService.storeUserData(data)) {
+            this.router.navigate(['/security/code-verification']);
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 
