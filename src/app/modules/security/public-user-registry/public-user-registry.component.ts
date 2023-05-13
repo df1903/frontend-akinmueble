@@ -9,6 +9,7 @@ import { BusinessLogicService } from 'src/app/service/business-logic.service';
   styleUrls: ['./public-user-registry.component.css']
 })
 export class PublicUserRegistryComponent {
+  
     fGroup: FormGroup = new FormGroup({});
 
     constructor(

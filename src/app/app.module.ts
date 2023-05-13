@@ -15,6 +15,7 @@ import { RegisterSwitchComponent } from './public/register-switch/register-switc
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

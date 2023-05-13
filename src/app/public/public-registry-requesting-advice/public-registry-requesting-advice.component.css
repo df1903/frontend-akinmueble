@@ -75,3 +75,6 @@
     margin-top: -10px;
     margin-left: 5px;
   }
+  .show-errors{
+    color: red;
+  }
