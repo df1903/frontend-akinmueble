@@ -15,6 +15,8 @@ export class SecurityService {
     this.sessionValidation();
   }
 
+  /** USER ADMINISTRATION */
+
   /**
    * Login User
    * @param user
@@ -85,6 +87,15 @@ export class SecurityService {
       this.updateUserBehavior(data);
       return true;
     }
+  }
+
+  userRecoveryPassword(user: string): Observable<UserModel> {
+    return this.http.post<UserValidatedModel>(
+      `${this.urlSecurity}/recovery-password`,
+      {
+        email: user,
+      }
+    );
   }
 
   /** SESSION ADMINISTRATION */
