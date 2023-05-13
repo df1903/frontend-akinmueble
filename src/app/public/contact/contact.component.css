@@ -85,4 +85,8 @@
   #send-btn {
     background-color: #3ddb8f;
   }
+
+  select option {
+    color: #000000 !important;
+  }
 }
