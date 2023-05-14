@@ -4,6 +4,7 @@ import { HomeComponent } from './public/home/home.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
+import {MissionAndVisionComponent} from './public/mission-and-vision/mission-and-vision.component'
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'register-adviser-requesting', // Register Adviser path
     component: PublicRegistryRequestingAdviceComponent,
+  },
+  {
+    path: 'mission-vision', // Page mission and vision
+    component: MissionAndVisionComponent,
   },
   {
     path: 'security', // Security module path
