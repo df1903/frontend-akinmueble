@@ -40,9 +40,8 @@ export class LoginComponent implements OnInit {
       let user = this.getFormGroup['user'].value;
       let password = this.getFormGroup['password'].value;
       let encryptedPassword = MD5(password).toString();
-      console.log(user, password);
       this.securityService.userLogin(user, encryptedPassword).subscribe({
-        next: (data: UserModel) => {
+        next: (data) => {
           if (data._id == undefined || data._id == null) {
             alert('Incorrect Credentials');
           } else {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserModel } from '../models/User.model';
 import { Observable } from 'rxjs';
 import { ContactFormModel } from '../models/ContactForm.model';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
@@ -26,5 +25,11 @@ export class BusinessLogicService {
       `${this.urlLogic}/contact-form`,
       data
     );
+  }
+
+  hashVerification(hash: string): Observable<boolean> {
+    return this.http.post<boolean>(`${this.urlLogic}/validate-client-hash`, {
+      hashCode: hash,
+    });
   }
 }

@@ -1,10 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BusinessLogicService } from 'src/app/services/business-logic.service';
 
 @Component({
   selector: 'app-hash-verification',
   templateUrl: './hash-verification.component.html',
-  styleUrls: ['./hash-verification.component.css']
+  styleUrls: ['./hash-verification.component.css'],
 })
-export class HashVerificationComponent {
+export class HashVerificationComponent implements OnInit {
+  validation = false;
+  error = false;
+  hash: string = '';
 
+  constructor(
+    private businessLogicService: BusinessLogicService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.hash = this.route.snapshot.params['hash'];
+    this.hashVerification();
+  }
+
+  hashVerification() {
+    this.businessLogicService.hashVerification(this.hash).subscribe({
+      next: (res: boolean) => {
+        if (res) {
+          this.validation = res;
+        }
+        this.error = true;
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
 }
