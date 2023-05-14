@@ -5,6 +5,7 @@ import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-f
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
+import { LoaderComponent } from './public/loader/loader.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'register-adviser-requesting', // Register Adviser path
     component: PublicRegistryRequestingAdviceComponent,
+  },
+  {
+    path: 'loading',
+    component: LoaderComponent,
   },
   {
     path: 'security', // Security module path

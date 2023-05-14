@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserModel } from '../models/User.model';
 import { HttpClient } from '@angular/common/http';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, delay } from 'rxjs';
 import { UserValidatedModel } from '../models/UserValidated.model copy';
 
 @Injectable({
