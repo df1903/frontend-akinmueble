@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AdviserModel } from 'src/app/models/Adviser.model';
 import { UserModel } from 'src/app/models/User.model';
-import { BusinessLogicService } from 'src/app/service/business-logic.service';
+import { BusinessLogicService } from 'src/app/services/business-logic.service';
 @Component({
   selector: 'app-public-registry-requesting-advice',
   templateUrl: './public-registry-requesting-advice.component.html',
@@ -12,7 +14,8 @@ export class PublicRegistryRequestingAdviceComponent {
 
   constructor(
     private fb: FormBuilder,
-    private businessLogicService: BusinessLogicService
+    private businessLogicService: BusinessLogicService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -35,19 +38,22 @@ export class PublicRegistryRequestingAdviceComponent {
   RegisterAdviser() {
     let fields = this.GetFormGroup;
     let data = {
+      document: fields['document'].value,
       firstName: fields['firstName'].value,
       secondName: fields['secondName'].value,
       firstLastName: fields['firstLastName'].value,
       secondLastName: fields['secondLastName'].value,
-      document: fields['document'].value,
       email: fields['email'].value,
       phone: fields['phone'].value,
     };
     this.businessLogicService.RegisterPublicAdviser(data).subscribe({
-      next: (response: UserModel) => {
-        alert(
-          'Registration successful. Your request has been sent for review.'
-        );
+      next: (data: AdviserModel) => {
+        if (data._id == undefined || data._id == null) {
+          alert('Incorrect Credentials');
+        } else {
+          alert('Registration successful, please check your email.');
+          this.router.navigate(['/security/code-verification']);
+        }
       },
       error: (err) => {
         alert('An error has occurred.');

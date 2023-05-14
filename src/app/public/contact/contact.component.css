@@ -89,4 +89,9 @@
   select option {
     color: #000000 !important;
   }
+
+  #phoneInput {
+    display: flex;
+    margin: auto;
+  }
 }

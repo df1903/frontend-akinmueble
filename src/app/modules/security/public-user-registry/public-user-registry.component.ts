@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ClientModel } from 'src/app/models/Client.model';
 import { UserModel } from 'src/app/models/User.model';
-import { BusinessLogicService } from 'src/app/service/business-logic.service';
+import { BusinessLogicService } from 'src/app/services/business-logic.service';
 
 @Component({
   selector: 'app-public-user-registry',
@@ -13,7 +15,8 @@ export class PublicUserRegistryComponent {
 
   constructor(
     private fb: FormBuilder,
-    private businessLogicService: BusinessLogicService
+    private businessLogicService: BusinessLogicService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -44,8 +47,13 @@ export class PublicUserRegistryComponent {
       phone: fields['phone'].value,
     };
     this.businessLogicService.RegisterPublicUser(data).subscribe({
-      next: (response: UserModel) => {
-        alert('Registration successful, please check your email.');
+      next: (data: ClientModel) => {
+        if (data._id == undefined || data._id == null) {
+          alert('Incorrect Credentials');
+        } else {
+          alert('Registration successful, please check your email.');
+          this.router.navigate(['/security/code-verification']);
+        }
       },
       error: (err) => {
         alert('An error has occurred.');
