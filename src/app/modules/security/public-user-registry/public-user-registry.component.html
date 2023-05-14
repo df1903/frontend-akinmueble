@@ -13,7 +13,7 @@
               type="text"
               class="validate"
             />
-            <label for="firstName">First Name *</label>
+            <label for="firstName">First Name</label>
             <div
               class="show-errors"
               *ngIf="
@@ -36,18 +36,18 @@
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="firstLastName"
-              id="firstLastName"
+              formControlName="firstLastname"
+              id="firstLastname"
               type="text"
               class="validate"
             />
-            <label for="firstLastName">First Lastname *</label>
+            <label for="firstLastname">First Lastname</label>
             <div
               class="show-errors"
               *ngIf="
-                GetFormGroup['firstLastName'].errors &&
-                (GetFormGroup['firstLastName'].dirty ||
-                  GetFormGroup['firstLastName'].touched)
+                GetFormGroup['firstLastname'].errors &&
+                (GetFormGroup['firstLastname'].dirty ||
+                  GetFormGroup['firstLastname'].touched)
               "
             >
               <strong>This field is required</strong>
@@ -55,12 +55,12 @@
           </div>
           <div class="input-field center-align">
             <input
-              formControlName="secondLastName"
-              id="secondLastName"
+              formControlName="secondLastname"
+              id="secondLastname"
               type="text"
               class="validate"
             />
-            <label for="secondLastName">Second Lastname</label>
+            <label for="secondLastname">Second Lastname</label>
           </div>
           <div class="input-field center-align">
             <input
@@ -69,7 +69,7 @@
               type="text"
               class="validate"
             />
-            <label for="document">Document *</label>
+            <label for="document">Document</label>
             <div
               class="show-errors"
               *ngIf="
@@ -88,7 +88,7 @@
               type="email"
               class="validate"
             />
-            <label for="email">Email *</label>
+            <label for="email">Email</label>
             <div
               class="show-errors"
               *ngIf="
@@ -106,7 +106,7 @@
               type="text"
               class="validate"
             />
-            <label for="phone">Phone *</label>
+            <label for="phone">Phone</label>
             <div
               class="show-errors"
               *ngIf="

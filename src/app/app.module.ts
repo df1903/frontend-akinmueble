@@ -19,6 +19,7 @@ import { PublicRegistryRequestingAdviceComponent } from './public/public-registr
 import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
 import { LoaderModule } from './public/loader/loader.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { SidenavComponent } from './public/master-page/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     RegisterSwitchComponent,
     PublicRegistryRequestingAdviceComponent,
     MissionAndVisionComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

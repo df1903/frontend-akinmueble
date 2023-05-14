@@ -1,0 +1,52 @@
+<div id="side-menu" class="sidenav" *ngIf="activeSession">
+  <div class="user-view">
+    <div class="background">
+      <img
+        class="user-img"
+        src="../../../../assets/images/user-background.jpg"
+      />
+    </div>
+    <a
+      ><img class="circle user-img" src="../../../../assets/images/user.jpg"
+    /></a>
+    <div class="card">
+      <span class="white-text name"
+        >{{ user.firstName }} {{ user.firstLastname }}</span
+      >
+    </div>
+  </div>
+  <ul>
+    <li
+      *ngFor="let option of menuPersonalOptions; let i = index"
+      [class.expanded]="isExpanded"
+    >
+      <a href="#" [attr.data-target]="'dropdown' + i">
+        <i class="material-icons">{{ option.icon }}</i>
+        {{ option.label }}
+      </a>
+    </li>
+  </ul>
+  <ul>
+    <li
+      *ngFor="let option of menuSiteOptions; let i = index"
+      [class.expanded]="isExpanded"
+      id="item"
+    >
+      <a [attr.data-target]="'dropdown' + i" routerLink="{{ option.route }}">
+        <i class="material-icons">{{ option.icon }}</i>
+        {{ option.label }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<button
+  id="menu-toggle"
+  class="btn-floating btn-semi-circle"
+  (click)="toggleMenuExpansion($event)"
+  *ngIf="activeSession"
+>
+  <i class="material-icons" id="menu-toggle-icon">{{
+    isExpanded ? "close" : "menu"
+  }}</i>
+</button>

@@ -1,80 +1,79 @@
-
 .title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .title h1 {
-    margin-top: 0;
-    font-size: 40px;
-    font-weight: bold;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .component-1 {
-    width: 400px;
-    margin: 10px 25px;
-    text-align: center;
-    padding: 20px;
-  }
-  .component-2 {
-    width: 500px;
-    margin: 10px 25px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.25);
-  }
-  
-  .component-1 h2 {
-    margin-top: 0;
-    font-weight: bold;
-    font-size: 30px;
-    color: #3DDB8F;
-  }
-  .component-2 h2 {
-    margin-top: 0;
-    text-align: left;
-    font-weight: bold;
-    font-size: 30px;
-    color: #3DDB8F;
-  }
-  
-  .component-1 p {
-    margin-bottom: 20px;
-    font-size: 20px;
-  }
-  
-  .component-2 button {
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    color: black;
-    background: #3DDB8F;
-    border: 3px solid #FFFFFF;
-  }
-  .row1{
-    margin-left: 50px;
-    margin-right: 70px;
-  }
-  #Message{
-    height: 80px;
-    border-radius: 10px;
-  }
-  .message{
-    margin-top: -10px;
-    margin-left: 5px;
-  }
-  .show-errors{
-    color: red;
-  }
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title h1 {
+  margin-top: 0;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.component-1 {
+  width: 400px;
+  margin: 10px 25px;
+  text-align: center;
+  padding: 20px;
+}
+.component-2 {
+  width: 500px;
+  margin: 10px 25px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.component-1 h2 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 30px;
+  color: #3ddb8f;
+}
+.component-2 h2 {
+  margin-top: 0;
+  text-align: left;
+  font-weight: bold;
+  font-size: 30px;
+  color: #3ddb8f;
+}
+
+.component-1 p {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.component-2 button {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  background: #3ddb8f;
+  border: 3px solid #ffffff;
+}
+.row1 {
+  margin-left: 50px;
+  margin-right: 70px;
+}
+#Message {
+  height: 80px;
+  border-radius: 10px;
+}
+.message {
+  margin-top: -10px;
+  margin-left: 5px;
+}
+.show-errors {
+  color: red;
+}

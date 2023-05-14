@@ -95,18 +95,14 @@
   }
 
   .log-out {
-    font-size: 18px;
-    border: solid 2px #ffffff;
+    border: solid 2px #ff0000;
     border-radius: 10px;
-    background-color: transparent;
-    padding: 5px;
-    margin: 5px;
-    color: #ffffff;
+    background-color: #ff0000;
   }
 
   .log-out:hover {
-    background-color: #ffffff;
-    color: #ff0000;
+    background-color: #aa0000;
+    color: #aa0000;
   }
 
   .link {
