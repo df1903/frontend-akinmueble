@@ -11,21 +11,21 @@
 .col {
 	float: left;
 	width: 28%;
-	margin-left: 50px;
+	margin-left: 40px;
 	text-align: center;
 	margin-top: 15px;
-	min-height: 400px;
+	min-height: 350px;
 }
 p{
 	text-decoration: solid;
 	text-align: justify;
-	font-size: 20px;
+	font-size: 17px;
 	margin-left: 10px;
 	margin: 10px 0
 }
 
 .col h1{
-	font-size: 35px;
+	font-size: 30px;
 	font-weight: bolder;
 	color: #3ddb8f;
 	width: 70%;
@@ -63,15 +63,15 @@ p{
 		height: auto;
 	}
 	.col h1 {
-		font-size: 17px;
+		font-size: 15px;
 	}
 	p{
-		font-size: 12px;
+		font-size: 13px;
 	}
 }
 
 .Iconos{
-	width: 70px;
+	width: 65px;
 	height: auto;
 	float: left;
 	margin-left: 10px;
@@ -79,7 +79,7 @@ p{
 }
 @media screen and (max-width: 768px) {
 	.Iconos {
-		width: 35px;
+		width: 30px;
 		height: auto;
 	}
 }
