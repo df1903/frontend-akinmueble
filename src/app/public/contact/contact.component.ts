@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.formBuild();
     this.messageTypeSelector();
-    this.buildSelector();
+    this.buildPhoneInput();
   }
 
   ngAfterViewInit() {
@@ -47,7 +47,9 @@ export class ContactComponent implements OnInit {
         phone: this.getNumber(),
         message: this.GetFormGroup['message'].value,
       };
-      console.log(contactForm);
+      if (contactForm.phone == '') {
+        return alert('Invalid Phone Format');
+      }
       this.bussinesLogicService.SendContactForm(contactForm).subscribe({
         next: (data) => {
           if (data != null || data != undefined) {
@@ -72,7 +74,7 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  buildSelector() {
+  buildPhoneInput() {
     const input = document.querySelector('#country');
     intlTelInput(input!, {
       separateDialCode: true,
@@ -82,14 +84,14 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  getNumber(): string | any {
+  getNumber(): string {
     const input = document.querySelector('#country');
     const iti = window.intlTelInputGlobals.getInstance(input!);
     console.log(iti.isValidNumber());
     if (iti.isValidNumber()) {
       return iti.getNumber();
     } else {
-      return alert('Invalid Phone Format');
+      return '';
     }
   }
 

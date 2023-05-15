@@ -49,8 +49,10 @@
   }
 
   .log-out:hover {
-    background-color: #ffffff;
-    color: #ff0000;
+    background-color: #af0000;
+    border-color: #af0000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
 
   .link {

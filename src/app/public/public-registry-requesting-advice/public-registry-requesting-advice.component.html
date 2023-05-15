@@ -19,7 +19,7 @@
   <div class="component-2">
     <h2>You Information</h2>
     <form [formGroup]="fGroup" class="col s12">
-      <div class="row1">
+      <div class="row">
         <div class="input-field center-align">
           <input
             formControlName="firstName"
@@ -39,6 +39,8 @@
             <strong>This field is required</strong>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field center-align">
           <input
             formControlName="secondName"
@@ -48,10 +50,12 @@
           />
           <label for="secondName">Second Name</label>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field center-align">
           <input
             formControlName="firstLastname"
-            id="firstLastName"
+            id="firstLastname"
             type="text"
             class="validate"
           />
@@ -67,6 +71,8 @@
             <strong>This field is required</strong>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field center-align">
           <input
             formControlName="secondLastname"
@@ -74,8 +80,10 @@
             type="text"
             class="validate"
           />
-          <label for="secondLastName">Second Lastname</label>
+          <label for="secondLastname">Second Lastname</label>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field center-align">
           <input
             formControlName="document"
@@ -95,6 +103,8 @@
             <strong>This field is required</strong>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field center-align">
           <input
             formControlName="email"
@@ -113,14 +123,17 @@
             <strong>This field is required</strong>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field center-align">
-          <input
-            formControlName="phone"
-            id="phone"
-            type="text"
-            class="validate"
-          />
-          <label for="phone">Phone</label>
+          <div class="input-field col s12" id="phoneInput">
+            <input
+              formControlName="phone"
+              type="tel"
+              id="country"
+              class="validate"
+            />
+          </div>
           <div
             class="show-errors"
             *ngIf="
@@ -131,9 +144,15 @@
             <strong>This field is required</strong>
           </div>
         </div>
-        <div class="input-field center-align">
-          <label class="message" for="message">Message *</label>
-          <textarea name="Message" id="Message" cols="30" rows="30"></textarea>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            formControlName="message"
+            id="message"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="message">Message</label>
           <div
             class="show-errors"
             *ngIf="
@@ -146,9 +165,18 @@
         </div>
       </div>
     </form>
-    <div>
-      <p>Aceptar Terminos y condiciones de privacidad.</p>
+    <div class="row">
+      <label>
+        <input type="checkbox" [(ngModel)]="checkboxValue" />
+        <span>Accept terms and conditions</span>
+      </label>
     </div>
-    <button routerLink="" (click)="RegisterAdviser()">Send</button>
+    <button
+      (click)="RegisterAdviser()"
+      [ngClass]="checkboxValue ? 'green-button' : 'gray-button'"
+      [disabled]="!checkboxValue"
+    >
+      Send
+    </button>
   </div>
 </div>

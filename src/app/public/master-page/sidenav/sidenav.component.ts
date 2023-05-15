@@ -20,7 +20,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   menuPersonalOptions: ItemMenuModel[] = [
     {
       label: 'My Profile',
-      route: '/security/my-profile',
+      route: '/security/change-password',
       icon: 'account_circle',
     },
     {
@@ -43,6 +43,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
     this.isExpanded = !this.isExpanded;
     this.moveButtonWithMenu();
     this.menuSiteOptions = this.securityService.getSideMenuItems();
+    console.log(this.menuSiteOptions);
   }
 
   moveButtonWithMenu() {

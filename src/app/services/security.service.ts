@@ -98,6 +98,17 @@ export class SecurityService {
     });
   }
 
+  userChangePassword(op: string, np: string): Observable<boolean> {
+    let ls = localStorage.getItem('session-data');
+    let user = JSON.parse(ls!);
+    let data = {
+      id: user.user._id,
+      oldPassword: op,
+      newPassword: np,
+    };
+    return this.http.post<boolean>(`${this.urlSecurity}/change-password`, data);
+  }
+
   /** SESSION ADMINISTRATION */
 
   userValidatedData = new BehaviorSubject<UserValidatedModel>(
@@ -161,7 +172,7 @@ export class SecurityService {
    */
   buildSideMenu(permissions: PermissionsModel[]) {
     let menu: ItemMenuModel[] = [];
-
+    console.log(menu);
     permissions.forEach((permission) => {
       let routeData = SideMenuConfig.getMenus.filter(
         (x) => x.id == permission.menuId

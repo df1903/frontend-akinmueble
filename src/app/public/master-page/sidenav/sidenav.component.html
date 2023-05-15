@@ -16,23 +16,16 @@
     </div>
   </div>
   <ul>
-    <li
-      *ngFor="let option of menuPersonalOptions; let i = index"
-      [class.expanded]="isExpanded"
-    >
-      <a href="#" [attr.data-target]="'dropdown' + i">
+    <li *ngFor="let option of menuPersonalOptions">
+      <a routerLink="{{ option.route }}" class="link">
         <i class="material-icons">{{ option.icon }}</i>
         {{ option.label }}
       </a>
     </li>
   </ul>
   <ul>
-    <li
-      *ngFor="let option of menuSiteOptions; let i = index"
-      [class.expanded]="isExpanded"
-      id="item"
-    >
-      <a [attr.data-target]="'dropdown' + i" routerLink="{{ option.route }}">
+    <li *ngFor="let option of menuSiteOptions" id="item">
+      <a routerLink="{{ option.route }}" class="link">
         <i class="material-icons">{{ option.icon }}</i>
         {{ option.label }}
       </a>
