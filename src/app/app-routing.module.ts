@@ -40,6 +40,20 @@ const routes: Routes = [
         (m) => m.SecurityModule
       ),
   },
+  {
+    path: 'parameters', // Parameters module path
+    loadChildren: () =>
+      import('src/app/modules/parameters/parameters.module').then(
+        (m) => m.ParametersModule
+      ),
+  },
+  {
+    path: 'reports', // Reports module path
+    loadChildren: () =>
+      import('src/app/modules/reports/reports.module').then(
+        (m) => m.ReportsModule
+      ),
+  },
 
   {
     path: '**', // Path not found

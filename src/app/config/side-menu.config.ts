@@ -2,9 +2,9 @@ export namespace SideMenuConfig {
   export const getMenus = [
     {
       id: '6411fafa143133172474bb03',
-      route: '/security/list-reorder',
+      route: '/security/list-user',
       icon: 'reorder',
-      label: 'My Profile',
+      label: 'User',
     },
     {
       id: '6410139d5498361ef89d3bbc',
