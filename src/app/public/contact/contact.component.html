@@ -55,21 +55,31 @@
             <div class="input-field col s12">
               <input
                 formControlName="fullName"
-                id="full_name"
+                id="fullName"
                 type="text"
                 class="validate"
               />
-              <label for="full_name">Full Name</label>
+              <label for="fullName">Full Name</label>
+              <div
+                class="show-errors"
+                *ngIf="
+                  GetFormGroup['fullName'].errors &&
+                  (GetFormGroup['fullName'].dirty ||
+                    GetFormGroup['fullName'].touched)
+                "
+              >
+                <strong>This field is required</strong>
+              </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <select formControlName="messageType" id="full_name">
+                <select formControlName="messageType" id="messageType">
                   <option value="" selected>Message Type</option>
                   <option *ngFor="let type of messageType" [value]="type">
                     {{ type }}
                   </option>
                 </select>
-                <label for="message_type">Message Type</label>
+                <label for="messageType">Message Type</label>
               </div>
             </div>
             <div class="row">
@@ -81,27 +91,55 @@
                   class="validate"
                 />
                 <label for="email">Email</label>
+                <div
+                  class="show-errors"
+                  *ngIf="
+                    GetFormGroup['email'].errors &&
+                    (GetFormGroup['email'].dirty ||
+                      GetFormGroup['email'].touched)
+                  "
+                >
+                  <strong>This field is required</strong>
+                </div>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s12" id="phoneInput">
                 <input
                   formControlName="phone"
-                  id="phone"
-                  type="text"
+                  type="tel"
+                  id="country"
                   class="validate"
                 />
-                <label for="phone">Phone</label>
+              </div>
+              <div
+                class="show-errors"
+                *ngIf="
+                  GetFormGroup['phone'].errors &&
+                  (GetFormGroup['phone'].dirty || GetFormGroup['phone'].touched)
+                "
+              >
+                <strong>This field is required</strong>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <textarea
                   formControlName="message"
-                  id="textarea1"
+                  id="message"
                   class="materialize-textarea"
                 ></textarea>
-                <label for="textarea1">Message</label>
+                <label for="message">Message</label>
+                <div
+                  class="show-errors"
+                  *ngIf="
+                    GetFormGroup['message'].errors &&
+                    (GetFormGroup['message'].dirty ||
+                      GetFormGroup['message'].touched)
+                  "
+                >
+                  <strong>This field is required</strong>
+                </div>
               </div>
             </div>
             <div class="row">

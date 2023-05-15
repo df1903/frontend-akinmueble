@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BusinessLogicService } from 'src/app/services/business-logic.service';
+import * as intlTelInput from 'intl-tel-input';
 
 declare var M: any;
 
@@ -12,11 +15,16 @@ export class ContactComponent implements OnInit {
   messageType = ['Suggestions', 'Issues', 'Claims', 'Complaints'];
   fGroup: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private bussinesLogicService: BusinessLogicService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.buildForm();
+    this.formBuild();
     this.messageTypeSelector();
+    this.buildPhoneInput();
   }
 
   ngAfterViewInit() {
@@ -32,17 +40,31 @@ export class ContactComponent implements OnInit {
     if (this.fGroup.invalid) {
       alert('Incomplete Data');
     } else {
-      let fullName = this.GetFormGroup['fullName'].value;
-      let messageType = this.GetFormGroup['messageType'].value;
-      let email = this.GetFormGroup['email'].value;
-      let phone = this.GetFormGroup['phone'].value;
-      let message = this.GetFormGroup['message'].value;
-
-      console.log(fullName, messageType, email, phone, message);
+      let contactForm = {
+        fullName: this.GetFormGroup['fullName'].value,
+        messageType: this.GetFormGroup['messageType'].value,
+        email: this.GetFormGroup['email'].value,
+        phone: this.getNumber(),
+        message: this.GetFormGroup['message'].value,
+      };
+      if (contactForm.phone == '') {
+        return alert('Invalid Phone Format');
+      }
+      this.bussinesLogicService.SendContactForm(contactForm).subscribe({
+        next: (data) => {
+          if (data != null || data != undefined) {
+            alert('Message Sent Successfully');
+            this.router.navigate(['']);
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 
-  buildForm() {
+  formBuild() {
     this.fGroup = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(2)]],
       messageType: ['', [Validators.required]],
@@ -50,6 +72,27 @@ export class ContactComponent implements OnInit {
       phone: ['', [Validators.required]],
       message: ['', [Validators.required]],
     });
+  }
+
+  buildPhoneInput() {
+    const input = document.querySelector('#country');
+    intlTelInput(input!, {
+      separateDialCode: true,
+      autoPlaceholder: 'polite',
+      utilsScript:
+        'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
+    });
+  }
+
+  getNumber(): string {
+    const input = document.querySelector('#country');
+    const iti = window.intlTelInputGlobals.getInstance(input!);
+    console.log(iti.isValidNumber());
+    if (iti.isValidNumber()) {
+      return iti.getNumber();
+    } else {
+      return '';
+    }
   }
 
   get GetFormGroup() {

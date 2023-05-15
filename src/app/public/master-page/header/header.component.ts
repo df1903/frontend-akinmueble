@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserValidatedModel } from 'src/app/models/UserValidated.model copy';
+import { UserValidatedModel } from 'src/app/models/UserValidated.model';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({

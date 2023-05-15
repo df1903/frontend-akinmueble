@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import { UserModel } from '../models/User.model';
 import { HttpClient } from '@angular/common/http';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { UserValidatedModel } from '../models/UserValidated.model copy';
+import { BehaviorSubject, Observable, delay } from 'rxjs';
+import { UserValidatedModel } from '../models/UserValidated.model';
+import { PermissionsModel } from '../models/Permissions.model';
+import { ItemMenuModel } from '../models/ItemMenu.model';
+import { SideMenuConfig } from '../config/side-menu.config';
 
 @Injectable({
   providedIn: 'root',
@@ -90,12 +93,20 @@ export class SecurityService {
   }
 
   userRecoveryPassword(user: string): Observable<UserModel> {
-    return this.http.post<UserValidatedModel>(
-      `${this.urlSecurity}/recovery-password`,
-      {
-        email: user,
-      }
-    );
+    return this.http.post<UserModel>(`${this.urlSecurity}/recovery-password`, {
+      email: user,
+    });
+  }
+
+  userChangePassword(op: string, np: string): Observable<boolean> {
+    let ls = localStorage.getItem('session-data');
+    let user = JSON.parse(ls!);
+    let data = {
+      id: user.user._id,
+      oldPassword: op,
+      newPassword: np,
+    };
+    return this.http.post<boolean>(`${this.urlSecurity}/change-password`, data);
   }
 
   /** SESSION ADMINISTRATION */
@@ -140,12 +151,63 @@ export class SecurityService {
   deleteSessionData() {
     let userData = localStorage.getItem('user-data');
     let sessionData = localStorage.getItem('session-data');
+    let sideMenuData = localStorage.getItem('side-menu');
     if (userData) {
       localStorage.removeItem('user-data');
     }
     if (sessionData) {
       localStorage.removeItem('session-data');
     }
+    if (sideMenuData) {
+      localStorage.removeItem('side-menu');
+    }
     this.updateUserBehavior(new UserValidatedModel());
+  }
+
+  /** SIDENAV MENU ADMINISTRATION */
+
+  /**
+   * Build items for the sidemenu
+   * @param permissions item permissions
+   */
+  buildSideMenu(permissions: PermissionsModel[]) {
+    let menu: ItemMenuModel[] = [];
+    console.log(menu);
+    permissions.forEach((permission) => {
+      let routeData = SideMenuConfig.getMenus.filter(
+        (x) => x.id == permission.menuId
+      );
+      if (routeData.length > 0) {
+        let item = new ItemMenuModel();
+        item.menuId = permission.menuId;
+        item.route = routeData[0].route;
+        item.icon = routeData[0].icon;
+        item.label = routeData[0].label;
+        menu.push(item);
+      }
+    });
+    this.storeSideMenuItems(menu);
+  }
+
+  /**
+   *
+   * @param itemsMenu menu items to storage into Local Storage
+   */
+  storeSideMenuItems(itemsMenu: ItemMenuModel[]) {
+    let menuStr = JSON.stringify(itemsMenu);
+    localStorage.setItem('side-menu', menuStr);
+  }
+
+  /**
+   *
+   * @returns list with items for sidemenu
+   */
+  getSideMenuItems(): ItemMenuModel[] {
+    let menu: ItemMenuModel[] = [];
+    let menuStr = localStorage.getItem('side-menu');
+    if (menuStr) {
+      menu = JSON.parse(menuStr);
+    }
+    return menu;
   }
 }

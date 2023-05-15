@@ -20,6 +20,7 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { LogOutComponent } from './log-out/log-out.component';
 import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
 import { GeneralConfig } from 'src/app/config/general.config';
+import { HashVerificationComponent } from './hash-verification/hash-verification.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { GeneralConfig } from 'src/app/config/general.config';
     ListUserComponent,
     LogOutComponent,
     PublicUserRegistryComponent,
+    HashVerificationComponent,
   ],
   imports: [
     CommonModule,

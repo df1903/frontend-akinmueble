@@ -6,6 +6,8 @@ import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import {MissionAndVisionComponent} from './public/mission-and-vision/mission-and-vision.component'
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
+import { LoaderComponent } from './public/loader/loader.component';
+import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 
 const routes: Routes = [
   {
@@ -24,10 +26,12 @@ const routes: Routes = [
   {
     path: 'register-switch', // Register Switch path
     component: RegisterSwitchComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'register-adviser-requesting', // Register Adviser path
     component: PublicRegistryRequestingAdviceComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'mission-vision', // Page mission and vision
@@ -38,6 +42,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('src/app/modules/security/security.module').then(
         (m) => m.SecurityModule
+      ),
+  },
+  {
+    path: 'parameters', // Parameters module path
+    loadChildren: () =>
+      import('src/app/modules/parameters/parameters.module').then(
+        (m) => m.ParametersModule
+      ),
+  },
+  {
+    path: 'reports', // Reports module path
+    loadChildren: () =>
+      import('src/app/modules/reports/reports.module').then(
+        (m) => m.ReportsModule
       ),
   },
 

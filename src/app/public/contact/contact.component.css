@@ -86,7 +86,21 @@
     background-color: #3ddb8f;
   }
 
+  #send-btn:hover {
+    background-color: #30aa6f;
+    transition: background-color 0.3s ease;
+  }
+
   select option {
     color: #000000 !important;
+  }
+
+  #phoneInput {
+    display: flex;
+    margin: auto;
+  }
+
+  .show-errors {
+    color: red;
   }
 }

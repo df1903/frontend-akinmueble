@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/models/User.model';
+import { UserValidatedModel } from 'src/app/models/UserValidated.model';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
@@ -34,7 +35,8 @@ export class RecoveryPasswordComponent implements OnInit {
     } else {
       let user = this.getFormGroup['user'].value;
       this.securityService.userRecoveryPassword(user).subscribe({
-        next: (data: UserModel) => {
+        next: (data) => {
+          console.log(data);
           if (data._id == undefined || data._id == null) {
             alert('Incorrect Credentials');
           } else {

@@ -1,0 +1,28 @@
+<div class="center">
+  <div class="row">
+    <div class="lds-ellipsis" *ngIf="!validation && !error">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div *ngIf="validation">
+      <h1>Your account has been activated!</h1>
+      <img
+        src="../../../../assets/images/verificated.jpg"
+        alt=""
+        width="500px"
+        height="500px"
+      />
+    </div>
+    <div *ngIf="error">
+      <h1>A error has been ocurred ):</h1>
+      <img
+        src="../../../../assets/images/hash-error.jpg"
+        alt=""
+        width="600px"
+        height="500px"
+      />
+    </div>
+  </div>
+</div>

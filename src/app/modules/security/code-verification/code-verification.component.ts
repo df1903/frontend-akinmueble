@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserValidatedModel } from 'src/app/models/UserValidated.model copy';
+import { UserValidatedModel } from 'src/app/models/UserValidated.model';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class CodeVerificationComponent implements OnInit {
       this.userId = data._id!;
       this.formBuild();
     } else {
-      this.router.navigate(['/seguridad/identificar-usuario']);
+      this.router.navigate(['/security/login']);
     }
   }
 
@@ -48,6 +48,7 @@ export class CodeVerificationComponent implements OnInit {
             data.token != undefined &&
             data.token != ''
           ) {
+            this.securityService.buildSideMenu(data.menu);
             this.securityService.storeUserValidatedData(data);
             this.router.navigate(['']);
           } else {

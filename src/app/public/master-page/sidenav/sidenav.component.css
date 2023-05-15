@@ -1,0 +1,70 @@
+#menu-toggle {
+  top: 20px;
+  left: 0;
+  transition: transform 0.3s ease;
+  position: sticky;
+}
+
+#menu-toggle-icon {
+  background-color: #3ddb8f;
+  border-radius: 0px, 0px, 0px, 1px;
+}
+
+.btn-semi-circle {
+  border-radius: 0 50% 50% 0;
+}
+
+.sidenav {
+  display: block;
+  width: 250px;
+  transform: translateX(-250px);
+  transition: transform 0.3s ease;
+}
+
+.background {
+  padding: 10px;
+}
+
+.user-img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.user-view a {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  background-color: #3ddb8f;
+  justify-content: center;
+}
+
+.card span {
+  display: flex;
+  font-size: 15px;
+  margin: auto;
+}
+
+.link {
+  color: #000000;
+  font-weight: bold;
+  transition-duration: 10ms;
+}
+
+.link i {
+  color: #000000;
+}
+
+.link:hover {
+  color: #ffffff !important;
+  background-color: #3ddb8f;
+  transition: background-color 0.3s ease;
+}
+.link:hover i {
+  color: #ffffff !important;
+  transition: background-color 0.3s ease;
+}
