@@ -62,6 +62,12 @@ p{
 		width: 50%;
 		height: auto;
 	}
+	.col h1 {
+		font-size: 17px;
+	}
+	p{
+		font-size: 12px;
+	}
 }
 
 .Iconos{
@@ -73,7 +79,7 @@ p{
 }
 @media screen and (max-width: 768px) {
 	.Iconos {
-		width: 50%;
+		width: 35px;
 		height: auto;
 	}
 }
