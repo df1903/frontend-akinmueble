@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BackendRouteConfiguration } from '../config/backend.route.configuration';
 import { HttpClient } from '@angular/common/http';
-import { UserModel } from '../models/User.model';
 import { Observable } from 'rxjs';
+import { UserModel } from '../models/User.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BusinessLogicService {
+
   urlLogic: string = BackendRouteConfiguration.urlBusinessLogic;
 
   constructor(private http: HttpClient) {}

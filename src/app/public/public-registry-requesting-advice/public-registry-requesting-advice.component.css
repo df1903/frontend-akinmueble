@@ -18,14 +18,14 @@
   }
   
   .component-1 {
-    width: 400px;
-    margin: 10px 25px;
+    width: 350px;
+    margin: 5px 15px;
     text-align: center;
     padding: 20px;
   }
   .component-2 {
-    width: 500px;
-    margin: 10px 25px;
+    width: 400px;
+    margin: 10px 15px;
     text-align: center;
     padding: 20px;
     border-radius: 5px;
@@ -33,22 +33,22 @@
   }
   
   .component-1 h2 {
-    margin-top: 0;
+    margin-top: -10px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 27px;
     color: #3DDB8F;
   }
   .component-2 h2 {
     margin-top: 0;
     text-align: left;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 27px;
     color: #3DDB8F;
   }
   
   .component-1 p {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 17px;
   }
   
   .component-2 button {
@@ -78,3 +78,4 @@
   .show-errors{
     color: red;
   }
+  
