@@ -8,8 +8,8 @@ import { BusinessLogicService } from 'src/app/services/business-logic.service';
   styleUrls: ['./hash-verification.component.css'],
 })
 export class HashVerificationComponent implements OnInit {
-  validation = false;
   error = false;
+  validation = false;
   hash: string = '';
 
   constructor(
@@ -27,8 +27,9 @@ export class HashVerificationComponent implements OnInit {
       next: (res: boolean) => {
         if (res) {
           this.validation = res;
+        } else {
+          this.error = false;
         }
-        this.error = true;
       },
       error: (err: any) => {
         console.log(err);
