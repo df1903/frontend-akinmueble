@@ -6,6 +6,7 @@ import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 import { LoaderComponent } from './public/loader/loader.component';
+import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 
 const routes: Routes = [
   {
@@ -24,14 +25,12 @@ const routes: Routes = [
   {
     path: 'register-switch', // Register Switch path
     component: RegisterSwitchComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'register-adviser-requesting', // Register Adviser path
     component: PublicRegistryRequestingAdviceComponent,
-  },
-  {
-    path: 'loading',
-    component: LoaderComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'security', // Security module path

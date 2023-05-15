@@ -11,53 +11,65 @@ import { DeleteUserComponent } from './user/delete-user/delete-user.component';
 import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
 import { CodeVerificationComponent } from './code-verification/code-verification.component';
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
+import { InactiveSessionGuard } from 'src/app/guardians/inactive-session.guard';
+import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
 
 const routes: Routes = [
   {
     path: 'login', // Login path
     component: LoginComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'recovery-password', // Recovery password path
     component: RecoveryPasswordComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'change-password', // Change password path
     component: ChangePasswordComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'code-verification', // Code verification path
     component: CodeVerificationComponent,
+    canActivate: [InactiveSessionGuard],
   },
   {
     path: 'log-out', // Log out path
     component: LogOutComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'hash-verification/:hash', // Has Verification path
     component: HashVerificationComponent,
+  },
+  {
+    path: 'user-registration', // User registration
+    component: PublicUserRegistryComponent,
+    canActivate: [InactiveSessionGuard],
   },
 
   // User crud
   {
     path: 'create-user', // Create user path
     component: CreateUserComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'edit-user', // Edit user path
     component: EditUserComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'list-user', // List user path
     component: ListUserComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'delete-user', // Delete user path
     component: DeleteUserComponent,
-  },
-  {
-    path: 'user-registration', // User registration
-    component: PublicUserRegistryComponent,
+    canActivate: [ActiveSessionGuard],
   },
 ];
 

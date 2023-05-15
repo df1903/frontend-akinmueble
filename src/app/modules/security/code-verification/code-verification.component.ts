@@ -25,7 +25,7 @@ export class CodeVerificationComponent implements OnInit {
       this.userId = data._id!;
       this.formBuild();
     } else {
-      this.router.navigate(['/seguridad/identificar-usuario']);
+      this.router.navigate(['/security/login']);
     }
   }
 
