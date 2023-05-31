@@ -8,8 +8,8 @@ export const ActiveSessionGuard = () => {
 
   let getSession = securityService.sessionValidation();
   if (getSession) {
-    router.navigate(['/home']);
     return true;
   }
+  router.navigate(['/home']);
   return false;
 };

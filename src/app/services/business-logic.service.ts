@@ -32,4 +32,10 @@ export class BusinessLogicService {
       hashCode: hash,
     });
   }
+
+  getProperties(filter: any): Observable<any> {
+    
+    return this.http.get<boolean>(`${this.urlLogic}/public-property${filter}`)
+    
+  }
 }
