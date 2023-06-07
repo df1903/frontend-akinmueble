@@ -21,6 +21,7 @@ import { LogOutComponent } from './log-out/log-out.component';
 import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
 import { GeneralConfig } from 'src/app/config/general.config';
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HashVerificationComponent } from './hash-verification/hash-verification
     LogOutComponent,
     PublicUserRegistryComponent,
     HashVerificationComponent,
+    ProfileUserComponent,
   ],
   imports: [
     CommonModule,

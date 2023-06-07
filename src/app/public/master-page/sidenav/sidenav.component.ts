@@ -6,6 +6,7 @@ import { SecurityService } from 'src/app/services/security.service';
 
 declare var M: any;
 
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -20,7 +21,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   menuPersonalOptions: ItemMenuModel[] = [
     {
       label: 'My Profile',
-      route: '/security/change-password',
+      route: '/security/profile-user',
       icon: 'account_circle',
     },
     {

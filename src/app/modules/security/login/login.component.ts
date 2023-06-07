@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GeneralConfig } from 'src/app/config/general.config';
-import { UserModel } from 'src/app/models/User.model';
 import { SecurityService } from 'src/app/services/security.service';
 import { MD5 } from 'crypto-js';
 

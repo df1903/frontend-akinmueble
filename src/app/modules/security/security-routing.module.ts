@@ -13,6 +13,7 @@ import { CodeVerificationComponent } from './code-verification/code-verification
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
 import { InactiveSessionGuard } from 'src/app/guardians/inactive-session.guard';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,11 @@ const routes: Routes = [
     component: PublicUserRegistryComponent,
     canActivate: [InactiveSessionGuard],
   },
+
+  {path: 'profile-user', // User Profile
+  component: ProfileUserComponent,
+  //canActivate: [ActiveSessionGuard],
+ },
 
   // User crud
   {
