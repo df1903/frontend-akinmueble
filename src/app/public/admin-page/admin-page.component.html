@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row header">
+    <h1>Hello, {{user.firstName}} {{user.firstLastname}}!</h1>
+  </div>
+  <div class="row">
+    <div class="col s4">
+      <div class="row">
+        <p>Properties</p>
+        <div class="card">
+          <p>
+            {{properties}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <p>For Sale Properties</p>
+        <div class="card">
+          <p>
+            {{sale_properties}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <p>For Rent Properties</p>
+        <div class="card">
+          <p>
+            {{rented_properties}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col s4">
+      <div class="row">
+        <p>Total Clients</p>
+        <div class="card">
+          <p>{{clients}}</p></div>
+      </div>
+      <div class="row">
+        <p>Accepted Advisers</p>
+        <div class="card"><p>{{advisers}}</p></div>
+      </div>
+      <div class="row">
+        <p>Accepted Requests</p>
+        <div class="card"><p>{{requests}}</p></div>
+      </div>
+    </div>
+    <div class="col s4 buttons">
+      <div class="row">
+        <p>Actions</p>
+      </div>
+      <div class="row row-btn">
+        <button class="btn">Manage Advisers</button>
+      </div>
+      <div class="row row-btn">
+        <button class="btn">Manage Department</button>
+      </div>
+      <div class="row row-btn">
+        <button class="btn">Manage City</button>
+      </div>
+      <div class="row row-btn">
+        <button class="btn">Manage Clients</button>
+      </div>
+      <div class="row row-btn">
+        <button class="btn">Manage Requests</button>
+      </div>
+      <div class="row row-btn">
+        <button class="btn">Manage Property Types</button>
+      </div>
+    </div>
+  </div>
+</div>

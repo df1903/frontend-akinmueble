@@ -9,6 +9,7 @@ import { PublicRegistryRequestingAdviceComponent } from './public/public-registr
 import { LoaderComponent } from './public/loader/loader.component';
 import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 import { PropertiesComponent } from './public/properties/properties.component';
+import { AdminPageComponent } from './public/admin-page/admin-page.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'properties', // Page mission and vision
     component: PropertiesComponent,
+  },
+  {
+    path: 'admin-page', // Page mission and vision
+    component: AdminPageComponent,
   },
   {
     path: 'security', // Security module path

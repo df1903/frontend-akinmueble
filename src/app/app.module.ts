@@ -23,6 +23,7 @@ import { SidenavComponent } from './public/master-page/sidenav/sidenav.component
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PropertiesComponent } from './public/properties/properties.component';
+import { AdminPageComponent } from './public/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PropertiesComponent } from './public/properties/properties.component';
     PublicRegistryRequestingAdviceComponent,
     MissionAndVisionComponent,
     SidenavComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

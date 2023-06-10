@@ -20,7 +20,10 @@ export class PropertyService {
   }
 
   getProperties(filter: any): Observable<any> {
-    let queryParams = JSON.stringify(filter);
+    let queryParams = ""
+    if (filter != "") {
+      queryParams = JSON.stringify(filter);
+    }
     return this.http.get<boolean>(`${this.urlLogic}/public-property?filter=${queryParams.toString()}`)
   }
 
