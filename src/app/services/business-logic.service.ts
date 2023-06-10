@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ContactFormModel } from '../models/ContactForm.model';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
+import { PagerConfig } from '../config/pager.config';
 
 @Injectable({
   providedIn: 'root',
@@ -33,12 +34,5 @@ export class BusinessLogicService {
     });
   }
 
-  getAllProperties(): Observable<any> {
-    return this.http.get<boolean>(`${this.urlLogic}/public-property`)
-  }
 
-  getProperties(filter: any): Observable<any> {
-    const queryParams = new HttpParams({ fromObject: { filter: JSON.stringify(filter) } });
-    return this.http.get<boolean>(`${this.urlLogic}/public-property?${queryParams.toString()}`)
-  }
 }

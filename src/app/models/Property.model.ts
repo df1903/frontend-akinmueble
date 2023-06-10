@@ -7,7 +7,6 @@ export class PropertyModel {
   sell?: boolean;
   rent?: boolean;
   video?: string;
-  photo?: string[];
   propertyTypeId?: number;
   cityId?: number;
   requests?: string[];

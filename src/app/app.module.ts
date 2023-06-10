@@ -21,6 +21,8 @@ import { LoaderModule } from './public/loader/loader.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { SidenavComponent } from './public/master-page/sidenav/sidenav.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PropertiesComponent } from './public/properties/properties.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     PublicRegistryRequestingAdviceComponent,
     MissionAndVisionComponent,
     SidenavComponent,
+    PropertiesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ReactiveFormsModule,
     FormsModule,
     LoaderModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
