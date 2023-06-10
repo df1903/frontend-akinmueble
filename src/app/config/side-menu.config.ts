@@ -14,7 +14,7 @@ export namespace SideMenuConfig {
     },
     {
       id: '642ce496db8a5109ec877cdb',
-      route: '/parameters/list-properties',
+      route: '/parameters/list-property',
       icon: 'reorder',
       label: 'Properties',
     },

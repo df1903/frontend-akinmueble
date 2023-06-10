@@ -6,6 +6,7 @@ import { CreatePropertyComponent } from './property/create-property/create-prope
 import { DeletePropertyComponent } from './property/delete-property/delete-property.component';
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ListPropertyComponent } from './property/list-property/list-property.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -13,11 +14,13 @@ import { ListPropertyComponent } from './property/list-property/list-property.co
     CreatePropertyComponent,
     DeletePropertyComponent,
     EditPropertyComponent,
-    ListPropertyComponent
+    ListPropertyComponent,
+
   ],
   imports: [
     CommonModule,
-    ParametersRoutingModule
+    ParametersRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class ParametersModule { }
