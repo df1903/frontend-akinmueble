@@ -20,6 +20,7 @@ import { MissionAndVisionComponent } from './public/mission-and-vision/mission-a
 import { LoaderModule } from './public/loader/loader.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { SidenavComponent } from './public/master-page/sidenav/sidenav.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SidenavComponent } from './public/master-page/sidenav/sidenav.component
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
 })

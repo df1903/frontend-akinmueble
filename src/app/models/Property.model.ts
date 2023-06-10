@@ -8,8 +8,8 @@ export class PropertyModel {
   rent?: boolean;
   video?: string;
   photo?: string[];
-  propertyTypeId?: string;
-  cityId?: string;
+  propertyTypeId?: number;
+  cityId?: number;
   requests?: string[];
-  adviserId?: string;
+  adviserId?: number;
 }
