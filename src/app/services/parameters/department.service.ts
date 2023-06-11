@@ -27,10 +27,13 @@ export class DepartmentService {
   }
 
   editDepartment(data: DepartmentModel): Observable<any> {
-    return this.http.put<boolean>(`${this.urlLogic}/department/${data.id}`, data)
+    return this.http.put<boolean>(
+      `${this.urlLogic}/department/${data.id}`,
+      data
+    );
   }
 
   deleteDepartment(id: number): Observable<any> {
-    return this.http.delete<boolean>(`${this.urlLogic}/department/${id}`)
+    return this.http.delete<boolean>(`${this.urlLogic}/department/${id}`);
   }
 }
