@@ -7,6 +7,7 @@ import { DeletePropertyComponent } from './property/delete-property/delete-prope
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ListPropertyComponent } from './property/list-property/list-property.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     CommonModule,
     ParametersRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class ParametersModule { }

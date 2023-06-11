@@ -24,7 +24,17 @@ export class ListPropertyComponent {
   getProperties() {
     let limit = PagerConfig.recordPerPage;
     let skip = (this.page - 1) * limit;
-    this.service.getAllProperties(this.page).subscribe({
+    let filter = {
+      include: [
+        {relation: 'city'},
+        {relation: 'propertyType'},
+        {relation: 'adviser'}
+      ],
+      limit: limit,
+      skip: skip
+    };
+
+    this.service.getProperties(filter).subscribe({
       next: (properties: any) => {
         this.properties = properties.records;
         this.total = properties.total

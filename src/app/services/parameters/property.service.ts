@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
+import { PhotoModel } from 'src/app/models/Photo.model';
+import { PropertyModel } from 'src/app/models/Property.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +32,28 @@ export class PropertyService {
   getPhotos(): Observable<any> {
     return this.http.get<boolean>(`${this.urlLogic}/photo`)
   }
+
+  createProperty(p : PropertyModel): Observable<any> {
+    return this.http.post<boolean>(`${this.urlLogic}/property`, p)
+  }
+
+  uploadPhoto(photo: FormData): Observable<any> {
+    return this.http.post<boolean>(`${this.urlLogic}/upload-property-file`, photo)
+  }
+
+  getPhoto(fileName: any) {
+    return this.http.get<boolean>(`${this.urlLogic}/GetFiles/1/${fileName}`)
+  }
+
+  createPhoto(photos: PhotoModel) {
+    return this.http.post<boolean>(`${this.urlLogic}/photo`, photos)
+  }
+
+  getPropertyTypes(filter: any): Observable<any> {
+    let queryParams = ""
+    if (filter != "") {
+      queryParams = JSON.stringify(filter);
+    }
+    return this.http.get<boolean>(`${this.urlLogic}/property-type?filter=${queryParams.toString()}`)
+  }
 }

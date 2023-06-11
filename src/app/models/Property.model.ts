@@ -11,4 +11,7 @@ export class PropertyModel {
   cityId?: number;
   requests?: string[];
   adviserId?: number;
+  propertyType?: any;
+  city?: any;
+  adviser?: any;
 }

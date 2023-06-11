@@ -13,7 +13,7 @@
         <label>Managment Type Select</label>
       </div>
       <div class="input-field col s6">
-        <a class="filter-btn" (click)="filterProperties()">FILTER</a>
+        <a class="filter-btn" (click)="getProperties()">FILTER</a>
       </div>
     </div>
   </form>
@@ -40,20 +40,20 @@
         </div>
         <div class="card-content">
           <span class="card-title activator"
-            >{{property.address
+            >{{property.propertyType.name
             }}<i class="material-icons right">expand_less</i></span
           >
           <p><a>See details</a></p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"
-            >{{ property.propertyTypeId
+            >{{ property.propertyType.name
             }}<i class="material-icons right">close</i></span
           >
           <p>
-            <strong>Ubication: <br /></strong> {{ property.address }} <br />
-            {{ property.cityId }} <br />
-            <strong>Adviser: <br /></strong> {{ property.adviserId }} <br />
+            <strong>Ubication: <br /></strong> {{property.address}} <br />
+            {{ property.city.name}}, {{property.city.department.name}} <br />
+            <strong>Adviser: <br /></strong> {{property.adviser.firstName}} {{property.adviser.firstLastname}} <br />
             <strong>Description: <br /></strong> {{ property.description }}
           </p>
         </div>
@@ -67,7 +67,7 @@
   <div class="row">
     <div class="my-pagination">
       <pagination-controls
-                      (pageChange)="page = $event; filterProperties()"
+                      (pageChange)="page = $event; getProperties()"
                       previousLabel=""
                       nextLabel=""
                       screenReaderPaginationLabel="Navegation"
