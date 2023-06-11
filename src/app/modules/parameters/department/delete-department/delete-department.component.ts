@@ -44,7 +44,7 @@ export class DeleteDepartmentComponent {
   deleteDepartment() {
     this.service.deleteDepartment(this.departmentId).subscribe({
       next: (data) => {
-        alert('Propertie Deleted Successfully');
+        alert('Department Deleted Successfully');
         this.router.navigate(['parameters/list-department']);
       },
       error: (err: any) => {

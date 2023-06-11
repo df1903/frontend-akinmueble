@@ -81,7 +81,7 @@ export class EditDepartmentComponent {
       let model = this.get();
       this.service.editDepartment(model).subscribe({
         next: (data: DepartmentModel) => {
-          alert('department Edited Successfully');
+          alert('Department Created Successfully');
           this.router.navigate(['/parameters/list-department']);
         },
         error: (err: any) => {
