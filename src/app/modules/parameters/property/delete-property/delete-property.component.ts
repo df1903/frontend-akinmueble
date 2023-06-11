@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { PhotoModel } from 'src/app/models/Photo.model';
 import { PropertyModel } from 'src/app/models/Property.model';
 import { PropertyService } from 'src/app/services/parameters/property.service';
 import { SecurityService } from 'src/app/services/security.service';

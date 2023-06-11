@@ -1,0 +1,47 @@
+.btn {
+  background-color: #3ddb8f;
+  height: 40px;
+  justify-content: center;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  align-items: center;
+}
+
+input {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  display: flex;
+  color: #3ddb8f;
+  justify-content: center;
+}
+
+.carousel-item {
+  width: 500px;
+  height: 300px;
+}
+
+.send {
+  display: flex;
+  margin: auto;
+  font-size: 30px;
+}
+
+.cancel {
+  background-color: #ff0000;
+}
+
+strong {
+  font-weight: bold;
+  color: #3ddb8f;
+}
+
+.s12 {
+  display: flex;
+  justify-content: center;
+}
