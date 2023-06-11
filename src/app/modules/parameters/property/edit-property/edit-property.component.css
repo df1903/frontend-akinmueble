@@ -31,3 +31,8 @@ h1 {
   margin: auto;
   font-size: 30px;
 }
+
+.cancel {
+  background-color: #ff0000;
+}
+

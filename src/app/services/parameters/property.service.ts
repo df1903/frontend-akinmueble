@@ -34,7 +34,7 @@ export class PropertyService {
     if (filter != "") {
       queryParams = JSON.stringify(filter);
     }
-    return this.http.get<boolean>(`${this.urlLogic}/photo?filer=${queryParams}`)
+    return this.http.get<boolean>(`${this.urlLogic}/photo?filter=${queryParams}`)
   }
 
   createProperty(p : PropertyModel): Observable<any> {
@@ -63,5 +63,13 @@ export class PropertyService {
 
   editProperty(data: PropertyModel): Observable<any> {
     return this.http.put<boolean>(`${this.urlLogic}/property/${data.id}`, data)
+  }
+
+  deleteProperty(id: number): Observable<any> {
+    return this.http.delete<boolean>(`${this.urlLogic}/property/${id}`)
+  }
+
+  deletePhoto(id: number): Observable<any> {
+    return this.http.delete<boolean>(`${this.urlLogic}/photo/${id}`)
   }
 }
