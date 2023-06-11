@@ -53,19 +53,7 @@ export class ListCityComponent {
     this.service.getCities(filter).subscribe({
       next: (data: any) => {
         console.log(data.records)
-        let array: CityModel[] = data.records;
-        array.sort((a, b) => {
-          const nameA = a.departmentId!;
-          const nameB = b.departmentId!;
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-          return 0;
-        });
-        this.cities = array;
+        this.cities = data.records;
         this.total = data.total;
       },
       error: (err: any) => {
