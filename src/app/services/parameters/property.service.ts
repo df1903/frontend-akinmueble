@@ -29,8 +29,12 @@ export class PropertyService {
     return this.http.get<boolean>(`${this.urlLogic}/public-property?filter=${queryParams.toString()}`)
   }
 
-  getPhotos(): Observable<any> {
-    return this.http.get<boolean>(`${this.urlLogic}/photo`)
+  getPhotos(filter: any): Observable<any> {
+    let queryParams = ""
+    if (filter != "") {
+      queryParams = JSON.stringify(filter);
+    }
+    return this.http.get<boolean>(`${this.urlLogic}/photo?filer=${queryParams}`)
   }
 
   createProperty(p : PropertyModel): Observable<any> {
@@ -56,4 +60,8 @@ export class PropertyService {
     }
     return this.http.get<boolean>(`${this.urlLogic}/property-type?filter=${queryParams.toString()}`)
   }
+
+  editProperty(data: PropertyModel): Observable<any> {
+    return this.http.put<boolean>(`${this.urlLogic}/property/${data.id}`, data)
+  }
 }

@@ -32,8 +32,8 @@
         <td>{{p.city.name}}</td>
         <td>{{p.adviser.firstName}} {{p.adviser.firstLastname}}</td>
         <td>
-          <button class="btn edit">Edit</button>
-          <button class="btn delete">Delete</button>
+          <a class="btn edit" routerLink="/parameters/edit-property/{{p.id}}">Edit</a>
+          <a class="btn delete" routerLink="/parameters/delete-property/{{p.id}}">Delete</a>
         </td>
       </tr>
     </tbody>

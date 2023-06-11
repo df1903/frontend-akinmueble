@@ -14,18 +14,19 @@ const routes: Routes = [
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'delete-property', // Delete Property path
+    path: 'delete-property/:id', // Delete Property path
     component: DeletePropertyComponent,
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'edit-property', // Edit Property path
+    path: 'edit-property/:id', // Edit Property path
     component: EditPropertyComponent,
     canActivate: [ActiveSessionGuard],
   },
   {
     path: 'list-property', // List Property path
     component: ListPropertyComponent,
+    canActivate: [ActiveSessionGuard],
   },
 ];
 

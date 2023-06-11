@@ -39,7 +39,8 @@ export class PropertiesComponent {
   }
 
   getPhotos() {
-    this.service.getPhotos().subscribe({
+    let filter = {}
+    this.service.getPhotos(filter).subscribe({
       next: (photos: any) => {
         this.photos = photos
       },

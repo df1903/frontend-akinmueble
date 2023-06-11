@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { AdviserModel } from 'src/app/models/Adviser.model';
 import { PhotoModel } from 'src/app/models/Photo.model';
@@ -10,6 +11,7 @@ import { CityModel } from 'src/app/models/city.model';
 import { AdviserService } from 'src/app/services/parameters/adviser.service';
 import { CityService } from 'src/app/services/parameters/city.service';
 import { PropertyService } from 'src/app/services/parameters/property.service';
+import { SecurityService } from 'src/app/services/security.service';
 
 declare var M: any;
 @Component({
@@ -31,13 +33,27 @@ export class CreatePropertyComponent {
     private propertySvc: PropertyService,
     private citySvc: CityService,
     private adviserSvc: AdviserService,
-    private router: Router
+    private router: Router,
+    private security: SecurityService
   ) {}
 
   ngOnInit() {
-    this.buildDataFG();
-    this.buildFileFG();
-    this.getPropertyTypes();
+    let data = this.security.sessionValidation();
+    if (data != null) {
+      console.log(data.user);
+      if (
+        data.user?.roleId == RolesConfig.administratorId ||
+        data.user?.roleId == RolesConfig.adviserId
+      ) {
+        this.buildDataFG();
+        this.buildFileFG();
+        this.getPropertyTypes();
+      } else {
+        this.router.navigate(['/security/login']);
+      }
+    } else {
+      this.router.navigate(['/security/login']);
+    }
   }
 
   buildCarousel() {

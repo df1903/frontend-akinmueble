@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PagerConfig } from 'src/app/config/pager.config';
+import { RolesConfig } from 'src/app/config/roles.config';
 import { PropertyModel } from 'src/app/models/Property.model';
 import { PropertyService } from 'src/app/services/parameters/property.service';
+import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-list-property',
@@ -14,11 +17,21 @@ export class ListPropertyComponent {
   page: number = 1
   total: number = 0
 
-  constructor(private service: PropertyService) {
+  constructor(private service: PropertyService, private security: SecurityService, private router: Router) {
   }
 
   ngOnInit(){
-    this.getProperties()
+    let data = this.security.sessionValidation();
+    if (data != null) {
+      console.log(data.user)
+      if (data.user?.roleId == RolesConfig.administratorId || data.user?.roleId == RolesConfig.adviserId){
+        this.getProperties()
+      } else {
+        this.router.navigate(['/security/login']);
+      }
+    } else {
+      this.router.navigate(['/security/login']);
+    }
   }
 
   getProperties() {
