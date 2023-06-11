@@ -12,6 +12,10 @@ import { CreateDepartmentComponent } from './department/create-department/create
 import { ListDepartmentComponent } from './department/list-department/list-department.component';
 import { DeleteDepartmentComponent } from './department/delete-department/delete-department.component';
 import { EditDepartmentComponent } from './department/edit-department/edit-department.component';
+import { CreateCityComponent } from './city/create-city/create-city.component';
+import { EditCityComponent } from './city/edit-city/edit-city.component';
+import { DeleteCityComponent } from './city/delete-city/delete-city.component';
+import { ListCityComponent } from './city/list-city/list-city.component';
 
 
 @NgModule({
@@ -24,6 +28,10 @@ import { EditDepartmentComponent } from './department/edit-department/edit-depar
     ListDepartmentComponent,
     DeleteDepartmentComponent,
     EditDepartmentComponent,
+    CreateCityComponent,
+    EditCityComponent,
+    DeleteCityComponent,
+    ListCityComponent,
 
   ],
   imports: [

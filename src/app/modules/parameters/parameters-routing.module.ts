@@ -9,6 +9,10 @@ import { CreateDepartmentComponent } from './department/create-department/create
 import { DeleteDepartmentComponent } from './department/delete-department/delete-department.component';
 import { EditDepartmentComponent } from './department/edit-department/edit-department.component';
 import { ListDepartmentComponent } from './department/list-department/list-department.component';
+import { CreateCityComponent } from './city/create-city/create-city.component';
+import { DeleteCityComponent } from './city/delete-city/delete-city.component';
+import { EditCityComponent } from './city/edit-city/edit-city.component';
+import { ListCityComponent } from './city/list-city/list-city.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -52,6 +56,28 @@ const routes: Routes = [
   {
     path: 'list-department', // List Property path
     component: ListDepartmentComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+
+  /** City CRUD */
+  {
+    path: 'create-city', // Create City path
+    component: CreateCityComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'delete-city/:id', // Delete City path
+    component: DeleteCityComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'edit-city/:id', // Edit City path
+    component: EditCityComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-city', // List City path
+    component: ListCityComponent,
     canActivate: [ActiveSessionGuard],
   },
 ];
