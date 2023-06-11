@@ -52,6 +52,7 @@ export class ListCityComponent {
 
     this.service.getCities(filter).subscribe({
       next: (data: any) => {
+        console.log(data.records)
         let array: CityModel[] = data.records;
         array.sort((a, b) => {
           const nameA = a.departmentId!;

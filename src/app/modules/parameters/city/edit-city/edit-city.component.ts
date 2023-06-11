@@ -65,6 +65,7 @@ export class EditCityComponent {
 
   replaceDataFG() {
     this.dataFG.get('name')?.patchValue(this.city.name);
+    this.dataFG.get('department')?.patchValue(this.city.department.id);
   }
 
   getCity() {
@@ -120,10 +121,10 @@ export class EditCityComponent {
       this.service.editCity(model).subscribe({
         next: (data: CityModel) => {
           alert('City Edited Successfully');
-          this.router.navigate(['/parameters/list-department']);
+          this.router.navigate(['/parameters/list-city']);
         },
         error: (err: any) => {
-          alert('An Error has happened creating the department');
+          alert('An Error has happened creating the city');
         },
       });
     }
@@ -133,6 +134,7 @@ export class EditCityComponent {
     let model = new CityModel();
     model.id = this.city.id;
     model.name = this.getDataFG['name'].value;
+    model.departmentId = parseInt(this.getDataFG['department'].value);
     console.log(model);
     if (this.dataFG.invalid) {
       alert('Incomplete Data');
