@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { take } from 'rxjs';
 import { PagerConfig } from 'src/app/config/pager.config';
+import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { PhotoModel } from 'src/app/models/Photo.model';
 import { PropertyModel } from 'src/app/models/Property.model';
 import { PropertyService } from 'src/app/services/parameters/property.service';
@@ -22,6 +23,8 @@ export class PropertiesComponent {
   page: number = 1;
   recordPerPage: number = PagerConfig.recordPerPage
   total: number = 0;
+
+  logicUrl: String = RoutesBackendConfig.urlBusinessLogic;
 
   constructor(private service: PropertyService) {}
 
