@@ -10,11 +10,11 @@ import { RequestService } from 'src/app/services/parameters/request.service';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
-  selector: 'app-admin-page',
-  templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.css'],
+  selector: 'app-adviser-page',
+  templateUrl: './adviser-page.component.html',
+  styleUrls: ['./adviser-page.component.css'],
 })
-export class AdminPageComponent {
+export class AdviserPageComponent {
   user: UserModel = new UserModel();
 
   properties: number = 0;
@@ -46,8 +46,8 @@ export class AdminPageComponent {
       next: (data: UserValidatedModel) => {
         if (data.token != '') {
           this.user = data.user!;
-          if (this.user.roleId != RolesConfig.administratorId) {
-            this.router.navigate(["/adviser-page"]);
+          if (this.user.roleId != RolesConfig.adviserId) {
+            this.router.navigate([""]);
           }
         } else {
           this.router.navigate(['']);

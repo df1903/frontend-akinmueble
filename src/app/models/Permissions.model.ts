@@ -1,11 +1,11 @@
 export class PermissionsModel {
   _id?: string;
-  save?: string;
-  edit?: string;
-  list?: string;
-  listClient?: string;
-  delete?: string;
-  create?: string;
-  download?: string;
+  save?: boolean;
+  edit?: boolean;
+  list?: boolean;
+  listClient?: boolean;
+  delete?: boolean;
+  create?: boolean;
+  download?: boolean;
   menuId?: string;
 }

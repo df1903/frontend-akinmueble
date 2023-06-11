@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  height: 50px;
+  border: #3ddb8f solid 2px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons .row {
+  display: flex;
+}
+
+.btn {
+  background-color: #3ddb8f;
+  border: #3ddb8f solid 2px;
+  border-radius: 20px;
+  width: 80%;
+  font-weight: bold;
+}
+
+.row-btn {
+  margin: auto;
+}
+
+p {
+  font-size: 20px;
+  color: #3ddb8f;
+  font-weight: bold;
+}

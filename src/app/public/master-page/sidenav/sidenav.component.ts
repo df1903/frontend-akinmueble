@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { RolesConfig } from 'src/app/config/roles.config';
 import { ItemMenuModel } from 'src/app/models/ItemMenu.model';
 import { UserModel } from 'src/app/models/User.model';
 import { UserValidatedModel } from 'src/app/models/UserValidated.model';
@@ -20,14 +21,14 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   menuPersonalOptions: ItemMenuModel[] = [
     {
       label: 'My Profile',
-      route: '/security/change-password',
+      route: '/security/profile',
       icon: 'account_circle',
     },
     {
-      label: 'Explore',
-      route: '',
-      icon: 'search',
-    },
+      label: 'Managment',
+      route: '/admin-page',
+      icon: 'account_circle',
+    }
   ];
 
   menuSiteOptions: ItemMenuModel[] = [];
@@ -39,11 +40,11 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   }
 
   toggleMenuExpansion(event: Event) {
+    console.log("Opening...")
     event.stopPropagation();
     this.isExpanded = !this.isExpanded;
     this.moveButtonWithMenu();
     this.menuSiteOptions = this.securityService.getSideMenuItems();
-    console.log(this.menuSiteOptions);
   }
 
   moveButtonWithMenu() {
@@ -62,9 +63,6 @@ export class SidenavComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     M.Sidenav.init(document.getElementById('side-menu'));
-
-    const dropdowns = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(dropdowns);
   }
 
   sessionValidation() {

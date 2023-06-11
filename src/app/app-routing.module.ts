@@ -10,6 +10,7 @@ import { LoaderComponent } from './public/loader/loader.component';
 import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 import { PropertiesComponent } from './public/properties/properties.component';
 import { AdminPageComponent } from './public/admin-page/admin-page.component';
+import { AdviserPageComponent } from './public/adviser-page/adviser-page.component';
 
 const routes: Routes = [
   {
@@ -40,12 +41,20 @@ const routes: Routes = [
     component: MissionAndVisionComponent,
   },
   {
-    path: 'properties', // Page mission and vision
+    path: 'properties', // View of the public properties
     component: PropertiesComponent,
   },
   {
-    path: 'admin-page', // Page mission and vision
+    path: 'admin-page', // Managment admin
     component: AdminPageComponent,
+  },
+  {
+    path: 'adviser-page', // Managment adviser
+    component: AdviserPageComponent,
+  },
+  {
+    path: 'client-page', // Managment client
+    component: HomeComponent,
   },
   {
     path: 'security', // Security module path

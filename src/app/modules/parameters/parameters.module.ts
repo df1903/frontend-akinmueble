@@ -8,6 +8,10 @@ import { EditPropertyComponent } from './property/edit-property/edit-property.co
 import { ListPropertyComponent } from './property/list-property/list-property.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CreateDepartmentComponent } from './department/create-department/create-department.component';
+import { ListDepartmentComponent } from './department/list-department/list-department.component';
+import { DeleteDepartmentComponent } from './department/delete-department/delete-department.component';
+import { EditDepartmentComponent } from './department/edit-department/edit-department.component';
 
 
 @NgModule({
@@ -16,6 +20,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     DeletePropertyComponent,
     EditPropertyComponent,
     ListPropertyComponent,
+    CreateDepartmentComponent,
+    ListDepartmentComponent,
+    DeleteDepartmentComponent,
+    EditDepartmentComponent,
 
   ],
   imports: [
