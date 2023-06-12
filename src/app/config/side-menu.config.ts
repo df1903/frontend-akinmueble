@@ -50,7 +50,7 @@ export namespace SideMenuConfig {
     },
     {
       id: '643dd7c10349685918540d80',
-      route: '/parameters/list-request',
+      route: '/parameters/list-requestClient',
       icon: 'reorder',
       label: 'Requests',
     },
@@ -60,5 +60,11 @@ export namespace SideMenuConfig {
       icon: 'reorder',
       label: 'Property Types',
     },
+    {
+      id: '64421ca700913e649021e02c',
+      route: '/parameters/list-requestClient',
+      icon: 'reorder',
+      label: 'My Requests',
+    }
   ];
 }

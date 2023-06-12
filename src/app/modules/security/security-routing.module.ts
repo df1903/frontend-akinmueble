@@ -15,6 +15,7 @@ import { InactiveSessionGuard } from 'src/app/guardians/inactive-session.guard';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 
+
 const routes: Routes = [
   {
     path: 'login', // Login path
@@ -56,27 +57,6 @@ const routes: Routes = [
   //canActivate: [ActiveSessionGuard],
  },
 
-  // User crud
-  {
-    path: 'create-user', // Create user path
-    component: CreateUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'edit-user', // Edit user path
-    component: EditUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'list-user', // List user path
-    component: ListUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'delete-user', // Delete user path
-    component: DeleteUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
 ];
 
 @NgModule({

@@ -4,6 +4,10 @@ import { ListPropertyComponent } from './property/list-property/list-property.co
 import { CreatePropertyComponent } from './property/create-property/create-property.component';
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
+import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
+import { ListRequestClientComponent } from './requestClient/list-request-client/list-request-client.component';
+import { DeleteRequestClientComponent } from './requestClient/delete-request-client/delete-request-client.component';
+import { EditRequestClientComponent } from './requestClient/edit-request-client/edit-request-client.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -26,6 +30,30 @@ const routes: Routes = [
     path: 'list-property', // List Property path
     component: ListPropertyComponent,
   },
+
+  /*CRUD Request*/
+  {
+    path: 'create-requestClient', // create Request path
+    component: CreateRequestClientComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-requestClient', // List Request path
+    component: ListRequestClientComponent,
+    canActivate: [ActiveSessionGuard],
+  }
+  ,
+  {
+    path: 'delete-requestClient', // Delete Request path
+    component: DeleteRequestClientComponent,
+    canActivate: [ActiveSessionGuard],
+  }
+  ,
+  {
+    path: 'edit-requestClient', // Edit Request path
+    component: EditRequestClientComponent,
+    canActivate: [ActiveSessionGuard],
+  }
 ];
 
 @NgModule({
