@@ -66,8 +66,15 @@
             </div>
             <div class="col s2" *ngIf="data.accepted == 1">
               <a
+                class="btn edit"
+                routerLink="/parameters/edit-adviser/{{ data.id }}"
+                >Edit</a
+              >
+            </div>
+            <div class="col s2" *ngIf="data.accepted == 1">
+              <a
                 class="btn delete"
-                routerLink="/parameters/delete-department/{{ data.id }}"
+                routerLink="/parameters/delete-adviser/{{ data.id }}"
                 >Delete</a
               >
             </div>
