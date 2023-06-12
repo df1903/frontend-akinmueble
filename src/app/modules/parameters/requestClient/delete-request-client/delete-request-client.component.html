@@ -1,1 +1,14 @@
-<p>delete-request-client works!</p>
+<div class="container">
+    <div class="content">
+      <p>Please confirm that you wish to cancel the request by
+         replying to this message with the word
+         'Confirmed'. Please note that this action
+          is irreversible and the data of the cancelled
+           request cannot be retrieved.</p>
+      <div class="button-container">
+        <a class="waves-effect waves-light btn-large btn" style="background-color: red;" routerLink="/parameters/list-requestClient">Cancel </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="waves-effect waves-light btn-large btn" style="background-color: #3ddb8f;" (click)="deleteRequestClient()">Confirmed</a>
+      </div>
+    </div>
+</div>
+  

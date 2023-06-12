@@ -32,4 +32,13 @@ export class RequestClientService {
   deleteRequestClient(id: number): Observable<any> {
     return this.http.delete<boolean>(`${this.urlLogic}/requests/${id}`)
   }
+ 
+  DeleteRequestClient( requestClientId :number, clientId:number): Observable<RequestClientModel> {
+    return this.http.post<RequestClientModel>(`${this.urlLogic}/cancel-client-request`,
+      {
+        requestId: requestClientId,
+        clientId: clientId
+      }
+    )
+  }
 }
