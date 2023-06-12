@@ -56,7 +56,7 @@ export namespace SideMenuConfig {
     },
     {
       id: '643dd8270349685918540d82',
-      route: '/parameters/list-properties-type',
+      route: '/parameters/list-property-type',
       icon: 'reorder',
       label: 'Property Types',
     },

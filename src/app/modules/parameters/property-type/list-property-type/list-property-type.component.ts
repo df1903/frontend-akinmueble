@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RolesConfig } from 'src/app/config/roles.config';
-import { DepartmentModel } from 'src/app/models/department.model';
-import { DepartmentService } from 'src/app/services/parameters/department.service';
+import { PropertyTypeModel } from 'src/app/models/Property-type.model';
+import { PropertyTypeService } from 'src/app/services/parameters/property-type.service';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
-  selector: 'app-list-department',
-  templateUrl: './list-department.component.html',
-  styleUrls: ['./list-department.component.css'],
+  selector: 'app-list-property-type',
+  templateUrl: './list-property-type.component.html',
+  styleUrls: ['./list-property-type.component.css'],
 })
-export class ListDepartmentComponent {
-  departments: DepartmentModel[] = [];
+export class ListPropertyTypeComponent {
+  propertyTypes: PropertyTypeModel[] = [];
   itemsPerPage: number = PagerConfig.recordPerPage;
   page: number = 1;
   total: number = 0;
 
   constructor(
-    private service: DepartmentService,
+    private service: PropertyTypeService,
     private security: SecurityService,
     private router: Router
   ) {}
@@ -45,9 +45,9 @@ export class ListDepartmentComponent {
       skip: skip,
     };
 
-    this.service.getDepartments(filter).subscribe({
+    this.service.getPropertyTypes(filter).subscribe({
       next: (data: any) => {
-        this.departments = data.records;
+        this.propertyTypes = data.records;
         this.total = data.total;
       },
       error: (err: any) => {

@@ -19,6 +19,10 @@ import { ListCityComponent } from './city/list-city/list-city.component';
 import { ListAdviserComponent } from './adviser/list-adviser/list-adviser.component';
 import { EditAdviserComponent } from './adviser/edit-adviser/edit-adviser.component';
 import { DeleteAdviserComponent } from './adviser/delete-adviser/delete-adviser.component';
+import { ListPropertyTypeComponent } from './property-type/list-property-type/list-property-type.component';
+import { CreatePropertyTypeComponent } from './property-type/create-property-type/create-property-type.component';
+import { DeletePropertyTypeComponent } from './property-type/delete-property-type/delete-property-type.component';
+import { EditPropertyTypeComponent } from './property-type/edit-property-type/edit-property-type.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { DeleteAdviserComponent } from './adviser/delete-adviser/delete-adviser.
     ListAdviserComponent,
     EditAdviserComponent,
     DeleteAdviserComponent,
+    ListPropertyTypeComponent,
+    CreatePropertyTypeComponent,
+    DeletePropertyTypeComponent,
+    EditPropertyTypeComponent,
   ],
   imports: [
     CommonModule,

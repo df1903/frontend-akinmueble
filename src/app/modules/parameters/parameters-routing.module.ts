@@ -16,6 +16,10 @@ import { ListCityComponent } from './city/list-city/list-city.component';
 import { DeleteAdviserComponent } from './adviser/delete-adviser/delete-adviser.component';
 import { EditAdviserComponent } from './adviser/edit-adviser/edit-adviser.component';
 import { ListAdviserComponent } from './adviser/list-adviser/list-adviser.component';
+import { CreatePropertyTypeComponent } from './property-type/create-property-type/create-property-type.component';
+import { DeletePropertyTypeComponent } from './property-type/delete-property-type/delete-property-type.component';
+import { EditPropertyTypeComponent } from './property-type/edit-property-type/edit-property-type.component';
+import { ListPropertyTypeComponent } from './property-type/list-property-type/list-property-type.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -98,6 +102,28 @@ const routes: Routes = [
   {
     path: 'list-adviser', // List Adviser path
     component: ListAdviserComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+
+  /** Property Type CRUD */
+  {
+    path: 'create-property-type', // Create Property Type path
+    component: CreatePropertyTypeComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'delete-property-type/:id', // Delete Property Type path
+    component: DeletePropertyTypeComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'edit-property-type/:id', // Edit Property Type path
+    component: EditPropertyTypeComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-property-type', // List Property Type path
+    component: ListPropertyTypeComponent,
     canActivate: [ActiveSessionGuard],
   },
 ];
