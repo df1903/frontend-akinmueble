@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RolesConfig } from 'src/app/config/roles.config';
 import { UserValidatedModel } from 'src/app/models/UserValidated.model';
 import { SecurityService } from 'src/app/services/security.service';
 
@@ -50,7 +51,25 @@ export class CodeVerificationComponent implements OnInit {
           ) {
             this.securityService.buildSideMenu(data.menu);
             this.securityService.storeUserValidatedData(data);
-            this.router.navigate(['']);
+            this.securityService.getSessionData().subscribe({
+              next: (data: UserValidatedModel) => {
+                if (data.token != '') {
+                  let user = data.user!;
+                  if (user.roleId != RolesConfig.administratorId) {
+                    this.router.navigate(['/admin-page']);
+                  } else if (user.roleId != RolesConfig.adviserId) {
+                    this.router.navigate(['/adviser-page']);
+                  } else {
+                    this.router.navigate(['/properties']);
+                  }
+                } else {
+                  this.router.navigate(['']);
+                }
+              },
+              error: (err: any) => {
+                console.log(err);
+              },
+            });
           } else {
             alert('Invalid Code');
           }

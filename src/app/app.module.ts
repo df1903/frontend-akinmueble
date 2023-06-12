@@ -40,7 +40,7 @@ import { AdminPageComponent } from './public/admin-page/admin-page.component';
     MissionAndVisionComponent,
     SidenavComponent,
     PropertiesComponent,
-    AdminPageComponent
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,11 +49,11 @@ import { AdminPageComponent } from './public/admin-page/admin-page.component';
     ReactiveFormsModule,
     FormsModule,
     LoaderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
