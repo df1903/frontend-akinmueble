@@ -1,0 +1,97 @@
+<!-- Filter View -->
+<div class="container">
+  <h1>Advisers</h1>
+  <form action="" [formGroup]="fgroup">
+    <div class="row filter">
+      <div class="input-field col s6">
+        <select formControlName="status" id="status">
+          <option value="" disabled selected>Adviser Status</option>
+          <option *ngFor="let s of status" [value]="s.id">{{ s.name }}</option>
+        </select>
+        <label>Select Adviser Status</label>
+      </div>
+      <div class="input-field col s6">
+        <a class="filter-btn" (click)="getAdvisers()">FILTER</a>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Document</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let data of advisers
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: page,
+                  totalItems: total
+                }
+        "
+      >
+        <td>{{ data.id }}</td>
+        <td>{{ data.document }}</td>
+        <td>{{ data.firstName }} {{ data.secondName }}</td>
+        <td>{{ data.firstLastname }} {{ data.secondLastname }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.phone }}</td>
+        <td *ngIf="data.accepted == null">Pending</td>
+        <td *ngIf="data.accepted != null">
+          {{ data.accepted ? "Accepted" : "Rejected" }}
+        </td>
+
+        <td>
+          <div class="row">
+            <div class="col s2" *ngIf="data.accepted == null">
+              <button class="btn edit" (click)="acceptAdviser(data.id!)">
+                Accept
+              </button>
+            </div>
+            <div class="col s2" *ngIf="data.accepted == null">
+              <button class="btn delete" (click)="rejectAdviser(data.id!)">
+                Reject
+              </button>
+            </div>
+            <div class="col s2" *ngIf="data.accepted == 1">
+              <a
+                class="btn delete"
+                routerLink="/parameters/delete-department/{{ data.id }}"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Pager View -->
+<div class="container">
+  <div class="row">
+    <div class="my-pagination">
+      <pagination-controls
+        (pageChange)="page = $event; getAdvisers()"
+        previousLabel=""
+        nextLabel=""
+        screenReaderPaginationLabel="Navegation"
+        screenReaderPageLabel="Page"
+        screenReaderCurrentLabel="Actual Page"
+        class="pager"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

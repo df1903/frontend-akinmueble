@@ -16,7 +16,9 @@ import { CreateCityComponent } from './city/create-city/create-city.component';
 import { EditCityComponent } from './city/edit-city/edit-city.component';
 import { DeleteCityComponent } from './city/delete-city/delete-city.component';
 import { ListCityComponent } from './city/list-city/list-city.component';
-
+import { ListAdviserComponent } from './adviser/list-adviser/list-adviser.component';
+import { EditAdviserComponent } from './adviser/edit-adviser/edit-adviser.component';
+import { DeleteAdviserComponent } from './adviser/delete-adviser/delete-adviser.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ListCityComponent } from './city/list-city/list-city.component';
     EditCityComponent,
     DeleteCityComponent,
     ListCityComponent,
-
+    ListAdviserComponent,
+    EditAdviserComponent,
+    DeleteAdviserComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +44,6 @@ import { ListCityComponent } from './city/list-city/list-city.component';
     NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,
-  ]
+  ],
 })
-export class ParametersModule { }
+export class ParametersModule {}

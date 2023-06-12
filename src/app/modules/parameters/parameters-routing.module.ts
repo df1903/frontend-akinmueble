@@ -13,6 +13,9 @@ import { CreateCityComponent } from './city/create-city/create-city.component';
 import { DeleteCityComponent } from './city/delete-city/delete-city.component';
 import { EditCityComponent } from './city/edit-city/edit-city.component';
 import { ListCityComponent } from './city/list-city/list-city.component';
+import { DeleteAdviserComponent } from './adviser/delete-adviser/delete-adviser.component';
+import { EditAdviserComponent } from './adviser/edit-adviser/edit-adviser.component';
+import { ListAdviserComponent } from './adviser/list-adviser/list-adviser.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -78,6 +81,23 @@ const routes: Routes = [
   {
     path: 'list-city', // List City path
     component: ListCityComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+
+  /** Adviser CRUD */
+  {
+    path: 'delete-adviser/:id', // Delete Adviser path
+    component: DeleteAdviserComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'edit-adviser/:id', // Edit Adviser path
+    component: EditAdviserComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-adviser', // List Adviser path
+    component: ListAdviserComponent,
     canActivate: [ActiveSessionGuard],
   },
 ];
