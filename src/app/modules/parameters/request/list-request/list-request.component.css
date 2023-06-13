@@ -88,3 +88,29 @@ td {
 .study {
   background-color: #ffa600;
 }
+
+.filter-from {
+  display: flex;
+  position: sticky;
+}
+
+.filter {
+  border-bottom: #3ddb8f solid 3px;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-btn {
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 5px;
+  margin: 5px;
+  color: #ffffff;
+  background-color: #3ddb8f;
+  display: flex;
+  justify-content: center;
+}

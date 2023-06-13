@@ -45,4 +45,14 @@ export class RequestService {
   changeAdviser(data: RequestModel) {
     return this.http.post<boolean>(`${this.urlLogic}/adviser-change`, data);
   }
+
+  getRequestStatus(filter: any): Observable<any> {
+    let queryParams = '';
+    if (filter != '') {
+      queryParams = JSON.stringify(filter);
+    }
+    return this.http.get<boolean>(
+      `${this.urlLogic}/request-status?filter=${queryParams.toString()}`
+    );
+  }
 }

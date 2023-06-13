@@ -1,5 +1,24 @@
 <div class="container">
   <h1>Requests</h1>
+  <!-- Filter View -->
+  <form action="" [formGroup]="fgroup">
+    <div class="row filter">
+      <div class="input-field col s6">
+        <select formControlName="status" id="status">
+          <option value="" disabled>Request Status</option>
+          <option value="{{ -1 }}">All</option>
+          <option *ngFor="let s of requestStatus" [value]="s.id">
+            {{ s.name }}
+          </option>
+        </select>
+        <label>Select Request Status</label>
+      </div>
+      <div class="input-field col s6">
+        <a class="filter-btn" (click)="get()">FILTER</a>
+      </div>
+    </div>
+  </form>
+
   <table>
     <thead>
       <tr>
