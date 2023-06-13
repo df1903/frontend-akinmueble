@@ -95,7 +95,7 @@ export class CreateContractsComponent {
         let model = this.get();
         this.ContractSvc.createcontract(model).subscribe({
           next: (data: ContractsModel) => {
-            alert('Property Created Successfully');
+            alert('Contract Created Successfully');
             let err = false;
             for (let i = 0; i < this.fileNames.length; i++) {
               let contract: ContractsModel = {

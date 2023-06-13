@@ -38,13 +38,13 @@ export namespace SideMenuConfig {
     },
     {
       id: '643dd78b0349685918540d7c',
-      route: '/parameters/list-contract',
+      route: '/parameters/list-contracts',
       icon: 'reorder',
       label: 'Contracts',
     },
     {
       id: '643dd7a90349685918540d7e',
-      route: '/parameters/list-guarantors',
+      route: '/parameters/list-guarantor',
       icon: 'reorder',
       label: 'Guarantors',
     },

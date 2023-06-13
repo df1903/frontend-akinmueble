@@ -12,6 +12,10 @@ import { CreateContractsComponent } from './contracts/create-contracts/create-co
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
 import { EditContractsComponent } from './contracts/edit-contracts/edit-contracts.component';
+import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guarantor.component';
+import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
+import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
+import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-guarantor.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -80,6 +84,29 @@ const routes: Routes = [
   {
     path: 'edit-contracts', // Edit contracts path
     component: EditContractsComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  /*CRUD Guarantor*/
+  {
+    path: 'create-guarantor', // create contracts path
+    component: CreateGuarantorComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-guarantor', // List contracts path
+    component: ListGuarantorComponent,
+    canActivate: [ActiveSessionGuard],
+  }
+  ,
+  {
+    path: 'delete-guarantor', // Delete contracts path
+    component: DeleteGuarantorComponent,
+    canActivate: [ActiveSessionGuard],
+  }
+  ,
+  {
+    path: 'edit-guarantor', // Edit contracts path
+    component: EditGuarantorComponent,
     canActivate: [ActiveSessionGuard],
   }
 ];

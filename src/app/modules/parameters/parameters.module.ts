@@ -16,6 +16,10 @@ import { EditContractsComponent } from './contracts/edit-contracts/edit-contract
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
 import { CreateContractsComponent } from './contracts/create-contracts/create-contracts.component';
+import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-guarantor.component';
+import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
+import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guarantor.component';
+import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
 
 
 @NgModule({
@@ -31,7 +35,11 @@ import { CreateContractsComponent } from './contracts/create-contracts/create-co
     EditContractsComponent,
     ListContractsComponent,
     DeleteContractsComponent,
-    CreateContractsComponent
+    CreateContractsComponent,
+    CreateGuarantorComponent,
+    DeleteGuarantorComponent,
+    EditGuarantorComponent,
+    ListGuarantorComponent
    ],
   imports: [
     CommonModule,
