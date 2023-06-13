@@ -47,7 +47,10 @@
                 >View</a
               >
             </div>
-            <div class="col s2" *ngIf="user.roleId == adminId">
+            <div
+              class="col s2"
+              *ngIf="user.roleId == adminId || user.roleId == clientId"
+            >
               <a
                 class="btn edit"
                 routerLink="/parameters/edit-request/{{ data.id }}"

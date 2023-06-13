@@ -1,1 +1,44 @@
-<p>edit-request works!</p>
+<div class="container">
+  <h1>Edit Request</h1>
+  <div class="row">
+    <form [formGroup]="dataFG" class="row">
+      <div class="input-field col s12">
+        <input
+          formControlName="comment"
+          id="comment"
+          type="text"
+          class="validate"
+        />
+        <label for="comment">Comment</label>
+      </div>
+      <div class="input-field col s12">
+        <input
+          formControlName="endOfRent"
+          id="endOfRent"
+          type="text"
+          class="validate"
+        />
+        <label for="endOfRent">Fecha de Fin de Renta</label>
+      </div>
+      <div class="input-field col s12">
+        <select formControlName="adviserId" id="adviserId" class="validate">
+          <option value="" disabled selected>Select Adviser Document</option>
+          <option *ngFor="let a of advisers" [value]="a.id">
+            {{ a.document }} {{ a.firstName }} {{ a.firstLastname }}
+          </option>
+        </select>
+        <label for="adviserId">Adviser</label>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s6 send">
+      <a class="btn send cancel" routerLink="/parameters/list-request"
+        >Cancel</a
+      >
+    </div>
+    <div class="col s6 send">
+      <button class="btn send" (click)="editRequest()">Edit Request</button>
+    </div>
+  </div>
+</div>
