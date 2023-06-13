@@ -20,6 +20,9 @@ import { CreatePropertyTypeComponent } from './property-type/create-property-typ
 import { DeletePropertyTypeComponent } from './property-type/delete-property-type/delete-property-type.component';
 import { EditPropertyTypeComponent } from './property-type/edit-property-type/edit-property-type.component';
 import { ListPropertyTypeComponent } from './property-type/list-property-type/list-property-type.component';
+import { DeleteRequestComponent } from './request/delete-request/delete-request.component';
+import { EditRequestComponent } from './request/edit-request/edit-request.component';
+import { ListRequestComponent } from './request/list-request/list-request.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -124,6 +127,23 @@ const routes: Routes = [
   {
     path: 'list-property-type', // List Property Type path
     component: ListPropertyTypeComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+
+  /** Request CRUD */
+  {
+    path: 'delete-request/:id', // Delete Request path
+    component: DeleteRequestComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'edit-request/:id', // Edit Request path
+    component: EditRequestComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-request', // List Request path
+    component: ListRequestComponent,
     canActivate: [ActiveSessionGuard],
   },
 ];

@@ -23,6 +23,9 @@ import { ListPropertyTypeComponent } from './property-type/list-property-type/li
 import { CreatePropertyTypeComponent } from './property-type/create-property-type/create-property-type.component';
 import { DeletePropertyTypeComponent } from './property-type/delete-property-type/delete-property-type.component';
 import { EditPropertyTypeComponent } from './property-type/edit-property-type/edit-property-type.component';
+import { ListRequestComponent } from './request/list-request/list-request.component';
+import { EditRequestComponent } from './request/edit-request/edit-request.component';
+import { DeleteRequestComponent } from './request/delete-request/delete-request.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { EditPropertyTypeComponent } from './property-type/edit-property-type/ed
     CreatePropertyTypeComponent,
     DeletePropertyTypeComponent,
     EditPropertyTypeComponent,
+    ListRequestComponent,
+    EditRequestComponent,
+    DeleteRequestComponent,
   ],
   imports: [
     CommonModule,
