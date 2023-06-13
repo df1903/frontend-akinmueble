@@ -49,8 +49,8 @@ export class CreateGuarantorComponent {
       firstLastname: fields['firstLastname'].value,
       secondLastname: fields['secondLastname'].value,
       email: fields['email'].value,
+      workingLetter: fields['workingLetter'].value,
       phone: this.getNumber(),
-      workingLetter: fields['workingLetter'].value
     };
     if (data.phone == '') {
       return alert('Invalid Phone Format');

@@ -102,25 +102,23 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="row">
-                            <div class="input-field center-align">
-                              <input
-                                formControlName="workingLetter"
-                                id="workingLetter"
-                                type="text"
-                                class="validate"
-                              />
-                              <label for="workingLetter">Working Letter</label>
-                              <div
-                                class="show-errors"
-                                *ngIf="
-                                  GetFormGroup['workingLetter'].errors &&
-                                  (GetFormGroup['workingLetter'].dirty || GetFormGroup['workingLetter'].touched)
-                                "
-                              >
-                                <strong>This field is required</strong>
-                              </div>
-                            </div>
+                        <div class="input-field center-align">
+                          <input
+                            formControlName="workingLetter"
+                            id="workingLetter"
+                            type="text"
+                            class="validate"
+                          />
+                          <label for="workingLetter">Working Letter</label>
+                          <div
+                            class="show-errors"
+                            *ngIf="
+                              GetFormGroup['workingLetter'].errors &&
+                              (GetFormGroup['workingLetter'].dirty || GetFormGroup['workingLetter'].touched)
+                            "
+                          >
+                            <strong>This field is required</strong>
+                          </div>
                         </div>
                         <div class="input-field center-align">
                           <input

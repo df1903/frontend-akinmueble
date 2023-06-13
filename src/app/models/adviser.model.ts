@@ -1,4 +1,4 @@
-export class ClientModel {
+export class AdviserModel {
     id?: number;
     document?: string;
     firstName?: string;
@@ -7,6 +7,5 @@ export class ClientModel {
     secondLastname?: string;
     email?: string;
     phone?: string;
-    hashCode?: string;
-    validatedEmail?: boolean;
-}
+    accepted?: number;
+  }
