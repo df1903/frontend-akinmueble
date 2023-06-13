@@ -32,10 +32,7 @@ export class DeletePropertyComponent {
     let data = this.security.sessionValidation();
     if (data != null) {
       console.log(data.user);
-      if (
-        data.user?.roleId == RolesConfig.administratorId ||
-        data.user?.roleId == RolesConfig.adviserId
-      ) {
+      if (data.user?.roleId == RolesConfig.administratorId) {
         this.getProperty();
       } else {
         this.router.navigate(['/security/login']);
@@ -57,7 +54,7 @@ export class DeletePropertyComponent {
         this.router.navigate(['parameters/list-property']);
       },
       error: (err: any) => {
-        alert("ERROR: The file can't be accessed or can't be deleted")
+        alert("ERROR: The file can't be accessed or can't be deleted");
       },
     });
   }

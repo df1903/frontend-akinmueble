@@ -54,14 +54,7 @@ export class CodeVerificationComponent implements OnInit {
             this.securityService.getSessionData().subscribe({
               next: (data: UserValidatedModel) => {
                 if (data.token != '') {
-                  let user = data.user!;
-                  if (user.roleId != RolesConfig.administratorId) {
-                    this.router.navigate(['/admin-page']);
-                  } else if (user.roleId != RolesConfig.adviserId) {
-                    this.router.navigate(['/adviser-page']);
-                  } else {
-                    this.router.navigate(['/properties']);
-                  }
+                  this.router.navigate(['/properties']);
                 } else {
                   this.router.navigate(['']);
                 }

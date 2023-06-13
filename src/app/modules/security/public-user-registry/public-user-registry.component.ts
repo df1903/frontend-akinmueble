@@ -47,6 +47,7 @@ export class PublicUserRegistryComponent {
     };
     this.businessLogicService.RegisterPublicUser(data).subscribe({
       next: (data) => {
+        console.log(data);
         alert('Registration successful, please check your email.');
         this.router.navigate(['']);
       },

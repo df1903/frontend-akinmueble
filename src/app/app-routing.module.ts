@@ -4,7 +4,7 @@ import { HomeComponent } from './public/home/home.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
-import {MissionAndVisionComponent} from './public/mission-and-vision/mission-and-vision.component'
+import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 import { LoaderComponent } from './public/loader/loader.component';
 import { InactiveSessionGuard } from './guardians/inactive-session.guard';
@@ -51,10 +51,6 @@ const routes: Routes = [
   {
     path: 'adviser-page', // Managment adviser
     component: AdviserPageComponent,
-  },
-  {
-    path: 'client-page', // Managment client
-    component: HomeComponent,
   },
   {
     path: 'security', // Security module path

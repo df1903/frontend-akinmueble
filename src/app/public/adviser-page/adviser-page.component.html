@@ -1,70 +1,74 @@
 <div class="container">
   <div class="row header">
-    <h1>Hello, {{user.firstName}} {{user.firstLastname}}!</h1>
+    <h1>Hello, {{ user.firstName }} {{ user.firstLastname }}!</h1>
+  </div>
+  <div class="row header">
+    <h2>Actions</h2>
   </div>
   <div class="row">
+    <div class="col s6">
+      <a class="btn" (click)="goToProperties()">Manage Properties></a>
+    </div>
+    <div class="col s6">
+      <a class="btn" (click)="goToRequests()">Manage Requests></a>
+    </div>
+  </div>
+  <div class="row header">
+    <h2>Statistics</h2>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <h3>Properties</h3>
+    </div>
+    <div class="col s6">
+      <p>Total Properties</p>
+      <div class="card">
+        <p>{{ properties }}</p>
+      </div>
+    </div>
+    <div class="col s6">
+      <p>Total Commissioned Properties</p>
+      <div class="card">
+        <p>{{ propertiesMine }}</p>
+      </div>
+    </div>
+    <div class="col s12">
+      <h3>Requests</h3>
+    </div>
     <div class="col s4">
-      <div class="row">
-        <p>Properties</p>
-        <div class="card">
-          <p>
-            {{properties}}
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <p>For Sale Properties</p>
-        <div class="card">
-          <p>
-            {{sale_properties}}
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <p>For Rent Properties</p>
-        <div class="card">
-          <p>
-            {{rented_properties}}
-          </p>
-        </div>
+      <p>Total Requests</p>
+      <div class="card">
+        <p>{{ requests }}</p>
       </div>
     </div>
     <div class="col s4">
-      <div class="row">
-        <p>Total Clients</p>
-        <div class="card">
-          <p>{{clients}}</p></div>
-      </div>
-      <div class="row">
-        <p>Accepted Advisers</p>
-        <div class="card"><p>{{advisers}}</p></div>
-      </div>
-      <div class="row">
-        <p>Accepted Requests</p>
-        <div class="card"><p>{{requests}}</p></div>
+      <p>My Requests Pending</p>
+      <div class="card">
+        <p>{{ requestsPending }}</p>
       </div>
     </div>
-    <div class="col s4 buttons">
-      <div class="row">
-        <p>Actions</p>
+    <div class="col s4">
+      <p>My Requests in Study</p>
+      <div class="card">
+        <p>{{ requestsStudy }}</p>
       </div>
-      <div class="row row-btn">
-        <button class="btn">Manage Advisers</button>
+    </div>
+    <div class="col s4">
+      <p>My Requests Accepted</p>
+      <div class="card">
+        <p>{{ requestsAccepted }}</p>
       </div>
-      <div class="row row-btn">
-        <button class="btn">Manage Department</button>
+    </div>
+    <div class="col s4">
+      <p>My Requests Rejected</p>
+      <div class="card">
+        <p>{{ requestsRejected }}</p>
       </div>
-      <div class="row row-btn">
-        <button class="btn">Manage City</button>
-      </div>
-      <div class="row row-btn">
-        <button class="btn">Manage Clients</button>
-      </div>
-      <div class="row row-btn">
-        <button class="btn">Manage Requests</button>
-      </div>
-      <div class="row row-btn">
-        <button class="btn">Manage Property Types</button>
+    </div>
+    <div class="col s4">
+      <p>My Requests Accepted with Guarantor</p>
+      <div class="card">
+        <p>{{ requestsGuarantor }}</p>
       </div>
     </div>
   </div>

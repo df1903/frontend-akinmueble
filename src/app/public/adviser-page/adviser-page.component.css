@@ -19,24 +19,36 @@
   align-items: center;
 }
 
-.buttons .row {
-  display: flex;
-}
-
 .btn {
   background-color: #3ddb8f;
   border: #3ddb8f solid 2px;
   border-radius: 20px;
-  width: 80%;
+  width: 100%;
   font-weight: bold;
-}
-
-.row-btn {
-  margin: auto;
+  margin: 10px;
 }
 
 p {
   font-size: 20px;
+  color: #3ddb8f;
+  font-weight: bold;
+}
+
+h1 {
+  display: flex;
+  color: #3ddb8f;
+  justify-content: center;
+  font-weight: bold;
+}
+
+h2 {
+  display: flex;
+  color: #3ddb8f;
+  justify-content: center;
+  font-weight: bold;
+}
+
+h3 {
   color: #3ddb8f;
   font-weight: bold;
 }

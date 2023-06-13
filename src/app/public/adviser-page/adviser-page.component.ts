@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
+import { PropertyModel } from 'src/app/models/Property.model';
 import { UserModel } from 'src/app/models/User.model';
 import { UserValidatedModel } from 'src/app/models/UserValidated.model';
 import { AdviserService } from 'src/app/services/parameters/adviser.service';
@@ -16,13 +17,17 @@ import { SecurityService } from 'src/app/services/security.service';
 })
 export class AdviserPageComponent {
   user: UserModel = new UserModel();
+  adviserId: number = 0;
 
   properties: number = 0;
-  clients: number = 0;
-  sale_properties: number = 0;
-  rented_properties: number = 0;
-  advisers: number = 0;
+  propertiesMine: number = 0;
   requests: number = 0;
+  requestsAccepted: number = 0;
+  requestsRejected: number = 0;
+  requestsGuarantor: number = 0;
+  requestsPending: number = 0;
+  requestsStudy: number = 0;
+  clients: number = 0;
 
   constructor(
     private securityService: SecurityService,
@@ -36,8 +41,6 @@ export class AdviserPageComponent {
   ngOnInit() {
     this.sessionValidation();
     this.getProperties();
-    this.getClient();
-    this.getAdvisers();
     this.getRequests();
   }
 
@@ -46,8 +49,9 @@ export class AdviserPageComponent {
       next: (data: UserValidatedModel) => {
         if (data.token != '') {
           this.user = data.user!;
+          this.adviserId = this.user.accountId!;
           if (this.user.roleId != RolesConfig.adviserId) {
-            this.router.navigate([""]);
+            this.router.navigate(['']);
           }
         } else {
           this.router.navigate(['']);
@@ -62,44 +66,11 @@ export class AdviserPageComponent {
   getProperties() {
     this.propertySvc.getProperties('').subscribe({
       next: (properties: any) => {
-        let saleProperties: any[] = properties.records.filter(
-          (property: any) => property.sell === true
-        );
-
-        let rentedProperties = properties.records.filter(
-          (property: any) => property.rent === true
-        );
-
-        this.sale_properties = saleProperties.length;
-        this.rented_properties = rentedProperties.length;
         this.properties = properties.total;
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
-  }
-
-  getClient() {
-    this.clientSvc.getClients('').subscribe({
-      next: (data: any) => {
-        this.clients = data.total;
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
-  }
-
-  getAdvisers() {
-    let filter = {
-      where: {
-        accepted: 1,
-      },
-    };
-    this.adviserSvc.getAdvisers(filter).subscribe({
-      next: (data: any) => {
-        this.advisers = data.records.length;
+        let myProperties: any[] = properties.records.filter(
+          (property: PropertyModel) => property.adviserId == this.adviserId
+        );
+        this.propertiesMine = myProperties.length;
       },
       error: (err: any) => {
         console.log(err);
@@ -108,18 +79,53 @@ export class AdviserPageComponent {
   }
 
   getRequests() {
-    let filter = {
-      where: {
-        or: [{ requestStatusId: 4 }, { requestStatusId: 5 }],
-      },
-    };
+    let filter = {};
     this.requestSvc.getRequests(filter).subscribe({
       next: (data: any) => {
+        let requestsPending: any[] = data.records.filter(
+          (requests: any) =>
+            requests.requestStatusId == 1 &&
+            requests.adviserId == this.adviserId
+        );
+        let requestsStudy: any[] = data.records.filter(
+          (requests: any) =>
+            requests.requestStatusId == 2 &&
+            requests.adviserId == this.adviserId
+        );
+        let requestsAccepted: any[] = data.records.filter(
+          (requests: any) =>
+            requests.requestStatusId == 3 &&
+            requests.adviserId == this.adviserId
+        );
+        let requestsRejected: any[] = data.records.filter(
+          (requests: any) =>
+            requests.requestStatusId == 4 &&
+            requests.adviserId == this.adviserId
+        );
+        let requestsGuarantor: any[] = data.records.filter(
+          (requests: any) =>
+            requests.requestStatusId == 1 &&
+            requests.adviserId == this.adviserId
+        );
+        console.log(requestsAccepted);
         this.requests = data.records.length;
+        this.requestsPending = requestsPending.length;
+        this.requestsStudy = requestsStudy.length;
+        this.requestsAccepted = requestsAccepted.length;
+        this.requestsRejected = requestsRejected.length;
+        this.requestsGuarantor = requestsGuarantor.length;
       },
       error: (err: any) => {
         console.log(err);
       },
     });
+  }
+
+  goToProperties() {
+    this.router.navigate(['/parameters/list-property']);
+  }
+
+  goToRequests() {
+    this.router.navigate(['/parameters/list-request']);
   }
 }

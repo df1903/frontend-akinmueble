@@ -52,7 +52,7 @@ export class AdminPageComponent {
         if (data.token != '') {
           this.user = data.user!;
           if (this.user.roleId != RolesConfig.administratorId) {
-            this.router.navigate(['/adviser-page']);
+            this.router.navigate(['']);
           }
         } else {
           this.router.navigate(['']);
