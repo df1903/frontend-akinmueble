@@ -1,1 +1,155 @@
-<p>review-request works!</p>
+<div class="container">
+  <h1>Review Request</h1>
+  <p class="header">ID: {{ requestId }}</p>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="showImage center-align">
+          <div class="carousel">
+            <a class="carousel-item" *ngFor="let file of fileNames">
+              <img src="{{ logicUrl }}/GetFiles/1/{{ file.route }}" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <div class="row">
+        <H5>General Information</H5>
+        <div class="col s6">
+          <p><strong>Request Type:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ request.requestType.name }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Rent Price: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.rentalPrice }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Sell Price: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.salePrice }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="row">
+        <H5>Property Information</H5>
+        <div class="col s6">
+          <p><strong>Property Type:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.propertyType.name }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Address: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.address }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Ubication: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.city.name }}, {{ property.city.department.name }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="row">
+        <H5>Client Information</H5>
+        <div class="col s6">
+          <p><strong>Name:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ client.firstName }} {{ client.firstLastname }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Document: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ client.document }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Email: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ client.email }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Phone: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ client.phone }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s6" *ngIf="request.requestStatusId == 4">
+      <div class="row">
+        <H5>Guarantor Information</H5>
+        <div class="col s6">
+          <p><strong>Name:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>
+            {{ request.guarantor.firstName }}
+            {{ request.guarantor.firstLastname }}
+          </p>
+        </div>
+        <div class="col s6">
+          <p><strong>Document: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ request.guarantor.document }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Email: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ request.guarantor.email }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Phone: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ request.guarantor.phone }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="input-field col s12">
+      <div class="row"><h5>Comments</h5></div>
+
+      <form class="row" [formGroup]="dataFG">
+        <textarea
+          formControlName="comment"
+          id="message"
+          class="materialize-textarea"
+        ></textarea>
+      </form>
+    </div>
+  </div>
+  <div class="row separator"></div>
+  <div class="row" *ngIf="request.requestStatusId == 2">
+    <div class="col s12" *ngIf="user.roleId != clientRoleId">
+      <div class="row">
+        <div class="col s4">
+          <button class="btn" (click)="acceptRequest()">ACCEPT</button>
+        </div>
+        <div class="col s4">
+          <button class="btn reject" (click)="rejectRequest()">REJECT</button>
+        </div>
+        <div class="col s4">
+          <button class="btn guarantor" (click)="guarantorRequest()">
+            ACCEPT W/ GUARANTOR
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -144,17 +144,17 @@ const routes: Routes = [
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'review-request/:id', // List Request path
+    path: 'review-request/:id', // Review Request path
     component: ReviewRequestComponent,
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'view-request/:id', // List Request path
+    path: 'view-request/:id', // View Request path
     component: HomeComponent,
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'cancel-request/:id', // List Request path
+    path: 'cancel-request/:id', // Cancel Request path
     component: CancelRequestComponent,
     canActivate: [ActiveSessionGuard],
   },
