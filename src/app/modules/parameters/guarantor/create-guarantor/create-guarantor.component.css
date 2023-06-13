@@ -1,0 +1,30 @@
+.component-2{
+  width: 85%;
+}
+.component-1{
+  width: 85%;
+  margin-left: 100px
+}
+@media (max-width: 768px) {
+  /* Estilos para pantallas con un ancho máximo de 768px */
+  .component-1 {
+    width: 100%;
+    margin-left: 0;
+  }
+  .titulo{
+    margin-top: -15px;
+    font-size: 20px;
+  }
+}
+.titulo{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color:#3ddb8f ;
+}
+.btnSend{
+  text-align: center;
+  color: #3ddb8f;
+  margin-bottom: 30px;
+}
+

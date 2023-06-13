@@ -22,6 +22,7 @@ import { PublicUserRegistryComponent } from './public-user-registry/public-user-
 import { GeneralConfig } from 'src/app/config/general.config';
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
 import { ChangeContactInfoComponent } from './change-contact-info/change-contact-info.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ChangeContactInfoComponent } from './change-contact-info/change-contact
     PublicUserRegistryComponent,
     HashVerificationComponent,
     ChangeContactInfoComponent,
+    ProfileUserComponent,
   ],
   imports: [
     CommonModule,

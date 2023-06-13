@@ -4,3 +4,4 @@ export class CityModel {
   departmentId?: number;
   department?: any;
 }
+

@@ -14,6 +14,7 @@ import { HashVerificationComponent } from './hash-verification/hash-verification
 import { InactiveSessionGuard } from 'src/app/guardians/inactive-session.guard';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
 import { ChangeContactInfoComponent } from './change-contact-info/change-contact-info.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 const routes: Routes = [
   {
@@ -72,11 +73,21 @@ const routes: Routes = [
     component: DeleteUserComponent,
     canActivate: [ActiveSessionGuard],
   },
+  
   // Edit System Variables
   {
     path: 'change-contact-info', // Managment Contact Info
     component: ChangeContactInfoComponent,
+    canActivate: [ActiveSessionGuard],
   },
+  
+  // User Profile
+  {
+    path: 'profile-user', // User Profile
+    component: ProfileUserComponent,
+    canActivate: [ActiveSessionGuard],
+ },
+
 ];
 
 @NgModule({

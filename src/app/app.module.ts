@@ -25,6 +25,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PropertiesComponent } from './public/properties/properties.component';
 import { AdminPageComponent } from './public/admin-page/admin-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

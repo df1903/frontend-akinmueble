@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
+import { PropertyModel } from 'src/app/models/Property.model';
+import { PhotoModel } from 'src/app/models/photo.model';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { PhotoModel } from 'src/app/models/Photo.model';
