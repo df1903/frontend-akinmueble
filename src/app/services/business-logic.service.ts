@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ContactFormModel } from '../models/ContactForm.model';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
+import { PagerConfig } from '../config/pager.config';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +34,5 @@ export class BusinessLogicService {
     });
   }
 
-  getProperties(filter: any): Observable<any> {
-    
-    return this.http.get<boolean>(`${this.urlLogic}/public-property${filter}`)
-    
-  }
+
 }

@@ -20,6 +20,9 @@ import { MissionAndVisionComponent } from './public/mission-and-vision/mission-a
 import { LoaderModule } from './public/loader/loader.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { SidenavComponent } from './public/master-page/sidenav/sidenav.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PropertiesComponent } from './public/properties/properties.component';
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import { SidenavComponent } from './public/master-page/sidenav/sidenav.component
     PublicRegistryRequestingAdviceComponent,
     MissionAndVisionComponent,
     SidenavComponent,
+    PropertiesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +48,11 @@ import { SidenavComponent } from './public/master-page/sidenav/sidenav.component
     ReactiveFormsModule,
     FormsModule,
     LoaderModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
 })

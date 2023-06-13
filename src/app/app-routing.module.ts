@@ -8,6 +8,7 @@ import {MissionAndVisionComponent} from './public/mission-and-vision/mission-and
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
 import { LoaderComponent } from './public/loader/loader.component';
 import { InactiveSessionGuard } from './guardians/inactive-session.guard';
+import { PropertiesComponent } from './public/properties/properties.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'mission-vision', // Page mission and vision
     component: MissionAndVisionComponent,
+  },
+  {
+    path: 'properties', // Page mission and vision
+    component: PropertiesComponent,
   },
   {
     path: 'security', // Security module path

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListPropertyComponent } from './property/list-property/list-property.component';
 import { CreatePropertyComponent } from './property/create-property/create-property.component';
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
@@ -17,6 +16,9 @@ import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-gu
 import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
 import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-guarantor.component';
 import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/view-commen-requests.component';
+import { ListPropertyComponent } from './property/list-property/list-property.component';
+import { DeletePropertyComponent } from './property/delete-property/delete-property.component';
+
 
 const routes: Routes = [
   /** Property CRUD */
@@ -27,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'delete-property', // Delete Property path
-    component: ListPropertyComponent,
+    component: DeletePropertyComponent,
     canActivate: [ActiveSessionGuard],
   },
   {

@@ -120,7 +120,18 @@ export class SecurityService {
    * @returns session data
    */
   getSessionData(): Observable<UserValidatedModel> {
+    let ls = localStorage.getItem('session-data');
     return this.userValidatedData.asObservable();
+  }
+
+  getToken(): any {
+    let ls = localStorage.getItem('session-data');
+    if (ls) {
+      let user: UserValidatedModel = JSON.parse(ls)
+      return user.token!;
+    } else {
+      return ""
+    }
   }
 
   /**
