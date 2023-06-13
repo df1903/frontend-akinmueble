@@ -4,11 +4,12 @@ import { HomeComponent } from './public/home/home.component';
 import { PathNotFoundComponent } from './public/errors/path-not-found/path-not-found.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
-import {MissionAndVisionComponent} from './public/mission-and-vision/mission-and-vision.component'
+import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
-import { LoaderComponent } from './public/loader/loader.component';
 import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 import { PropertiesComponent } from './public/properties/properties.component';
+import { AdminPageComponent } from './public/admin-page/admin-page.component';
+import { AdviserPageComponent } from './public/adviser-page/adviser-page.component';
 
 const routes: Routes = [
   {
@@ -39,8 +40,16 @@ const routes: Routes = [
     component: MissionAndVisionComponent,
   },
   {
-    path: 'properties', // Page mission and vision
+    path: 'properties', // View of the public properties
     component: PropertiesComponent,
+  },
+  {
+    path: 'admin-page', // Managment admin
+    component: AdminPageComponent,
+  },
+  {
+    path: 'adviser-page', // Managment adviser
+    component: AdviserPageComponent,
   },
   {
     path: 'security', // Security module path

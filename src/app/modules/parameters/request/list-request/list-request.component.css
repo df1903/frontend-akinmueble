@@ -1,0 +1,114 @@
+.my-pagination ::ng-deep .ngx-pagination {
+  background: #3ddb8f;
+}
+
+.my-pagination ::ng-deep .ngx-pagination {
+  background: #3ddb8f;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .pagination-previous {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .pagination-next a {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination li {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #2da068;
+}
+
+.my-pagination ::ng-deep .ngx-pagination li a {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination li a:hover {
+  color: #2da068;
+  font-size: 30px;
+}
+
+.btn {
+  background-color: #3ddb8f;
+  justify-content: center;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 10px;
+  align-items: center;
+}
+
+.delete {
+  background-color: #ff0000;
+}
+
+.department {
+  display: flex;
+  width: 200px;
+  margin: auto;
+}
+
+h1 {
+  display: flex;
+  color: #3ddb8f;
+  justify-content: center;
+}
+
+.container {
+  justify-content: center;
+}
+
+td {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.row {
+  display: flex;
+}
+
+.review {
+  background-color: #0004ff;
+}
+
+.look {
+  background-color: #00ccff;
+}
+
+.study {
+  background-color: #ffa600;
+}
+
+.filter-from {
+  display: flex;
+  position: sticky;
+}
+
+.filter {
+  border-bottom: #3ddb8f solid 3px;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-btn {
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 5px;
+  margin: 5px;
+  color: #ffffff;
+  background-color: #3ddb8f;
+  display: flex;
+  justify-content: center;
+}

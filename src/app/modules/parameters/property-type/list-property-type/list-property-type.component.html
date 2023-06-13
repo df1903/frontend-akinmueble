@@ -1,0 +1,78 @@
+<div class="container">
+  <h1>Property Types</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Rent Participation</th>
+        <th>Sell Participation</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <th colspan="6">
+          <a
+            class="btn department"
+            routerLink="/parameters/create-property-type"
+            >Add Property Type</a
+          >
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let data of propertyTypes
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: page,
+                  totalItems: total
+                }
+        "
+      >
+        <td>{{ data.id }}</td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.rentParticipationPercentage }}%</td>
+        <td>{{ data.sellParticipationPercentage }}%</td>
+        <td>{{ data.description }}</td>
+        <td>
+          <div class="row">
+            <div class="col s2">
+              <a
+                class="btn edit"
+                routerLink="/parameters/edit-property-type/{{ data.id }}"
+                >Edit</a
+              >
+            </div>
+            <div class="col s2">
+              <a
+                class="btn delete"
+                routerLink="/parameters/delete-property-type/{{ data.id }}"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Pager View -->
+<div class="container">
+  <div class="row">
+    <div class="my-pagination">
+      <pagination-controls
+        (pageChange)="page = $event; get()"
+        previousLabel=""
+        nextLabel=""
+        screenReaderPaginationLabel="Navegation"
+        screenReaderPageLabel="Page"
+        screenReaderCurrentLabel="Actual Page"
+        class="pager"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

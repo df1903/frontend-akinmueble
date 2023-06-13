@@ -6,6 +6,8 @@ import { PropertyModel } from 'src/app/models/Property.model';
 import { PhotoModel } from 'src/app/models/photo.model';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
+import { PhotoModel } from 'src/app/models/Photo.model';
+import { PropertyModel } from 'src/app/models/Property.model';
 
 @Injectable({
   providedIn: 'root'
@@ -72,10 +74,5 @@ export class PropertyService {
 
   deletePhoto(id: number): Observable<any> {
     return this.http.delete<boolean>(`${this.urlLogic}/photo/${id}`)
-  }
-
-  getPhotos(): Observable<any> {
-    return this.http.get<boolean>(`${this.urlLogic}/photo`)
-
   }
 }

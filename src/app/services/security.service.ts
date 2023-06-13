@@ -183,10 +183,9 @@ export class SecurityService {
    */
   buildSideMenu(permissions: PermissionsModel[]) {
     let menu: ItemMenuModel[] = [];
-    console.log(menu);
     permissions.forEach((permission) => {
       let routeData = SideMenuConfig.getMenus.filter(
-        (x) => x.id == permission.menuId
+        (x) => (x.id == permission.menuId && permission.list == true)
       );
       if (routeData.length > 0) {
         let item = new ItemMenuModel();

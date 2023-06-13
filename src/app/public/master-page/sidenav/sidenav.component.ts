@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { RolesConfig } from 'src/app/config/roles.config';
 import { ItemMenuModel } from 'src/app/models/ItemMenu.model';
 import { UserModel } from 'src/app/models/User.model';
 import { UserValidatedModel } from 'src/app/models/UserValidated.model';
@@ -24,11 +25,6 @@ export class SidenavComponent implements OnInit, AfterViewInit {
       route: '/security/profile-user',
       icon: 'account_circle',
     },
-    {
-      label: 'Explore',
-      route: '',
-      icon: 'search',
-    },
   ];
 
   menuSiteOptions: ItemMenuModel[] = [];
@@ -37,14 +33,39 @@ export class SidenavComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.sessionValidation();
+    this.getPersonalMenu();
+  }
+
+  getPersonalMenu() {
+    if (this.user.roleId == RolesConfig.administratorId) {
+      this.menuPersonalOptions.push({
+        label: 'Managment',
+        route: '/admin-page',
+        icon: 'account_circle',
+      });
+    }
+    if (this.user.roleId == RolesConfig.adviserId) {
+      this.menuPersonalOptions.push({
+        label: 'Managment',
+        route: '/adviser-page',
+        icon: 'account_circle',
+      });
+    }
+    if (this.user.roleId == RolesConfig.clientId) {
+      this.menuPersonalOptions.push({
+        label: 'Managment',
+        route: '/client-page',
+        icon: 'account_circle',
+      });
+    }
   }
 
   toggleMenuExpansion(event: Event) {
+    console.log('Opening...');
     event.stopPropagation();
     this.isExpanded = !this.isExpanded;
     this.moveButtonWithMenu();
     this.menuSiteOptions = this.securityService.getSideMenuItems();
-    console.log(this.menuSiteOptions);
   }
 
   moveButtonWithMenu() {
@@ -63,9 +84,6 @@ export class SidenavComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     M.Sidenav.init(document.getElementById('side-menu'));
-
-    const dropdowns = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(dropdowns);
   }
 
   sessionValidation() {

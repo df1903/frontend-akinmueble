@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Confirm Delete Property Type</h1>
+  <div class="row">
+    <div class="col s12">
+      <p><strong>Name: </strong>{{ propertyType.name }}</p>
+    </div>
+    <div class="col s12">
+      <p>
+        <strong>Rent Participation: </strong
+        >{{ propertyType.rentParticipationPercentage }}%
+      </p>
+    </div>
+    <div class="col s12">
+      <p>
+        <strong>Sell Participation: </strong
+        >{{ propertyType.sellParticipationPercentage }}%
+      </p>
+    </div>
+    <div class="col s12">
+      <p><strong>Description: </strong>{{ propertyType.description }}</p>
+    </div>
+    <div class="row">
+      <div class="col s6 send">
+        <a class="btn send cancel" routerLink="/parameters/list-property-type"
+          >Cancel</a
+        >
+      </div>
+      <div class="col s6 send">
+        <a class="btn send" (click)="deletePropertyType()">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

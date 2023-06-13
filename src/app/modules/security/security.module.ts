@@ -21,6 +21,7 @@ import { LogOutComponent } from './log-out/log-out.component';
 import { PublicUserRegistryComponent } from './public-user-registry/public-user-registry.component';
 import { GeneralConfig } from 'src/app/config/general.config';
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
+import { ChangeContactInfoComponent } from './change-contact-info/change-contact-info.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
     LogOutComponent,
     PublicUserRegistryComponent,
     HashVerificationComponent,
+    ChangeContactInfoComponent,
     ProfileUserComponent,
   ],
   imports: [

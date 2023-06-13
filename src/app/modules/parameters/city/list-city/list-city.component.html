@@ -1,0 +1,70 @@
+<div class="container">
+  <h1>Cities</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+      </tr>
+      <tr>
+        <th colspan="4">
+          <a class="btn city" routerLink="/parameters/create-city">Add City</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let data of cities
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: page,
+                  totalItems: total
+                }
+        "
+      >
+        <td>{{ data.id }}</td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.department?.name }}</td>
+        <td>
+          <div class="row">
+            <div class="col s2">
+              <a
+                class="btn edit"
+                routerLink="/parameters/edit-city/{{ data.id }}"
+                >Edit</a
+              >
+            </div>
+            <div class="col s2">
+              <a
+                class="btn delete"
+                routerLink="/parameters/delete-city/{{ data.id }}"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Pager View -->
+<div class="container">
+  <div class="row">
+    <div class="my-pagination">
+      <pagination-controls
+        (pageChange)="page = $event; get()"
+        previousLabel=""
+        nextLabel=""
+        screenReaderPaginationLabel="Navegation"
+        screenReaderPageLabel="Page"
+        screenReaderCurrentLabel="Actual Page"
+        class="pager"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

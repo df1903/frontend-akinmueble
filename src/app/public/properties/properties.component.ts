@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { take } from 'rxjs';
 import { PagerConfig } from 'src/app/config/pager.config';
+import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { PhotoModel } from 'src/app/models/Photo.model';
 import { PropertyModel } from 'src/app/models/Property.model';
 import { PropertyService } from 'src/app/services/parameters/property.service';
@@ -22,36 +24,26 @@ export class PropertiesComponent {
   recordPerPage: number = PagerConfig.recordPerPage
   total: number = 0;
 
+  logicUrl: String = RoutesBackendConfig.urlBusinessLogic;
+
   constructor(private service: PropertyService) {}
 
   ngOnInit() {
     this.getProperties();
+    this.getPhotos();
     this.buildSelectors();
-    this.getPhotos()
+
   }
 
   buildSelectors() {
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
-  }
 
-  getProperties() {
-    let limit = PagerConfig.recordPerPage;
-    let skip = (this.page - 1) * limit;
-    this.service.getAllProperties(this.page).subscribe({
-      next: (properties: any) => {
-        this.properties = properties.records;
-        this.total = properties.total
-        this.buildSelectors();
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
   }
 
   getPhotos() {
-    this.service.getPhotos().subscribe({
+    let filter = {}
+    this.service.getPhotos(filter).subscribe({
       next: (photos: any) => {
         this.photos = photos
       },
@@ -61,7 +53,7 @@ export class PropertiesComponent {
     });
   }
 
-  filterProperties() {
+  getProperties() {
     const managment = document.getElementById('managment') as HTMLSelectElement;
     const managmentValues = Array.from(managment.selectedOptions).map(
       (option) => option.value
@@ -74,7 +66,12 @@ export class PropertiesComponent {
 
     let filter
     if (sellType == false && rentType == false) {
-      filter = {}
+      filter = {
+        include: [
+        {relation: 'city', scope: { include: [{relation:'department'}]}},
+        {relation: 'propertyType'},
+        {relation: 'adviser'}
+      ]}
     } else {
       filter = {
         where: {
@@ -83,6 +80,11 @@ export class PropertiesComponent {
             { sell: sellType }
           ]
         },
+        include: [
+          {relation: 'city', scope: { include: [{relation:'department'}]}},
+          {relation: 'propertyType'},
+          {relation: 'adviser'}
+        ],
         limit: limit,
         skip: skip
       };
@@ -91,9 +93,9 @@ export class PropertiesComponent {
 
     this.service.getProperties(filter).subscribe({
       next: (properties: any) => {
-        this.properties = []
         this.properties = properties.records
         this.total = properties.total
+        this.buildSelectors();
       },
       error: (err: any) => {
         console.log(err);

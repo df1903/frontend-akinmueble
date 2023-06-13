@@ -23,6 +23,7 @@ import { SidenavComponent } from './public/master-page/sidenav/sidenav.component
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PropertiesComponent } from './public/properties/properties.component';
+import { AdminPageComponent } from './public/admin-page/admin-page.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { PropertiesComponent } from './public/properties/properties.component';
     PublicRegistryRequestingAdviceComponent,
     MissionAndVisionComponent,
     SidenavComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,11 +50,11 @@ import { PropertiesComponent } from './public/properties/properties.component';
     ReactiveFormsModule,
     FormsModule,
     LoaderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

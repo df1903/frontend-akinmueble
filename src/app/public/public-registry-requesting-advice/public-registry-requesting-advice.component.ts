@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 
 import { BusinessLogicService } from 'src/app/services/business-logic.service';
 import * as intlTelInput from 'intl-tel-input';
-import { UserModel } from 'src/app/models/User.model';
-
 
 @Component({
   selector: 'app-public-registry-requesting-advice',

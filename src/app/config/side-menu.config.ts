@@ -1,20 +1,8 @@
 export namespace SideMenuConfig {
   export const getMenus = [
     {
-      id: '6411fafa143133172474bb03',
-      route: '/security/list-user',
-      icon: 'reorder',
-      label: 'User',
-    },
-    {
-      id: '6410139d5498361ef89d3bbc',
-      route: '/security/list-role',
-      icon: 'reorder',
-      label: 'Roles',
-    },
-    {
       id: '642ce496db8a5109ec877cdb',
-      route: '/parameters/list-properties',
+      route: '/parameters/list-property',
       icon: 'reorder',
       label: 'Properties',
     },
@@ -49,6 +37,12 @@ export namespace SideMenuConfig {
       label: 'Guarantors',
     },
     {
+      id: '643dd7830349685918540d7b',
+      route: '/parameters/list-client',
+      icon: 'reorder',
+      label: 'Clients',
+    },
+    {
       id: '643dd7c10349685918540d80',
       route: '/parameters/list-requestClient',
       icon: 'reorder',
@@ -56,7 +50,7 @@ export namespace SideMenuConfig {
     },
     {
       id: '643dd8270349685918540d82',
-      route: '/parameters/list-properties-type',
+      route: '/parameters/list-property-type',
       icon: 'reorder',
       label: 'Property Types',
     },

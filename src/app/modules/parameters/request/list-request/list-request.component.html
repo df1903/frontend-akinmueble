@@ -1,0 +1,121 @@
+<div class="container">
+  <h1>Requests</h1>
+  <!-- Filter View -->
+  <form action="" [formGroup]="fgroup">
+    <div class="row filter">
+      <div class="input-field col s6">
+        <select formControlName="status" id="status">
+          <option value="" disabled>Request Status</option>
+          <option value="{{ -1 }}">All</option>
+          <option *ngFor="let s of requestStatus" [value]="s.id">
+            {{ s.name }}
+          </option>
+        </select>
+        <label>Select Request Status</label>
+      </div>
+      <div class="input-field col s6">
+        <a class="filter-btn" (click)="get()">FILTER</a>
+      </div>
+    </div>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Adviser</th>
+        <th>Client</th>
+        <th>Property</th>
+        <th>Request Type</th>
+        <th>Request Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let data of requests
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: page,
+                  totalItems: total
+                }
+        "
+      >
+        <td>{{ data.id }}</td>
+        <td>{{ data.date }}</td>
+        <td>{{ data.adviser.firstName }} {{ data.adviser.firstLastname }}</td>
+        <td>{{ data.client.firstName }} {{ data.client.firstLastname }}</td>
+        <td>{{ data.property.address }}</td>
+        <td>{{ data.requestType.name }}</td>
+        <td>{{ data.requestStatus.name }}</td>
+        <td>
+          <div class="row">
+            <div
+              class="col s2"
+              *ngIf="user.roleId == clientId && data.requestStatusId == 1"
+            >
+              <a
+                class="btn delete"
+                routerLink="/parameters/cancel-request/{{ data.id }}"
+                >Cancel</a
+              >
+            </div>
+            <div
+              class="col s2"
+              *ngIf="data.requestStatusId != 1 && data.requestStatusId != 6"
+            >
+              <a
+                class="btn edit"
+                routerLink="/parameters/view-request/{{ data.id }}"
+                >View</a
+              >
+            </div>
+            <div
+              class="col s2"
+              *ngIf="user.roleId == adviserId && data.requestStatusId == 1"
+            >
+              <a class="btn study" (click)="inStudy(data.id!)">Study</a>
+            </div>
+            <div
+              class="col s2"
+              *ngIf="user.roleId != clientId && data.requestStatusId == 2"
+            >
+              <a
+                class="btn review"
+                routerLink="/parameters/review-request/{{ data.id }}"
+                >Review</a
+              >
+            </div>
+            <div class="col s2" *ngIf="user.roleId == adminId">
+              <a
+                class="btn edit"
+                routerLink="/parameters/edit-request/{{ data.id }}"
+                >Edit</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Pager View -->
+<div class="container">
+  <div class="row">
+    <div class="my-pagination">
+      <pagination-controls
+        (pageChange)="page = $event; get()"
+        previousLabel=""
+        nextLabel=""
+        screenReaderPaginationLabel="Navegation"
+        screenReaderPageLabel="Page"
+        screenReaderCurrentLabel="Actual Page"
+        class="pager"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

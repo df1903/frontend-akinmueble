@@ -1,1 +1,51 @@
-<p>delete-property works!</p>
+<div class="container">
+  <h1>Confirm Delete Property</h1>
+  <div class="row">
+    <div class="row">
+      <form class="col s6">
+        <div class="row">
+          <div class="showImage center-align">
+            <div class="carousel">
+              <a class="carousel-item" *ngFor="let file of fileNames">
+                <img src="{{ logicUrl }}/GetFiles/1/{{ file.route }}" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col s6">
+          <h2>{{ property.propertyType.name }}</h2>
+        </div>
+        <div class="col s6">
+          <p><strong>Address: </strong>{{ property.address }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Ubication: </strong>{{ property.city.name}}, {{property.city.department.name}}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Sale: </strong>{{ property.sell?"For Sell" : "Unavailable" }} - ${{property.salePrice}}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Rent: </strong>{{ property.rent?"For Rent" : "Unavailable" }} - ${{property.rentalPrice}}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Adviser: </strong>{{ property.adviser.document }} - {{property.adviser.firstName}} {{property.adviser.firstLastname}}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Description: </strong>{{ property.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 send">
+        <a class="btn send cancel" routerLink="/parameters/list-property"
+          >Cancel</a
+        >
+      </div>
+      <div class="col s6 send">
+        <a class="btn send" (click)="deleteProperty()">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

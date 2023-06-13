@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Confirm Delete Department</h1>
+  <div class="row">
+    <div class="col s12">
+      <p><strong>Name: </strong>{{ department.name }}</p>
+    </div>
+    <div class="row">
+      <div class="col s6 send">
+        <a class="btn send cancel" routerLink="/parameters/list-department"
+          >Cancel</a
+        >
+      </div>
+      <div class="col s6 send">
+        <a class="btn send" (click)="deleteDepartment()">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

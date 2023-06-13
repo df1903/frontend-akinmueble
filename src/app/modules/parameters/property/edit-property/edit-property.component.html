@@ -1,1 +1,127 @@
-<p>edit-property works!</p>
+<div class="container">
+  <h1>Edit Property</h1>
+  <div class="row">
+    <form class="col s12" [formGroup]="fileFG">
+      <div class="row">
+        <div class="showImage center-align">
+          <div class="carousel">
+            <a class="carousel-item" *ngFor="let file of fileNames">
+              <img src="{{ logicUrl }}/GetFiles/1/{{ file.route }}" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <form [formGroup]="dataFG" class="row">
+      <div class="input-field col s12">
+        <input
+          formControlName="address"
+          id="address"
+          type="text"
+          class="validate"
+        />
+        <label for="address">Address</label>
+      </div>
+      <div class="input-field col s1">
+        <p>
+          <label>
+            <input
+              type="checkbox"
+              formControlName="sell"
+              (change)="onSellCheckboxChange($event)"
+            />
+            <span>Sell</span>
+          </label>
+        </p>
+      </div>
+      <div class="input-field col s5" *ngIf="dataFG.get('sell')?.value">
+        <input
+          formControlName="salePrice"
+          id="salePrice"
+          type="number"
+          class="validate"
+        />
+        <label for="salePrice">Sale Price</label>
+      </div>
+      <div class="input-field col s1">
+        <p>
+          <label>
+            <input
+              type="checkbox"
+              formControlName="rent"
+              (change)="onRentCheckboxChange($event)"
+            />
+            <span>Rent</span>
+          </label>
+        </p>
+      </div>
+      <div class="input-field col s5" *ngIf="dataFG.get('rent')?.value">
+        <input
+          formControlName="rentalPrice"
+          id="rentalPrice"
+          type="number"
+          class="validate"
+        />
+        <label for="rentalPrice">Rental Price</label>
+      </div>
+      <div class="input-field col s12">
+        <textarea
+          formControlName="description"
+          id="description"
+          class="materialize-textarea"
+        ></textarea>
+        <label for="description">Description</label>
+      </div>
+      <div class="input-field col s12">
+        <input
+          formControlName="video"
+          id="video"
+          type="text"
+          class="validate"
+        />
+        <label for="video">Video</label>
+      </div>
+      <div class="input-field col s12">
+        <select
+          formControlName="propertyTypeId"
+          id="propertyTypeId"
+          class="validate"
+        >
+          <option value="" disabled selected>Select Property Type</option>
+          <option *ngFor="let t of propertyTypes" [value]="t.id">
+            {{ t.name }}
+          </option>
+        </select>
+        <label for="propertyTypeId">Property Type</label>
+      </div>
+      <div class="input-field col s12">
+        <select formControlName="cityId" id="cityId" class="validate">
+          <option value="" disabled selected>Select City</option>
+          <option *ngFor="let c of cities" [value]="c.id">
+            {{ c.name }}
+          </option>
+        </select>
+        <label for="cityId">City</label>
+      </div>
+      <div class="input-field col s12">
+        <select formControlName="adviserId" id="adviserId" class="validate">
+          <option value="" disabled selected>Select Adviser Document</option>
+          <option *ngFor="let a of advisers" [value]="a.id">
+            {{ a.document }} {{ a.firstName }} {{ a.firstLastname }}
+          </option>
+        </select>
+        <label for="adviserId">Adviser</label>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col s6 send">
+        <a class="btn send cancel" routerLink="/parameters/list-property">Cancel</a>
+      </div>
+      <div class="col s6 send">
+        <button class="btn send" (click)="editProperty()">Edit Property</button>
+      </div>
+    </div>
+  </div>
+</div>

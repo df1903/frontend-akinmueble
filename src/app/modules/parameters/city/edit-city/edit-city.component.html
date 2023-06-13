@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Edit City</h1>
+  <div class="row">
+    <form [formGroup]="dataFG" class="row">
+      <div class="input-field col s12">
+        <input
+          formControlName="name"
+          id="name"
+          type="text"
+          class="validate"
+        />
+        <label for="name">Name</label>
+      </div>
+      <div class="input-field col s12">
+        <select
+          formControlName="department"
+          id="department"
+          class="validate"
+        >
+          <option value="" disabled selected>Select Department</option>
+          <option *ngFor="let data of departments" [value]="data.id">
+            {{ data.name }}
+          </option>
+        </select>
+        <label for="department">Department</label>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s6 send">
+      <a class="btn send cancel" routerLink="/parameters/list-city">Cancel</a>
+    </div>
+    <div class="col s6 send">
+      <button class="btn send" (click)="editCity()">Edit City</button>
+    </div>
+  </div>
+</div>

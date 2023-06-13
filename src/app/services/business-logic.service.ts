@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ContactFormModel } from '../models/ContactForm.model';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
 import { PagerConfig } from '../config/pager.config';
+import { ChangeContactModel } from '../models/ChangeContact.model copy';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,19 @@ export class BusinessLogicService {
     });
   }
 
+  getGeneralVariables(filter: any): Observable<any> {
+    let queryParams = '';
+    if (filter != '') {
+      queryParams = JSON.stringify(filter);
+    }
+    return this.http.get<boolean>(
+      `${
+        this.urlLogic
+      }/general-system-variables?filter=${queryParams.toString()}`
+    );
+  }
 
+  changeGeneralVariables(data: ChangeContactModel): Observable<any> {
+    return this.http.post<boolean>(`${this.urlLogic}/editAdminContact`, data);
+  }
 }

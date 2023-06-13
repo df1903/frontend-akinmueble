@@ -1,1 +1,77 @@
-<p>list-property works!</p>
+<div class="container">
+  <h1>Properties</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Managment</th>
+        <th>Type</th>
+        <th>City</th>
+        <th>Adviser</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <th colspan="8">
+          <a class="btn property" routerLink="/parameters/create-property"
+            >Add Property</a
+          >
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let p of properties
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: page,
+                  totalItems: total
+                }
+        "
+      >
+        <td>{{ p.id }}</td>
+        <td>{{ p.address }}</td>
+        <td>{{ p.description }}</td>
+        <td>
+          <div *ngIf="p.sell">sell</div>
+          <div *ngIf="p.rent">rent</div>
+        </td>
+        <td>{{ p.propertyType.name }}</td>
+        <td>{{ p.city.name }}</td>
+        <td>{{ p.adviser.firstName }} {{ p.adviser.firstLastname }}</td>
+        <td>
+          <a class="btn edit" routerLink="/parameters/edit-property/{{ p.id }}"
+            >Edit</a
+          >
+          <a
+            class="btn delete"
+            *ngIf="user.roleId == adminId"
+            routerLink="/parameters/delete-property/{{ p.id }}"
+            >Delete</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Pager View -->
+<div class="container">
+  <div class="row">
+    <div class="my-pagination">
+      <pagination-controls
+        (pageChange)="page = $event; getProperties()"
+        previousLabel=""
+        nextLabel=""
+        screenReaderPaginationLabel="Navegation"
+        screenReaderPageLabel="Page"
+        screenReaderCurrentLabel="Actual Page"
+        class="pager"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

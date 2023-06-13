@@ -1,0 +1,79 @@
+<div class="container">
+  <h1>Edit Department</h1>
+  <div class="row">
+    <form [formGroup]="dataFG" class="row">
+      <div class="input-field col s12">
+        <input
+          formControlName="document"
+          id="document"
+          type="text"
+          class="validate"
+        />
+        <label for="document">Document</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+          formControlName="firstName"
+          id="firstName"
+          type="text"
+          class="validate"
+        />
+        <label for="firstName">First Name</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+          formControlName="secondName"
+          id="secondName"
+          type="text"
+          class="validate"
+        />
+        <label for="secondName">Second Name</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+          formControlName="firstLastname"
+          id="firstLastname"
+          type="text"
+          class="validate"
+        />
+        <label for="firstLastname">First Lastname</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+          formControlName="secondLastname"
+          id="secondLastname"
+          type="text"
+          class="validate"
+        />
+        <label for="secondLastname">Second Lastname</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+          formControlName="email"
+          id="email"
+          type="text"
+          class="validate"
+        />
+        <label for="email">Email</label>
+      </div>
+      <div class="input-field col s6" id="phoneInput">
+        <input
+          formControlName="phone"
+          type="tel"
+          id="country"
+          class="validate"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s6 send">
+      <a class="btn send cancel" routerLink="/parameters/list-adviser"
+        >Cancel</a
+      >
+    </div>
+    <div class="col s6 send">
+      <button class="btn send" (click)="editAdviser()">Edit Department</button>
+    </div>
+  </div>
+</div>
