@@ -54,7 +54,7 @@
           <div class="row">
             <div
               class="col s2"
-              *ngIf="user.roleId == clientId && data.requestStatus == 1"
+              *ngIf="user.roleId == clientId && data.requestStatusId == 1"
             >
               <a
                 class="btn delete"
@@ -62,7 +62,10 @@
                 >Cancel</a
               >
             </div>
-            <div class="col s2" *ngIf="data.requestStatusId != 1">
+            <div
+              class="col s2"
+              *ngIf="data.requestStatusId != 1 && data.requestStatusId != 6"
+            >
               <a
                 class="btn edit"
                 routerLink="/parameters/view-request/{{ data.id }}"

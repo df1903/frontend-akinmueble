@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -22,6 +23,7 @@ export class EditRequestComponent {
   request: RequestModel = {};
   requestId = 0;
   advisers: AdviserModel[] = [];
+  formattedDate: any;
 
   constructor(
     private fb: FormBuilder,
@@ -29,7 +31,8 @@ export class EditRequestComponent {
     private adviserSvc: AdviserService,
     private router: Router,
     private security: SecurityService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
   ) {
     this.requestId = this.route.snapshot.params['id'];
   }
@@ -49,6 +52,13 @@ export class EditRequestComponent {
     }
   }
 
+  formateDate() {
+    this.formattedDate = this.datePipe.transform(
+      this.request.date,
+      'yyyy-MM-ddTHH:mm:ss'
+    );
+  }
+
   buildSelectors() {
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
@@ -64,7 +74,7 @@ export class EditRequestComponent {
 
   replaceDataFG() {
     this.dataFG.get('comment')?.patchValue(this.request.comment);
-    this.dataFG.get('endOfRent')?.patchValue(this.request.endOfRent);
+    this.dataFG.get('endOfRent')?.patchValue(this.formattedDate);
     this.dataFG.get('adviserId')?.patchValue(this.request.adviserId);
   }
 
@@ -116,6 +126,7 @@ export class EditRequestComponent {
       next: (data) => {
         this.request = data.records[0];
         console.log(this.request);
+        this.formateDate();
         this.replaceDataFG();
       },
       error: (err: any) => {
@@ -132,7 +143,7 @@ export class EditRequestComponent {
       this.service.editRequest(model).subscribe({
         next: (data: RequestModel) => {
           alert('Request Edited Successfully');
-          this.router.navigate(['/parameters/list-department']);
+          this.router.navigate(['/parameters/list-request']);
         },
         error: (err: any) => {
           alert('An Error has happened editing the request');
@@ -143,7 +154,7 @@ export class EditRequestComponent {
 
   changeAdviser() {
     let request = this.request;
-    request.adviserId = this.getDataFG['adviserId'].value;
+    request.adviserId = parseInt(this.getDataFG['adviserId'].value);
     this.service.changeAdviser(request).subscribe({
       next: (data: any) => {
         this.get();

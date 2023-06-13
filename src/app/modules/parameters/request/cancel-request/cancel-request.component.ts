@@ -47,13 +47,13 @@ export class CancelRequestComponent {
   }
 
   cancelRequest() {
-    console.log(this.requestId + this.requestId);
     let change: ChangeStatusModel = {
-      requestId: this.requestId,
+      requestId: this.request.id,
       status: 6,
     };
     this.service.changeStatus(change).subscribe({
       next: (data: any) => {
+        this.router.navigate(['/parameters/list-request']);
         alert('Request Canceled Successfully');
       },
       error: (err: any) => {

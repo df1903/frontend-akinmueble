@@ -2,23 +2,17 @@
   <h1>Edit Request</h1>
   <div class="row">
     <form [formGroup]="dataFG" class="row">
-      <div class="input-field col s12">
-        <input
+      <div class="input-field col s6">
+        <textarea
           formControlName="comment"
           id="comment"
           type="text"
           class="validate"
-        />
+        ></textarea>
         <label for="comment">Comment</label>
       </div>
-      <div class="input-field col s12">
-        <input
-          formControlName="endOfRent"
-          id="endOfRent"
-          type="text"
-          class="validate"
-        />
-        <label for="endOfRent">Date End of Rent</label>
+      <div class="input-field col s6">
+        <input formControlName="endOfRent" type="datetime-local" />
       </div>
       <div class="input-field col s6">
         <select formControlName="adviserId" id="adviserId" class="validate">
