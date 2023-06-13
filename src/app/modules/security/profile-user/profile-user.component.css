@@ -1,0 +1,103 @@
+.Container{
+  width: 60%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 320px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .Container {
+    width: 50%;
+    margin-left: 100px;
+  }
+}
+.background {
+  padding: 10px;
+}
+
+.user-img {
+  object-fit: cover;
+  height: 20%;
+  width: 20%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.container2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-container {
+  display: flex;
+}
+
+.bottom-container {
+  display: flex;
+}
+
+.Docuemnts, .Email {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+h1{
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.Phone {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+.user-view a {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding: auto;
+}
+.nameConta {
+  display: flex;
+  justify-content: center;
+}
+.Title{
+  width: 100%;
+}
+.h1{
+  width: 100%;
+  text-align: center;
+}
+.name {
+  display: flex;
+  font-size: 30px;
+  margin: auto;
+  color: #000;
+  font-weight: bolder;
+}
+.Buttons{
+  margin-top: 30px;
+  width: 100%;
+  display: inline-flex;
+}
+.ProfileTitle{
+  text-align: center;
+  color:#3ddb8f ;
+  margin-top: -20px;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.boton{
+  border-radius: 30px;
+  background-color: #3ddb8f;
+  font-weight: bolder;
+  border: 3px solid #f7f6f6 ;
+  display: flex;
+}
+
+  

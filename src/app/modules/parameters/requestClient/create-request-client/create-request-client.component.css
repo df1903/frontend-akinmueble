@@ -1,0 +1,64 @@
+.ComponentePrin{
+    width: 100%;
+    height: auto;
+    margin-top: -15px;
+}
+.title{
+    margin-top: -20px;
+    text-align: center;  
+    font-size: 30px;  
+}
+.imgs{
+    text-align: center;
+}
+.imgs img{
+    width: 250px;
+    height: 250px;
+    justify-content: center;
+    padding: 10px;
+    flex: 1;
+}
+.Contenido2{
+    width: 100%;
+    display: flex;
+}
+.component{
+    width: 50%;
+    flex: 1;
+    padding: auto;
+}
+.Information{
+    width: 50%;
+    text-align: justify;
+    float: right;
+}
+h1{
+    font-size: 30px;
+    margin-left: 50px;
+    font-weight: bolder;
+}
+p{
+    margin-left: 50px;
+    font-size: 17px;
+}
+.Description{
+    width: 50%;
+    text-align: justify;
+    float:left;
+    margin-left: 20px;
+}
+.Botones{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Botones a {
+    margin: 0 100px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: 1px solid #ffff;
+    background-color: #3ddb8f;
+
+}

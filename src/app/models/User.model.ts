@@ -9,4 +9,5 @@ export class UserModel {
   phone?: string;
   password?: string;
   roleId?: string;
+  accountId?: number;
 }

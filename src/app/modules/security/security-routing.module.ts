@@ -13,6 +13,8 @@ import { CodeVerificationComponent } from './code-verification/code-verification
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
 import { InactiveSessionGuard } from 'src/app/guardians/inactive-session.guard';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
+
 
 const routes: Routes = [
   {
@@ -50,27 +52,11 @@ const routes: Routes = [
     canActivate: [InactiveSessionGuard],
   },
 
-  // User crud
-  {
-    path: 'create-user', // Create user path
-    component: CreateUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'edit-user', // Edit user path
-    component: EditUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'list-user', // List user path
-    component: ListUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'delete-user', // Delete user path
-    component: DeleteUserComponent,
-    canActivate: [ActiveSessionGuard],
-  },
+  {path: 'profile-user', // User Profile
+  component: ProfileUserComponent,
+  //canActivate: [ActiveSessionGuard],
+ },
+
 ];
 
 @NgModule({
