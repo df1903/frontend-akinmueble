@@ -13,7 +13,7 @@ import { GuarantorService } from 'src/app/services/parameters/guarantor.service'
 export class CreateGuarantorComponent {
 
   fGroup: FormGroup = new FormGroup({});
-  checkboxValue: boolean = false;
+  checkboxValue: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -40,7 +40,7 @@ export class CreateGuarantorComponent {
     });
   }
 
-  RegisterAdviser() {
+  CreateGuarantor() {
     let fields = this.GetFormGroup;
     let data = {
       document: fields['document'].value,

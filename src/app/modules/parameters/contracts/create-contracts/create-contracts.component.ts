@@ -20,7 +20,7 @@ export class CreateContractsComponent {
 
   activeSession: boolean = false;
   contract: boolean = true;
-  guarantor : boolean =false;
+  guarantor : boolean =true;
 
   
   fileNames: any[] = [];

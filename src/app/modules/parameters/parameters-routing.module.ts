@@ -16,6 +16,7 @@ import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guaranto
 import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
 import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
 import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-guarantor.component';
+import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/view-commen-requests.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -107,6 +108,11 @@ const routes: Routes = [
   {
     path: 'edit-guarantor', // Edit contracts path
     component: EditGuarantorComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'view-requestClient', // view request Client
+    component: ViewCommenRequestsComponent,
     canActivate: [ActiveSessionGuard],
   }
 ];

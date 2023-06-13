@@ -20,6 +20,7 @@ import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-gu
 import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
 import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guarantor.component';
 import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
+import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/view-commen-requests.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guaranto
     CreateGuarantorComponent,
     DeleteGuarantorComponent,
     EditGuarantorComponent,
-    ListGuarantorComponent
+    ListGuarantorComponent,
+    ViewCommenRequestsComponent
    ],
   imports: [
     CommonModule,
