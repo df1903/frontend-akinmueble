@@ -58,6 +58,21 @@ export class ListRequestComponent {
         limit: limit,
         skip: skip,
       };
+    } else if (this.user.roleId == this.adviserId) {
+      filter = {
+        where: {
+          adviserId: this.user.accountId,
+        },
+        include: [
+          { relation: 'adviser' },
+          { relation: 'client' },
+          { relation: 'property' },
+          { relation: 'requestType' },
+          { relation: 'requestStatus' },
+        ],
+        limit: limit,
+        skip: skip,
+      };
     } else {
       filter = {
         include: [
@@ -78,6 +93,22 @@ export class ListRequestComponent {
       },
       error: (err: any) => {
         console.log(err);
+      },
+    });
+  }
+
+  inStudy(id: number) {
+    let change = {
+      requestId: id,
+      status: 2,
+    };
+    this.service.changeStatus(change).subscribe({
+      next: (data: any) => {
+        this.get();
+        alert('The Request has been marked for Study');
+      },
+      error: (err: any) => {
+        alert('Error changing the status');
       },
     });
   }

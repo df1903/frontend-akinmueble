@@ -76,3 +76,15 @@ td {
 .row {
   display: flex;
 }
+
+.review {
+  background-color: #0004ff;
+}
+
+.look {
+  background-color: #00ccff;
+}
+
+.study {
+  background-color: #ffa600;
+}

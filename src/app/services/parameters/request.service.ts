@@ -33,4 +33,15 @@ export class RequestService {
   deleteRequest(id: number): Observable<any> {
     return this.http.delete<boolean>(`${this.urlLogic}/request/${id}`);
   }
+
+  changeStatus(data: any) {
+    return this.http.post<boolean>(
+      `${this.urlLogic}/change-status-of-request`,
+      data
+    );
+  }
+
+  changeAdviser(data: RequestModel) {
+    return this.http.post<boolean>(`${this.urlLogic}/adviser-change`, data);
+  }
 }

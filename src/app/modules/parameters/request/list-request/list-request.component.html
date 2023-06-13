@@ -33,24 +33,40 @@
         <td>{{ data.requestStatus.name }}</td>
         <td>
           <div class="row">
-            <div class="col s2" *ngIf="user.roleId == clientId">
+            <div
+              class="col s2"
+              *ngIf="user.roleId == clientId && data.requestStatus == 1"
+            >
+              <a
+                class="btn delete"
+                routerLink="/parameters/cancel-request/{{ data.id }}"
+                >Cancel</a
+              >
+            </div>
+            <div class="col s2" *ngIf="data.requestStatusId != 1">
               <a
                 class="btn edit"
                 routerLink="/parameters/view-request/{{ data.id }}"
                 >View</a
               >
             </div>
-            <div class="col s2" *ngIf="user.roleId == adviserId">
-              <a
-                class="btn edit"
-                routerLink="/parameters/response-request/{{ data.id }}"
-                >View</a
-              >
+            <div
+              class="col s2"
+              *ngIf="user.roleId == adviserId && data.requestStatusId == 1"
+            >
+              <a class="btn study" (click)="inStudy(data.id!)">Study</a>
             </div>
             <div
               class="col s2"
-              *ngIf="user.roleId == adminId || user.roleId == clientId"
+              *ngIf="user.roleId != clientId && data.requestStatusId == 2"
             >
+              <a
+                class="btn review"
+                routerLink="/parameters/review-request/{{ data.id }}"
+                >Review</a
+              >
+            </div>
+            <div class="col s2" *ngIf="user.roleId == adminId">
               <a
                 class="btn edit"
                 routerLink="/parameters/edit-request/{{ data.id }}"
