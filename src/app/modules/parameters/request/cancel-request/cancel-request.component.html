@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Confirm Cancel Request</h1>
+  <div class="row">
+    <div class="col s12">
+      <p><strong>Date: </strong></p>
+    </div>
+    <div class="col s4 offset-s4">
+      <input
+        [(ngModel)]="formattedDate"
+        type="datetime-local"
+        readonly
+        class="date"
+      />
+    </div>
+    <div class="col s12">
+      <p>
+        <strong>Client: </strong>{{ request.client.firstName }}
+        {{ request.client.firstLastname }}
+      </p>
+    </div>
+    <div class="col s12">
+      <p><strong>Property: </strong>{{ request.property.address }}</p>
+    </div>
+    <div class="col s12">
+      <p>
+        <strong>Adviser: </strong>{{ request.adviser.firstName }}
+        {{ request.adviser.firstLastname }}
+      </p>
+    </div>
+    <div class="col s12">
+      <p><strong>Request Type: </strong>{{ request.requestType.name }}</p>
+    </div>
+    <div class="row">
+      <div class="col s6 send">
+        <a class="btn send cancel" routerLink="/parameters/list-request"
+          >Cancel</a
+        >
+      </div>
+      <div class="col s6 send">
+        <a class="btn send" (click)="cancelRequest()">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

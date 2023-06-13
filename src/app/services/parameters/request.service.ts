@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
+import { ChangeStatusModel } from 'src/app/models/ChangeStatus.model';
 import { RequestModel } from 'src/app/models/Request.model';
 
 @Injectable({
@@ -34,7 +35,7 @@ export class RequestService {
     return this.http.delete<boolean>(`${this.urlLogic}/request/${id}`);
   }
 
-  changeStatus(data: any) {
+  changeStatus(data: ChangeStatusModel) {
     return this.http.post<boolean>(
       `${this.urlLogic}/change-status-of-request`,
       data

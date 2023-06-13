@@ -20,9 +20,11 @@ import { CreatePropertyTypeComponent } from './property-type/create-property-typ
 import { DeletePropertyTypeComponent } from './property-type/delete-property-type/delete-property-type.component';
 import { EditPropertyTypeComponent } from './property-type/edit-property-type/edit-property-type.component';
 import { ListPropertyTypeComponent } from './property-type/list-property-type/list-property-type.component';
-import { DeleteRequestComponent } from './request/delete-request/delete-request.component';
 import { EditRequestComponent } from './request/edit-request/edit-request.component';
 import { ListRequestComponent } from './request/list-request/list-request.component';
+import { ReviewRequestComponent } from './request/review-request/review-request.component';
+import { HomeComponent } from 'src/app/public/home/home.component';
+import { CancelRequestComponent } from './request/cancel-request/cancel-request.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -132,11 +134,6 @@ const routes: Routes = [
 
   /** Request CRUD */
   {
-    path: 'delete-request/:id', // Delete Request path
-    component: DeleteRequestComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
     path: 'edit-request/:id', // Edit Request path
     component: EditRequestComponent,
     canActivate: [ActiveSessionGuard],
@@ -144,6 +141,21 @@ const routes: Routes = [
   {
     path: 'list-request', // List Request path
     component: ListRequestComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'review-request/:id', // List Request path
+    component: ReviewRequestComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'view-request/:id', // List Request path
+    component: HomeComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'cancel-request/:id', // List Request path
+    component: CancelRequestComponent,
     canActivate: [ActiveSessionGuard],
   },
 ];

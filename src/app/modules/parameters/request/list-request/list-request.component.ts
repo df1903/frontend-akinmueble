@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RolesConfig } from 'src/app/config/roles.config';
+import { ChangeStatusModel } from 'src/app/models/ChangeStatus.model';
 import { RequestModel } from 'src/app/models/Request.model';
 import { UserModel } from 'src/app/models/User.model';
 import { RequestService } from 'src/app/services/parameters/request.service';
@@ -98,7 +99,7 @@ export class ListRequestComponent {
   }
 
   inStudy(id: number) {
-    let change = {
+    let change: ChangeStatusModel = {
       requestId: id,
       status: 2,
     };

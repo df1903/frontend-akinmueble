@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { ParametersRoutingModule } from './parameters-routing.module';
 import { CreatePropertyComponent } from './property/create-property/create-property.component';
@@ -25,7 +25,8 @@ import { DeletePropertyTypeComponent } from './property-type/delete-property-typ
 import { EditPropertyTypeComponent } from './property-type/edit-property-type/edit-property-type.component';
 import { ListRequestComponent } from './request/list-request/list-request.component';
 import { EditRequestComponent } from './request/edit-request/edit-request.component';
-import { DeleteRequestComponent } from './request/delete-request/delete-request.component';
+import { CancelRequestComponent } from './request/cancel-request/cancel-request.component';
+import { ReviewRequestComponent } from './request/review-request/review-request.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { DeleteRequestComponent } from './request/delete-request/delete-request.
     EditPropertyTypeComponent,
     ListRequestComponent,
     EditRequestComponent,
-    DeleteRequestComponent,
+    CancelRequestComponent,
+    ReviewRequestComponent,
   ],
   imports: [
     CommonModule,
@@ -59,5 +61,6 @@ import { DeleteRequestComponent } from './request/delete-request/delete-request.
     ReactiveFormsModule,
     FormsModule,
   ],
+  providers: [DatePipe],
 })
 export class ParametersModule {}
