@@ -141,13 +141,27 @@ export class EditRequestComponent {
     }
   }
 
+  changeAdviser() {
+    let request = this.request;
+    request.adviserId = this.getDataFG['adviserId'].value;
+    this.service.changeAdviser(request).subscribe({
+      next: (data: any) => {
+        this.get();
+        alert('Adviser changed successfully');
+      },
+      error: (err: any) => {
+        alert('Error changing the adviser');
+      },
+    });
+  }
+
   get(): RequestModel {
     let model = new RequestModel();
     model.id = this.request.id;
     model.date = this.request.date;
     model.comment = this.getDataFG['comment'].value;
     model.endOfRent = this.getDataFG['endOfRent'].value;
-    model.adviserId = this.getDataFG['adviserId'].value;
+    model.adviserId = this.request.adviserId;
     model.clientId = this.request.clientId;
     model.contractId = this.request.contractId;
     model.guarantorId = this.request.guarantorId;

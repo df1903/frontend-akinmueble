@@ -18,9 +18,9 @@
           type="text"
           class="validate"
         />
-        <label for="endOfRent">Fecha de Fin de Renta</label>
+        <label for="endOfRent">Date End of Rent</label>
       </div>
-      <div class="input-field col s12">
+      <div class="input-field col s6">
         <select formControlName="adviserId" id="adviserId" class="validate">
           <option value="" disabled selected>Select Adviser Document</option>
           <option *ngFor="let a of advisers" [value]="a.id">
@@ -28,6 +28,11 @@
           </option>
         </select>
         <label for="adviserId">Adviser</label>
+      </div>
+      <div class="col s6 send">
+        <button class="btn send" (click)="changeAdviser()">
+          Change Adviser
+        </button>
       </div>
     </form>
   </div>
