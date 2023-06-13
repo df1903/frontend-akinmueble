@@ -6,7 +6,6 @@ import { ContactComponent } from './public/contact/contact.component';
 import { RegisterSwitchComponent } from './public/register-switch/register-switch.component';
 import { MissionAndVisionComponent } from './public/mission-and-vision/mission-and-vision.component';
 import { PublicRegistryRequestingAdviceComponent } from './public/public-registry-requesting-advice/public-registry-requesting-advice.component';
-import { LoaderComponent } from './public/loader/loader.component';
 import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 import { PropertiesComponent } from './public/properties/properties.component';
 import { AdminPageComponent } from './public/admin-page/admin-page.component';

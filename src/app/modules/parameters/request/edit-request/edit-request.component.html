@@ -14,19 +14,21 @@
       <div class="input-field col s6">
         <input formControlName="endOfRent" type="datetime-local" />
       </div>
-      <div class="input-field col s6">
-        <select formControlName="adviserId" id="adviserId" class="validate">
-          <option value="" disabled selected>Select Adviser Document</option>
-          <option *ngFor="let a of advisers" [value]="a.id">
-            {{ a.document }} {{ a.firstName }} {{ a.firstLastname }}
-          </option>
-        </select>
-        <label for="adviserId">Adviser</label>
-      </div>
-      <div class="col s6 send">
-        <button class="btn send" (click)="changeAdviser()">
-          Change Adviser
-        </button>
+      <div *ngIf="request.requestStatusId == 1">
+        <div class="input-field col s6">
+          <select formControlName="adviserId" id="adviserId" class="validate">
+            <option value="" disabled selected>Select Adviser Document</option>
+            <option *ngFor="let a of advisers" [value]="a.id">
+              {{ a.document }} {{ a.firstName }} {{ a.firstLastname }}
+            </option>
+          </select>
+          <label for="adviserId">Adviser</label>
+        </div>
+        <div class="col s6 send">
+          <button class="btn send" (click)="changeAdviser()">
+            Change Adviser
+          </button>
+        </div>
       </div>
     </form>
   </div>

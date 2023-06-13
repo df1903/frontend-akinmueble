@@ -13,6 +13,7 @@ import { CodeVerificationComponent } from './code-verification/code-verification
 import { HashVerificationComponent } from './hash-verification/hash-verification.component';
 import { InactiveSessionGuard } from 'src/app/guardians/inactive-session.guard';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
+import { ChangeContactInfoComponent } from './change-contact-info/change-contact-info.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,11 @@ const routes: Routes = [
     path: 'delete-user', // Delete user path
     component: DeleteUserComponent,
     canActivate: [ActiveSessionGuard],
+  },
+  // Edit System Variables
+  {
+    path: 'change-contact-info', // Managment Contact Info
+    component: ChangeContactInfoComponent,
   },
 ];
 

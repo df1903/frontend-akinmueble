@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Edit Department</h1>
+  <div class="row">
+    <form [formGroup]="dataFG" class="row">
+      <div class="input-field col s12">
+        <input
+          formControlName="realEstateName"
+          id="realEstateName"
+          type="text"
+          class="validate"
+          readonly
+        />
+        <label for="realEstateName">Real State Name</label>
+      </div>
+      <div class="input-field col s12">
+        <input
+          formControlName="administratorName"
+          id="administratorName"
+          type="text"
+          class="validate"
+        />
+        <label for="administratorName">Administrator Name</label>
+      </div>
+      <div class="input-field col s12">
+        <input
+          formControlName="administratorEmail"
+          id="administratorEmail"
+          type="text"
+          class="validate"
+        />
+        <label for="administratorEmail">Adminitrator Email</label>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s6 send">
+      <a class="btn send cancel" routerLink="/admin-page">Cancel</a>
+    </div>
+    <div class="col s6 send">
+      <button class="btn send" (click)="editContact()">Edit Variables</button>
+    </div>
+  </div>
+</div>
