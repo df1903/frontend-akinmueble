@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ParametersRoutingModule } from './parameters-routing.module';
 import { CreatePropertyComponent } from './property/create-property/create-property.component';
@@ -11,6 +12,10 @@ import { ListRequestClientComponent } from './requestClient/list-request-client/
 import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
 import { DeleteRequestClientComponent } from './requestClient/delete-request-client/delete-request-client.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditContractsComponent } from './contracts/edit-contracts/edit-contracts.component';
+import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
+import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
+import { CreateContractsComponent } from './contracts/create-contracts/create-contracts.component';
 
 
 @NgModule({
@@ -23,11 +28,17 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ListRequestClientComponent,
     CreateRequestClientComponent,
     DeleteRequestClientComponent,
+    EditContractsComponent,
+    ListContractsComponent,
+    DeleteContractsComponent,
+    CreateContractsComponent
    ],
   imports: [
     CommonModule,
     ParametersRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametersModule { }

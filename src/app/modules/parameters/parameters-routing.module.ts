@@ -8,6 +8,10 @@ import { CreateRequestClientComponent } from './requestClient/create-request-cli
 import { ListRequestClientComponent } from './requestClient/list-request-client/list-request-client.component';
 import { DeleteRequestClientComponent } from './requestClient/delete-request-client/delete-request-client.component';
 import { EditRequestClientComponent } from './requestClient/edit-request-client/edit-request-client.component';
+import { CreateContractsComponent } from './contracts/create-contracts/create-contracts.component';
+import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
+import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
+import { EditContractsComponent } from './contracts/edit-contracts/edit-contracts.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -52,6 +56,30 @@ const routes: Routes = [
   {
     path: 'edit-requestClient', // Edit Request path
     component: EditRequestClientComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+
+  /*CRUD Contracts*/
+  {
+    path: 'create-contracts', // create contracts path
+    component: CreateContractsComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'list-contracts', // List contracts path
+    component: ListContractsComponent,
+    canActivate: [ActiveSessionGuard],
+  }
+  ,
+  {
+    path: 'delete-contracts', // Delete contracts path
+    component: DeleteContractsComponent,
+    canActivate: [ActiveSessionGuard],
+  }
+  ,
+  {
+    path: 'edit-contracts', // Edit contracts path
+    component: EditContractsComponent,
     canActivate: [ActiveSessionGuard],
   }
 ];
