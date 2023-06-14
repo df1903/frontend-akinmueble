@@ -1,6 +1,38 @@
 <div class="container">
   <h1>Review Request</h1>
-  <p class="header">ID: {{ requestId }}</p>
+  <div class="row">
+    <div class="col s6">
+      <p class="header">ID: {{ requestId }}</p>
+    </div>
+
+    <div class="col s6" *ngIf="request.requestStatusId == 4">
+      <p class="status">
+        <strong class="status-btn green">{{
+          request.requestStatus.name
+        }}</strong>
+      </p>
+    </div>
+    <div class="col s6" *ngIf="request.requestStatusId == 5">
+      <p class="status">
+        <strong class="status-btn green">{{
+          request.requestStatus.name
+        }}</strong>
+      </p>
+    </div>
+    <div class="col s6" *ngIf="request.requestStatusId == 3">
+      <p class="status">
+        <strong class="status-btn red">{{ request.requestStatus.name }}</strong>
+      </p>
+    </div>
+    <div class="col s6" *ngIf="request.requestStatusId == 2">
+      <p class="status">
+        <strong class="status-btn blue">{{
+          request.requestStatus.name
+        }}</strong>
+      </p>
+    </div>
+  </div>
+
   <div class="row">
     <form class="col s12">
       <div class="row">
@@ -122,14 +154,57 @@
         </div>
       </div>
     </div>
-    <div class="input-field col s12">
-      <div class="row"><h5>Comments</h5></div>
+    <div class="col s6">
+      <div class="row">
+        <div class="col s12">
+          <H5>Contract Information</H5>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="user.roleId == clientRoleId">
+        <div class="col s12">
+          <button class="btn edit" (click)="goToContract(request.id)">
+            UPLOAD CONTRACT AND/OR GUARANTOR
+          </button>
+        </div>
+      </div>
+      <div class="row" *ngIf="request.requestStatusId == 5">
+        <div class="col s12">
+          <button class="btn edit" (click)="goToContract(request.id)">
+            VIEW CONTRACT
+          </button>
+        </div>
+      </div>
+      <div class="row" *ngIf="request.requestStatusId == 4">
+        <div class="col s12">
+          <button class="btn edit" (click)="goToContract(request.id)">
+            VIEW CONTRACT & GUARANTOR
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="input-field col s12"
+      *ngIf="user.roleId != clientRoleId || request.requestStatusId == 3"
+    >
+      <div class="row" *ngIf="request.requestStatusId == 3">
+        <h5>Comments</h5>
+      </div>
 
       <form class="row" [formGroup]="dataFG">
         <textarea
           formControlName="comment"
           id="message"
           class="materialize-textarea"
+          *ngIf="user.roleId == clientRoleId || request.requestStatusId == 3"
+          readonly
+        ></textarea>
+        <textarea
+          formControlName="comment"
+          id="message"
+          class="materialize-textarea"
+          *ngIf="user.roleId != clientRoleId && request.requestStatusId == 2"
         ></textarea>
       </form>
     </div>

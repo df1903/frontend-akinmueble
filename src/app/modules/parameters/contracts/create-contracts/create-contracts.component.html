@@ -12,7 +12,7 @@
         </p>
       </div>
 
-      <div class="col s12">
+      <div class="col s12" *ngIf="request.contractId == 1">
         <div class="file-field input-field row">
           <div class="btn col s3">
             <span>Select file</span>
@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="col s6">
+      <div class="col s12">
         <a
           class="waves-effect btn"
           style="background-color: #1100ff"
@@ -36,7 +36,7 @@
           >Download</a
         >
       </div>
-      <div class="col s6">
+      <div class="col s12" *ngIf="request.contractId == 1">
         <a
           class="bwaves-effect btn"
           style="background-color: #3ddb8f"

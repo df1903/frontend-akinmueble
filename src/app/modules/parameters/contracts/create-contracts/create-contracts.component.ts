@@ -13,6 +13,7 @@ import { SecurityService } from 'src/app/services/security.service';
 import { RequestModel } from 'src/app/models/Request.model';
 import { RequestService } from 'src/app/services/parameters/request.service';
 import { UserModel } from 'src/app/models/User.model';
+import { AssignContractModel } from 'src/app/models/AssignContract.model';
 
 @Component({
   selector: 'app-create-contracts',
@@ -60,13 +61,18 @@ export class CreateContractsComponent {
     this.requestSvc.getRequests(filter).subscribe({
       next: (data) => {
         this.request = data.records[0];
-        if (
-          this.user?.accountId == this.request.clientId ||
-          this.user?.roleId == this.adviserRoleId ||
-          this.user?.roleId == this.adminRoleId
-        ) {
-          this.getContract();
-          this.buildFileFG();
+        console.log(this.request);
+        if (this.request != undefined) {
+          if (
+            this.user?.accountId == this.request.clientId ||
+            this.user?.roleId == this.adviserRoleId ||
+            this.user?.roleId == this.adminRoleId
+          ) {
+            this.getContract();
+            this.buildFileFG();
+          } else {
+            this.router.navigate(['/parameters/list-request']);
+          }
         } else {
           this.router.navigate(['/parameters/list-request']);
         }
@@ -108,17 +114,26 @@ export class CreateContractsComponent {
     formData.append('file', this.fileFG.controls['file'].value);
     this.service.uploadFile(formData).subscribe({
       next: (data: any) => {
-        console.log(data);
+        console.log(data.file);
         let contract: ContractsModel = {
-          id: this.contract.id,
           route: data.file,
         };
-        console.log(data);
-        this.service.editcontract(contract).subscribe({
+        this.service.createcontract(contract).subscribe({
           next: (data: any) => {
-            console.log(data);
-            this.router.navigate([`/parameters/list-request`]);
-            alert('File Upload Successfully');
+            let contract: AssignContractModel = {
+              requestId: this.request.id,
+              id: data.id,
+            };
+            this.service.assignContract(contract).subscribe({
+              next: (data: any) => {
+                console.log(data);
+                this.router.navigate([`/parameters/list-request`]);
+                alert('File Upload Successfully');
+              },
+              error: (err: any) => {
+                alert('Error upload file');
+              },
+            });
           },
           error: (err: any) => {
             alert('Error upload file');

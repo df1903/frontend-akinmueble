@@ -64,11 +64,15 @@
             </div>
             <div
               class="col s2"
-              *ngIf="data.requestStatusId != 1 && data.requestStatusId != 6"
+              *ngIf="
+                data.requestStatusId != 1 &&
+                data.requestStatusId != 6 &&
+                data.requestStatusId != 2
+              "
             >
               <a
                 class="btn edit"
-                routerLink="/parameters/view-request/{{ data.id }}"
+                routerLink="/parameters/review-request/{{ data.id }}"
                 >View</a
               >
             </div>

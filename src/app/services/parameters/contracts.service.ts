@@ -71,4 +71,8 @@ export class ContractsService {
     link.click();
     window.URL.revokeObjectURL(url);
   }
+
+  assignContract(data: any): Observable<any> {
+    return this.http.post<boolean>(`${this.urlBase}/assign-contract`, data);
+  }
 }
