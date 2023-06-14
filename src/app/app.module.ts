@@ -24,6 +24,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PropertiesComponent } from './public/properties/properties.component';
 import { AdminPageComponent } from './public/admin-page/admin-page.component';
+import { ClientPageComponent } from './public/client-page/client-page.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AdminPageComponent } from './public/admin-page/admin-page.component';
     SidenavComponent,
     PropertiesComponent,
     AdminPageComponent,
+    ClientPageComponent,
   ],
   imports: [
     BrowserModule,

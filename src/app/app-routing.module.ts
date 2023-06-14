@@ -10,6 +10,8 @@ import { InactiveSessionGuard } from './guardians/inactive-session.guard';
 import { PropertiesComponent } from './public/properties/properties.component';
 import { AdminPageComponent } from './public/admin-page/admin-page.component';
 import { AdviserPageComponent } from './public/adviser-page/adviser-page.component';
+import { ClientPageComponent } from './public/client-page/client-page.component';
+import { ActiveSessionGuard } from './guardians/active-session.guard';
 
 const routes: Routes = [
   {
@@ -46,10 +48,17 @@ const routes: Routes = [
   {
     path: 'admin-page', // Managment admin
     component: AdminPageComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'adviser-page', // Managment adviser
     component: AdviserPageComponent,
+    canActivate: [ActiveSessionGuard],
+  },
+  {
+    path: 'client-page', // Managment adviser
+    component: ClientPageComponent,
+    canActivate: [ActiveSessionGuard],
   },
   {
     path: 'security', // Security module path
