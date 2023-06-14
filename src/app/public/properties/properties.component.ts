@@ -16,15 +16,17 @@ declare var M: any;
 export class PropertiesComponent {
   properties: PropertyModel[] = [];
 
-  photos: PhotoModel[] = []
+  photos: PhotoModel[] = [];
 
   managmentTypes: any = ['sell', 'rent'];
 
   page: number = 1;
-  recordPerPage: number = PagerConfig.recordPerPage
+  recordPerPage: number = PagerConfig.recordPerPage;
   total: number = 0;
 
   logicUrl: String = RoutesBackendConfig.urlBusinessLogic;
+
+  backupImageUrl: string = '../../../assets/properties/0_template.png';
 
   constructor(private service: PropertyService) {}
 
@@ -32,20 +34,18 @@ export class PropertiesComponent {
     this.getProperties();
     this.getPhotos();
     this.buildSelectors();
-
   }
 
   buildSelectors() {
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
-
   }
 
   getPhotos() {
-    let filter = {}
+    let filter = {};
     this.service.getPhotos(filter).subscribe({
       next: (photos: any) => {
-        this.photos = photos
+        this.photos = photos;
       },
       error: (err: any) => {
         console.log(err);
@@ -59,42 +59,45 @@ export class PropertiesComponent {
       (option) => option.value
     );
 
-    let sellType = managmentValues.includes("sell");
-    let rentType = managmentValues.includes("rent");
+    let sellType = managmentValues.includes('sell');
+    let rentType = managmentValues.includes('rent');
     let limit = PagerConfig.recordPerPage;
     let skip = (this.page - 1) * limit;
 
-    let filter
+    let filter;
     if (sellType == false && rentType == false) {
       filter = {
         include: [
-        {relation: 'city', scope: { include: [{relation:'department'}]}},
-        {relation: 'propertyType'},
-        {relation: 'adviser'}
-      ]}
+          {
+            relation: 'city',
+            scope: { include: [{ relation: 'department' }] },
+          },
+          { relation: 'propertyType' },
+          { relation: 'adviser' },
+        ],
+      };
     } else {
       filter = {
         where: {
-          and: [
-            { rent: rentType },
-            { sell: sellType }
-          ]
+          and: [{ rent: rentType }, { sell: sellType }],
         },
         include: [
-          {relation: 'city', scope: { include: [{relation:'department'}]}},
-          {relation: 'propertyType'},
-          {relation: 'adviser'}
+          {
+            relation: 'city',
+            scope: { include: [{ relation: 'department' }] },
+          },
+          { relation: 'propertyType' },
+          { relation: 'adviser' },
         ],
         limit: limit,
-        skip: skip
+        skip: skip,
       };
     }
 
-
     this.service.getProperties(filter).subscribe({
       next: (properties: any) => {
-        this.properties = properties.records
-        this.total = properties.total
+        this.properties = properties.records;
+        this.total = properties.total;
         this.buildSelectors();
       },
       error: (err: any) => {
@@ -104,10 +107,15 @@ export class PropertiesComponent {
   }
 
   getPhoto(id: number) {
-    let photos = this.photos.filter(photo => photo.propertyId === id);
-    if (photos[0] != undefined){
-      return photos[0].route
+    let photos = this.photos.filter((photo) => photo.propertyId === id);
+    if (photos[0] != undefined) {
+      return photos[0].route;
     }
-    return "photo1.jpg"
+    return 'photo1.jpg';
+  }
+
+  handleImageError(event: Event) {
+    const imgElement: HTMLImageElement = event.target as HTMLImageElement;
+    imgElement.src = this.backupImageUrl;
   }
 }
