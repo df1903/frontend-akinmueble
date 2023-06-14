@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="card col s6">
+    <div
+      class="card col s12"
+      *ngIf="request.requestStatusId == 4 || request.requestStatusId == 5"
+    >
       <h2>Contract</h2>
 
       <div class="col s12">
@@ -45,7 +48,7 @@
         >
       </div>
     </div>
-    <div class="card col s6">
+    <div class="card col s12" *ngIf="request.requestStatusId == 4">
       <h2>Guarantor</h2>
       <div class="col s12">
         <p>
@@ -59,7 +62,7 @@
         <a
           class="waves-effect btn"
           style="background-color: #3ddb8f"
-          routerLink="/parameters/create-guarantor"
+          routerLink="/parameters/create-guarantor/{{ request.id }}"
           >create guarantor</a
         >
       </div>

@@ -199,7 +199,7 @@ const routes: Routes = [
 
   /*CRUD Guarantor*/
   {
-    path: 'create-guarantor', // create contracts path
+    path: 'create-guarantor/:id', // create contracts path
     component: CreateGuarantorComponent,
     canActivate: [ActiveSessionGuard],
   },
@@ -209,12 +209,12 @@ const routes: Routes = [
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'delete-guarantor', // Delete contracts path
+    path: 'delete-guarantor/:id', // Delete contracts path
     component: DeleteGuarantorComponent,
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'edit-guarantor', // Edit contracts path
+    path: 'edit-guarantor/:id', // Edit contracts path
     component: EditGuarantorComponent,
     canActivate: [ActiveSessionGuard],
   },

@@ -51,15 +51,9 @@ export class ReviewRequestComponent {
     let data = this.security.sessionValidation();
     if (data != null) {
       console.log(data.user);
-      if (
-        data.user?.roleId == RolesConfig.administratorId ||
-        data.user?.roleId == RolesConfig.adviserId
-      ) {
-        this.getRequest();
-        this.buildDataFG();
-      } else {
-        this.router.navigate(['/parameters/list-request']);
-      }
+      this.user = data.user!;
+      this.getRequest();
+      this.buildDataFG();
     } else {
       this.router.navigate(['']);
     }

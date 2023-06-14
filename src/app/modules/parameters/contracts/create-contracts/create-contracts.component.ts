@@ -110,6 +110,9 @@ export class CreateContractsComponent {
   }
 
   uploadFile() {
+    if (this.request.requestStatusId == 4 && this.request.guarantorId == null) {
+      return alert('Missing to upload the information of the GUARANTER');
+    }
     const formData = new FormData();
     formData.append('file', this.fileFG.controls['file'].value);
     this.service.uploadFile(formData).subscribe({
