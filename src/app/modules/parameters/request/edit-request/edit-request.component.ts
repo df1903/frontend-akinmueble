@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { AdviserModel } from 'src/app/models/Adviser.model';
+import { AdviserModel } from 'src/app/models/adviser.model';
 import { RequestModel } from 'src/app/models/Request.model';
 import { AdviserService } from 'src/app/services/parameters/adviser.service';
 import { RequestService } from 'src/app/services/parameters/request.service';

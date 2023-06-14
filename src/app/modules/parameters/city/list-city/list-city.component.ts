@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RolesConfig } from 'src/app/config/roles.config';
-import { CityModel } from 'src/app/models/City.model';
+import { CityModel } from 'src/app/models/city.model';
 import { CityService } from 'src/app/services/parameters/city.service';
 import { SecurityService } from 'src/app/services/security.service';
 

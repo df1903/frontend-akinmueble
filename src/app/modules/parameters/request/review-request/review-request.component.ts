@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { ChangeStatusModel } from 'src/app/models/ChangeStatus.model';
-import { ClientModel } from 'src/app/models/Client.model';
+import { ClientModel } from 'src/app/models/client.model';
 import { PropertyModel } from 'src/app/models/Property.model';
 import { RequestModel } from 'src/app/models/Request.model';
 import { UserModel } from 'src/app/models/User.model';

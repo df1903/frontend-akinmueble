@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { PropertyTypeModel } from 'src/app/models/PropertyType.model';
+import { PropertyTypeModel } from 'src/app/models/propertyType.model';
 
 @Injectable({
   providedIn: 'root',

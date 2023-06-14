@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { CityModel } from 'src/app/models/City.model';
+import { CityModel } from 'src/app/models/city.model';
 
 @Injectable({
   providedIn: 'root',

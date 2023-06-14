@@ -1,34 +1,30 @@
 
-<div class="title">
-    <h1 class="title">Casa del campo</h1>
+<div class="title" *ngFor="let p of property">
+    <h1 class="title">{{p.propertyType}}</h1>
 </div>
 <div class="ComponentePrin">
-        <div class="imgs">
-            <img src="assets\images\hash-error.jpg" alt="">
-            <img src="assets\images\hash-error.jpg" alt="">
-            <img src="assets\images\hash-error.jpg" alt="">
+        <div class="imgs carousel-item" *ngFor="let file of fileNames">
+
+            <img src="{{ logicUrl }}/GetFiles/1/{{ file.route }}"/>
+            <img src="{{ logicUrl }}/GetFiles/2/{{ file.route }}"/>
+            <img src="{{ logicUrl }}/GetFiles/3/{{ file.route }}"/>
+        
         </div>
     <div class="Contenido2">
         <div class="component">
-            <div class="Information">
+            <div class="Information" *ngFor="let p of property">
                 <h1>General Information</h1>
-                <p> + Precio Venta         &nbsp; &nbsp; &nbsp;    $ 430.000.000 </p>
-                <p> + Precio Alquiler       &nbsp; &nbsp; &nbsp;   $ 430.000.000 </p>
-                <p> + Gestión               &nbsp; &nbsp; &nbsp;   ALQUILER/VENTA</p>
-                <p> + Ciudad                 &nbsp; &nbsp; &nbsp;       Manizales</p>
+                <p> + Selling Price         &nbsp; &nbsp; &nbsp;    {{p. salePrice}} </p>
+                <p> + Rental Price       &nbsp; &nbsp; &nbsp;   {{p.rentalPrice}} </p>
+                <p> + Management               &nbsp; &nbsp; &nbsp;   ALQUILER/VENTA</p>
+                <p> + adderss                 &nbsp; &nbsp; &nbsp;       {{p.address}}, {{p.city?.name}}</p>
+                <p> + Property Type {{ p.propertyType }}</p>
             </div>
         </div>
         <div class="component">
-            <div class="Description">
+            <div class="Description" *ngFor="let p of property">
                 <h1>Description</h1>
-                <p>Beautiful apartment with modern finishes, 
-                    located in an excellent area to live, 
-                    close to the main avenue, with easy access
-                    to public
-                    transportation.
-                    It is situated 10 
-                    minutes from Cable and the University zone, 
-                    and 5 minutes from the city's nightlife district.
+                <p>{{p.description}}
                 </p>
             </div>
         </div>
@@ -37,7 +33,7 @@
     <!--Buttones cancelar-->
 
     <div class="Botones">
-        <a class="waves-effect waves-light btn-large">Rent</a>
-        <a class="waves-effect waves-light btn-large">Sell</a>
+        <a class="waves-effect waves-light btn-large"(click)="ngOnInit()">Rent</a>
+        <a class="waves-effect waves-light btn-large" (click)="ngOnInit()">Sell</a>
     </div>
 </div>

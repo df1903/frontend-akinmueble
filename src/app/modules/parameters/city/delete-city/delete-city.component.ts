@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { CityModel } from 'src/app/models/City.model';
+import { CityModel } from 'src/app/models/city.model';
 import { CityService } from 'src/app/services/parameters/city.service';
 import { SecurityService } from 'src/app/services/security.service';
 

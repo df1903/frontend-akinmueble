@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { PropertyTypeModel } from 'src/app/models/PropertyType.model';
+import { PropertyTypeModel } from 'src/app/models/propertyType.model';
 import { PropertyTypeService } from 'src/app/services/parameters/property-type.service';
 import { SecurityService } from 'src/app/services/security.service';
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { AdviserModel } from 'src/app/models/Adviser.model';
+import { AdviserModel } from 'src/app/models/adviser.model';
 
 @Injectable({
   providedIn: 'root',

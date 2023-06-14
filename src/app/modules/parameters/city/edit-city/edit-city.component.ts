@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { CityModel } from 'src/app/models/City.model';
+import { CityModel } from 'src/app/models/city.model';
 import { DepartmentModel } from 'src/app/models/Department.model';
 import { CityService } from 'src/app/services/parameters/city.service';
 import { DepartmentService } from 'src/app/services/parameters/department.service';

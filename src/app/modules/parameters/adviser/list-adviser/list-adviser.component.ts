@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RolesConfig } from 'src/app/config/roles.config';
-import { AdviserModel } from 'src/app/models/Adviser.model';
+import { AdviserModel } from 'src/app/models/adviser.model';
 import { AdviserService } from 'src/app/services/parameters/adviser.service';
 import { SecurityService } from 'src/app/services/security.service';
 

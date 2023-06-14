@@ -4,9 +4,6 @@ import { CreatePropertyComponent } from './property/create-property/create-prope
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
 import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
-import { ListRequestClientComponent } from './requestClient/list-request-client/list-request-client.component';
-import { DeleteRequestClientComponent } from './requestClient/delete-request-client/delete-request-client.component';
-import { EditRequestClientComponent } from './requestClient/edit-request-client/edit-request-client.component';
 import { CreateContractsComponent } from './contracts/create-contracts/create-contracts.component';
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
@@ -176,21 +173,6 @@ const routes: Routes = [
   {
     path: 'create-request', // create Request path
     component: CreateRequestClientComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'list-requestClient', // List Request path
-    component: ListRequestClientComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'delete-requestClient', // Delete Request path
-    component: DeleteRequestClientComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'edit-requestClient', // Edit Request path
-    component: EditRequestClientComponent,
     canActivate: [ActiveSessionGuard],
   },
 
