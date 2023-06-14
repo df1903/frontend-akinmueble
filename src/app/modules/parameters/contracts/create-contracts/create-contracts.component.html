@@ -1,32 +1,68 @@
-
 <div class="container">
-    <div  *ngIf="contract" class="component">
+  <div class="row">
+    <div class="card col s6">
       <h2>Contract</h2>
-        <p> 
-            To complete the rental or purchase process, it is necessary
-            to fill out the contract, which can be found in the lower section.
-            You can download it, fill it out, and upload it again. 
-            We appreciate your commitment and preference with our real estate agency.
+
+      <div class="col s12">
+        <p>
+          To complete the rental or purchase process, it is necessary to fill
+          out the contract, which can be found in the lower section. You can
+          download it, fill it out, and upload it again. We appreciate your
+          commitment and preference with our real estate agency.
         </p>
-        <a class="waves-effect btn" style="background-color: #3ddb8f;" routerLink="assets\files\Contrato.pdf">Download</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input
-            type="button"
-            class="bwaves-effect btn"
-            style="background-color: #3ddb8f;"
-            value="upload"
-            (click)="uploadFile()"
-          />
+      </div>
+
+      <div class="col s12">
+        <div class="file-field input-field row">
+          <div class="btn col s3">
+            <span>Select file</span>
+            <input
+              (change)="fileSelected($event)"
+              name="image"
+              type="file"
+              accept=".pdf"
+            />
+          </div>
+          <div class="file-path-wrapper col s9">
+            <input class="file-path validate" type="text" />
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        <a
+          class="waves-effect btn"
+          style="background-color: #1100ff"
+          (click)="downloadFile()"
+          >Download</a
+        >
+      </div>
+      <div class="col s6">
+        <a
+          class="bwaves-effect btn"
+          style="background-color: #3ddb8f"
+          (click)="uploadFile()"
+          >upload</a
+        >
+      </div>
     </div>
-    
-    <div  *ngIf="guarantor" class="component">
+    <div class="card col s6">
       <h2>Guarantor</h2>
-      <p>
-            For us, it is very important to safeguard our financial assets.
-            Therefore, having a backup in the purchase or
-            rental of a property is of great importance.
-            That is why we invite you to upload the information
-            of your financial co-debtor.
-      </p>
-      <a class="waves-effect btn" style="background-color: #3ddb8f;" routerLink="/parameters/create-guarantor">Guarnator</a>
+      <div class="col s12">
+        <p>
+          For us, it is very important to safeguard our financial assets.
+          Therefore, having a backup in the purchase or rental of a property is
+          of great importance. That is why we invite you to upload the
+          information of your financial co-debtor.
+        </p>
+      </div>
+      <div class="col s12">
+        <a
+          class="waves-effect btn"
+          style="background-color: #3ddb8f"
+          routerLink="/parameters/create-guarantor"
+          >create guarantor</a
+        >
+      </div>
     </div>
+  </div>
 </div>

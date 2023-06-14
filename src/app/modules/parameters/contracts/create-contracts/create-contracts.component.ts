@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { ContactFormModel } from 'src/app/models/ContactForm.model';
@@ -10,6 +10,9 @@ import { ContractsModel } from 'src/app/models/Contract.model';
 import { ModelFile } from 'src/app/models/ModelFile.model';
 import { ContractsService } from 'src/app/services/parameters/contracts.service';
 import { SecurityService } from 'src/app/services/security.service';
+import { RequestModel } from 'src/app/models/Request.model';
+import { RequestService } from 'src/app/services/parameters/request.service';
+import { UserModel } from 'src/app/models/User.model';
 
 @Component({
   selector: 'app-create-contracts',
@@ -17,113 +20,110 @@ import { SecurityService } from 'src/app/services/security.service';
   styleUrls: ['./create-contracts.component.css'],
 })
 export class CreateContractsComponent {
-  activeSession: boolean = false;
-  contract: boolean = true;
-  guarantor: boolean = true;
-
-  fileNames: any[] = [];
-  dataFG: FormGroup = new FormGroup({});
   fileFG: FormGroup = new FormGroup({});
-  logicUrl: String = RoutesBackendConfig.urlBusinessLogic;
-  requestClient: RequestClientModel = {};
+  clientRoleId: string = RolesConfig.clientId;
+  adviserRoleId: string = RolesConfig.adviserId;
+  adminRoleId: string = RolesConfig.administratorId;
+  requestId: number = 0;
+  clientId: number = 0;
+  request: RequestModel = {};
+  user: UserModel = {};
+  contract: ContractsModel = {};
 
   constructor(
     private fb: FormBuilder,
-    private ContractSvc: ContractsService,
     private router: Router,
-    private security: SecurityService
-  ) {}
+    private security: SecurityService,
+    private service: ContractsService,
+    private route: ActivatedRoute,
+    private requestSvc: RequestService
+  ) {
+    this.requestId = this.route.snapshot.params['id'];
+  }
 
   ngOnInit() {
     let data = this.security.sessionValidation();
-    if (data != null) {
-      console.log(data.user);
-      if (data.user?.roleId == RolesConfig.clientId) {
-        this.buildDataFG();
-        this.buildFileFG();
-      } else {
-        this.router.navigate(['/security/login']);
-      }
+    if (data != null || data != undefined) {
+      this.user = data.user!;
+      this.getRequest();
     } else {
-      this.router.navigate(['/security/login']);
+      this.router.navigate(['']);
     }
   }
 
-  sessionValidation() {
-    this.security.getSessionData().subscribe({
-      next: (data: UserValidatedModel) => {
+  getRequest() {
+    let filter = {
+      where: {
+        id: this.requestId,
+      },
+    };
+    this.requestSvc.getRequests(filter).subscribe({
+      next: (data) => {
+        this.request = data.records[0];
         if (
-          (this.requestClient.requestStatusId = 4) ||
-          (this.requestClient.requestStatusId = 5)
+          this.user?.accountId == this.request.clientId ||
+          this.user?.roleId == this.adviserRoleId ||
+          this.user?.roleId == this.adminRoleId
         ) {
-          this.contract = true;
-        }
-        if ((this.requestClient.requestStatusId = 4)) {
-          (this.guarantor = true), (this.contract = true);
+          this.getContract();
+          this.buildFileFG();
+        } else {
+          this.router.navigate(['/parameters/list-request']);
         }
       },
       error: (err: any) => {
-        console.log(err);
+        return (err = true);
       },
     });
   }
 
-  get(): ContractsModel {
-    let model = new ContractsModel();
-
-    if (this.dataFG.invalid) {
-      alert('Incomplete Data');
-    }
-    return model;
-  }
-
-  buildDataFG() {
-    this.dataFG = this.fb.group({
-      router: ['', [Validators.required]],
+  getContract() {
+    let filter = {
+      where: {
+        id: this.request.contractId,
+      },
+    };
+    this.service.getContracts(filter).subscribe({
+      next: (data) => {
+        this.contract = data.records[0];
+      },
+      error: (err: any) => {
+        alert('ERROR getting the contract info');
+      },
     });
   }
 
-  createContract() {
-    if (this.dataFG.invalid || this.fileNames.length < 1) {
-      alert('Incomplete Data');
-    } else {
-      let model = this.get();
-      this.ContractSvc.createcontract(model).subscribe({
-        next: (data: ContractsModel) => {
-          alert('Contract Created Successfully');
-          let err = false;
-          for (let i = 0; i < this.fileNames.length; i++) {
-            let contract: ContractsModel = {
-              route: this.fileNames[i],
-            };
-            this.ContractSvc.createcontract(contract).subscribe({
-              next: () => {},
-              error: (err: any) => {
-                return (err = true);
-              },
-            });
-          }
-          if (err) {
-            alert('An Error has happened uploading the contract');
-          } else {
-            this.router.navigate(['/parameters/list-property']);
-          }
-        },
-        error: (err: any) => {
-          alert('An Error has happened creating the contract');
-        },
-      });
-    }
+  buildFileFG() {
+    this.fileFG = this.fb.group({
+      file: ['', []],
+    });
+  }
+
+  get getFileFG() {
+    return this.fileFG.controls;
   }
 
   uploadFile() {
     const formData = new FormData();
     formData.append('file', this.fileFG.controls['file'].value);
-    this.ContractSvc.uploadFile(formData).subscribe({
+    this.service.uploadFile(formData).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.fileNames.push(data.file);
-        alert('File Upload Successfully');
+        let contract: ContractsModel = {
+          id: this.contract.id,
+          route: data.file,
+        };
+        console.log(data);
+        this.service.editcontract(contract).subscribe({
+          next: (data: any) => {
+            console.log(data);
+            this.router.navigate([`/parameters/list-request`]);
+            alert('File Upload Successfully');
+          },
+          error: (err: any) => {
+            alert('Error upload file');
+          },
+        });
       },
       error: (err: any) => {
         alert('Error upload file');
@@ -138,13 +138,17 @@ export class CreateContractsComponent {
     }
   }
 
-  buildFileFG() {
-    this.fileFG = this.fb.group({
-      file: ['', []],
+  downloadFile() {
+    let type = 2;
+    let name = this.contract.route!;
+    this.service.downloadContract(type, name).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        alert('File Download Successfully');
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
     });
-  }
-
-  get getFileFG() {
-    return this.fileFG.controls;
   }
 }

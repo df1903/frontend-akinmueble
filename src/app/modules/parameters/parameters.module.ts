@@ -27,10 +27,7 @@ import { ListRequestComponent } from './request/list-request/list-request.compon
 import { EditRequestComponent } from './request/edit-request/edit-request.component';
 import { CancelRequestComponent } from './request/cancel-request/cancel-request.component';
 import { ReviewRequestComponent } from './request/review-request/review-request.component';
-import { EditRequestClientComponent } from './requestClient/edit-request-client/edit-request-client.component';
-import { ListRequestClientComponent } from './requestClient/list-request-client/list-request-client.component';
 import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
-import { DeleteRequestClientComponent } from './requestClient/delete-request-client/delete-request-client.component';
 import { EditContractsComponent } from './contracts/edit-contracts/edit-contracts.component';
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
@@ -39,8 +36,6 @@ import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-gu
 import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
 import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guarantor.component';
 import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
-import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/view-commen-requests.component';
-
 
 @NgModule({
   declarations: [
@@ -67,10 +62,7 @@ import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/
     EditRequestComponent,
     CancelRequestComponent,
     ReviewRequestComponent,
-    EditRequestClientComponent,
-    ListRequestClientComponent,
     CreateRequestClientComponent,
-    DeleteRequestClientComponent,
     EditContractsComponent,
     ListContractsComponent,
     DeleteContractsComponent,
@@ -79,8 +71,7 @@ import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/
     DeleteGuarantorComponent,
     EditGuarantorComponent,
     ListGuarantorComponent,
-    ViewCommenRequestsComponent
-],
+  ],
   imports: [
     CommonModule,
     ParametersRoutingModule,

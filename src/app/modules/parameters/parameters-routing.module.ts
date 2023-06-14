@@ -4,9 +4,6 @@ import { CreatePropertyComponent } from './property/create-property/create-prope
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
 import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
-import { ListRequestClientComponent } from './requestClient/list-request-client/list-request-client.component';
-import { DeleteRequestClientComponent } from './requestClient/delete-request-client/delete-request-client.component';
-import { EditRequestClientComponent } from './requestClient/edit-request-client/edit-request-client.component';
 import { CreateContractsComponent } from './contracts/create-contracts/create-contracts.component';
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
@@ -15,7 +12,6 @@ import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guaranto
 import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
 import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
 import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-guarantor.component';
-import { ViewCommenRequestsComponent } from './viewRequest/view-commen-requests/view-commen-requests.component';
 import { ListPropertyComponent } from './property/list-property/list-property.component';
 import { DeletePropertyComponent } from './property/delete-property/delete-property.component';
 import { CreateDepartmentComponent } from './department/create-department/create-department.component';
@@ -178,25 +174,10 @@ const routes: Routes = [
     component: CreateRequestClientComponent,
     canActivate: [ActiveSessionGuard],
   },
-  {
-    path: 'list-requestClient', // List Request path
-    component: ListRequestClientComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'delete-requestClient', // Delete Request path
-    component: DeleteRequestClientComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'edit-requestClient', // Edit Request path
-    component: EditRequestClientComponent,
-    canActivate: [ActiveSessionGuard],
-  },
 
   /*CRUD Contracts*/
   {
-    path: 'create-contracts', // create contracts path
+    path: 'create-contracts/:id', // create contracts path
     component: CreateContractsComponent,
     canActivate: [ActiveSessionGuard],
   },
@@ -206,12 +187,12 @@ const routes: Routes = [
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'delete-contracts', // Delete contracts path
+    path: 'delete-contracts/:id', // Delete contracts path
     component: DeleteContractsComponent,
     canActivate: [ActiveSessionGuard],
   },
   {
-    path: 'edit-contracts', // Edit contracts path
+    path: 'edit-contracts/:id', // Edit contracts path
     component: EditContractsComponent,
     canActivate: [ActiveSessionGuard],
   },
@@ -235,11 +216,6 @@ const routes: Routes = [
   {
     path: 'edit-guarantor', // Edit contracts path
     component: EditGuarantorComponent,
-    canActivate: [ActiveSessionGuard],
-  },
-  {
-    path: 'view-requestClient', // view request Client
-    component: ViewCommenRequestsComponent,
     canActivate: [ActiveSessionGuard],
   },
 ];

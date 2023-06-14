@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { PagerConfig } from 'src/app/config/page.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { ContractsModel } from 'src/app/models/Contract.model';
@@ -48,5 +48,27 @@ export class ContractsService {
 
   deletecontract(id: number): Observable<any> {
     return this.http.delete<boolean>(`${this.urlBase}/contract/${id}`);
+  }
+
+  downloadContract(type: number, name: string): Observable<any> {
+    const url = `${
+      this.urlBase
+    }/GetFiles/${type}/${name}?timestamp=${Date.now()}`;
+
+    return this.http.get(url, { responseType: 'blob' }).pipe(
+      tap((data: any) => {
+        this.downloadFile(data, name);
+      })
+    );
+  }
+
+  private downloadFile(data: any, fileName: string): void {
+    const blob = new Blob([data], { type: 'application/pdf' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    link.click();
+    window.URL.revokeObjectURL(url);
   }
 }
