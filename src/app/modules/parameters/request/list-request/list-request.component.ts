@@ -138,6 +138,7 @@ export class ListRequestComponent {
         };
       }
     } else {
+      console.log('admin');
       if (status == -1) {
         filter = {
           include: [
@@ -152,6 +153,10 @@ export class ListRequestComponent {
         };
       } else {
         filter = {
+          where: {
+            adviserId: this.user.accountId,
+            requestStatusId: status,
+          },
           include: [
             { relation: 'adviser' },
             { relation: 'client' },

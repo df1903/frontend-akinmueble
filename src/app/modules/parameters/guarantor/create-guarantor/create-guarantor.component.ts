@@ -1,30 +1,47 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as intlTelInput from 'intl-tel-input';
-import { BusinessLogicService } from 'src/app/services/business-logic.service';
+import { RequestModel } from 'src/app/models/Request.model';
+import { UserModel } from 'src/app/models/User.model';
 import { GuarantorService } from 'src/app/services/parameters/guarantor.service';
+import { RequestService } from 'src/app/services/parameters/request.service';
+import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-create-guarantor',
   templateUrl: './create-guarantor.component.html',
-  styleUrls: ['./create-guarantor.component.css']
+  styleUrls: ['./create-guarantor.component.css'],
 })
 export class CreateGuarantorComponent {
-
   fGroup: FormGroup = new FormGroup({});
   checkboxValue: boolean = true;
+  requestId: number = 0;
+  user: UserModel = {};
+  request: RequestModel = {};
 
   constructor(
     private fb: FormBuilder,
-    private businessLogicService: BusinessLogicService,
-    private service : GuarantorService,
-    private router: Router
-  ) {}
+    private service: GuarantorService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private security: SecurityService,
+    private requestSvc: RequestService
+  ) {
+    this.requestId = this.route.snapshot.params['id'];
+  }
 
   ngOnInit() {
-    this.BuildForm();
-    this.buildPhoneInput();
+    let data = this.security.sessionValidation();
+    if (data != null) {
+      this.user = data.user!;
+      console.log(data.user);
+      this.getRequest();
+      this.BuildForm();
+      this.buildPhoneInput();
+    } else {
+      this.router.navigate(['']);
+    }
   }
 
   BuildForm() {
@@ -37,6 +54,34 @@ export class CreateGuarantorComponent {
       email: ['', [Validators.required]],
       phone: ['', [Validators.required]],
       workingLetter: ['', [Validators.required]],
+    });
+  }
+
+  getRequest() {
+    let filter = {
+      where: {
+        id: this.requestId,
+      },
+      include: [
+        { relation: 'adviser' },
+        { relation: 'client' },
+        { relation: 'property' },
+        { relation: 'guarantor' },
+        { relation: 'requestType' },
+        { relation: 'requestStatus' },
+      ],
+    };
+    this.requestSvc.getRequests(filter).subscribe({
+      next: (data) => {
+        this.request = data.records[0];
+        console.log(this.request);
+        if (this.request == undefined) {
+          this.router.navigate(['/parameters/list-request']);
+        }
+      },
+      error: (err: any) => {
+        return (err = true);
+      },
     });
   }
 
@@ -58,8 +103,31 @@ export class CreateGuarantorComponent {
     this.service.createGuarantor(data).subscribe({
       next: (data) => {
         if (data.id != undefined) {
-          alert('Creacion Guarantor successful');
-          this.router.navigate(['']);
+          let model = {
+            id: this.request.id,
+            date: this.request.date,
+            comment: this.request.comment,
+            endOfRent: this.request.endOfRent,
+            adviserId: this.request.adviserId,
+            clientId: this.request.clientId,
+            contractId: this.request.contractId,
+            guarantorId: data.id,
+            propertyId: this.request.propertyId,
+            requestTypeId: this.request.requestTypeId,
+            requestStatusId: this.request.requestStatusId,
+          };
+          console.log(model);
+          this.requestSvc.editRequest(model).subscribe({
+            next: (data: RequestModel) => {
+              alert('Guarantor created successfully');
+              this.router.navigate([
+                `/parameters/review-request/${this.request.id}`,
+              ]);
+            },
+            error: (err: any) => {
+              alert('An Error has happened editing the request');
+            },
+          });
         }
       },
       error: (err) => {
@@ -67,6 +135,8 @@ export class CreateGuarantorComponent {
       },
     });
   }
+
+  createModel() {}
 
   buildPhoneInput() {
     const input = document.querySelector('#country');
@@ -92,5 +162,4 @@ export class CreateGuarantorComponent {
   get GetFormGroup() {
     return this.fGroup.controls;
   }
-
 }

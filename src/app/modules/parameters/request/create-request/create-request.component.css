@@ -82,6 +82,10 @@ button {
   background-color: #ff0000;
 }
 
+.notAvailable {
+  background-color: #727272;
+}
+
 #message {
   display: flex;
   border: #3ddb8f solid 2px;

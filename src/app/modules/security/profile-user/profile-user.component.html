@@ -1,9 +1,6 @@
-
 <div class="profilePrinc" *ngIf="activeSession">
-  <h1 class="ProfileTitle">
-    My Profile
-  </h1>
-  
+  <h1 class="ProfileTitle">My Profile</h1>
+
   <body class="Container">
     <div class="user-view">
       <a
@@ -11,37 +8,38 @@
       /></a>
       <div class="nameConta">
         <span class="name"
-          >{{ user.firstName }} {{user.secondName}} {{ user.firstLastname }} {{user.secondLastname}} </span
-        >
+          >{{ user.firstName }} {{ user.secondName }} {{ user.firstLastname }}
+          {{ user.secondLastname }}
+        </span>
       </div>
       <div class="container2">
         <div class="top-container">
           <div class="Docuemnts">
             <h1>Documents</h1>
-            <p>{{user.document}}</p>
+            <p>{{ user.document }}</p>
           </div>
           <div class="Email">
             <h1>Email</h1>
-            <p>{{user.email}}</p>
+            <p>{{ user.email }}</p>
           </div>
         </div>
         <div class="top-container">
           <div class="Phone">
             <h1>Phone</h1>
-            <p>{{user.phone}}</p>
+            <p>{{ user.phone }}</p>
           </div>
-          <div class="Email" >   
-          </div>
+          <div class="Email"></div>
         </div>
-  
+
         <div class="Buttons">
-          <a class="waves-effect waves-light btn-large boton" style="margin-bottom: 20px;" routerLink="/security/change-password">Change password</a>
-          <a class="waves-effect waves-light btn-large boton" style="margin-bottom: 20px;">Edit information</a>
+          <a
+            class="waves-effect waves-light btn-large boton"
+            style="margin-bottom: 20px"
+            routerLink="/security/change-password"
+            >Change password</a
+          >
         </div>
-       
       </div>
-  
     </div>
-  
   </body>
 </div>

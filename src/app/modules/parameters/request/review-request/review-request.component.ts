@@ -3,12 +3,14 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
+import { AssignContractModel } from 'src/app/models/AssignContract.model';
 import { ChangeStatusModel } from 'src/app/models/ChangeStatus.model';
 import { ClientModel } from 'src/app/models/Client.model';
 import { PropertyModel } from 'src/app/models/Property.model';
 import { RequestModel } from 'src/app/models/Request.model';
 import { UserModel } from 'src/app/models/User.model';
 import { ClientService } from 'src/app/services/parameters/client.service';
+import { ContractsService } from 'src/app/services/parameters/contracts.service';
 import { PropertyService } from 'src/app/services/parameters/property.service';
 import { RequestService } from 'src/app/services/parameters/request.service';
 import { SecurityService } from 'src/app/services/security.service';
@@ -37,6 +39,7 @@ export class ReviewRequestComponent {
     private service: RequestService,
     private propertySvc: PropertyService,
     private clientSvc: ClientService,
+    private contractSvc: ContractsService,
     private router: Router,
     private security: SecurityService,
     private route: ActivatedRoute
@@ -48,15 +51,9 @@ export class ReviewRequestComponent {
     let data = this.security.sessionValidation();
     if (data != null) {
       console.log(data.user);
-      if (
-        data.user?.roleId == RolesConfig.administratorId ||
-        data.user?.roleId == RolesConfig.adviserId
-      ) {
-        this.getRequest();
-        this.buildDataFG();
-      } else {
-        this.router.navigate(['/parameters/list-request']);
-      }
+      this.user = data.user!;
+      this.getRequest();
+      this.buildDataFG();
     } else {
       this.router.navigate(['']);
     }
@@ -96,6 +93,7 @@ export class ReviewRequestComponent {
         this.request = data.records[0];
         this.propertyId = this.request.propertyId!;
         console.log(this.request);
+        this.replaceDataFG();
         this.getProperty();
         this.getPhotos();
         this.getClient();
@@ -185,6 +183,10 @@ export class ReviewRequestComponent {
       requestId: this.request.id,
       status: 5,
     };
+    let contract: AssignContractModel = {
+      requestId: this.request.id,
+      id: 1,
+    };
     this.service.changeStatus(change).subscribe({
       next: (data: any) => {
         this.router.navigate(['/parameters/list-request']);
@@ -231,5 +233,13 @@ export class ReviewRequestComponent {
         alert('Error changing the status');
       },
     });
+  }
+
+  replaceDataFG() {
+    this.dataFG.get('comment')?.patchValue(this.request.comment);
+  }
+
+  goToContract(id: any) {
+    this.router.navigate([`/parameters/create-contracts/${id}`]);
   }
 }
