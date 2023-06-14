@@ -27,7 +27,6 @@ import { ListRequestComponent } from './request/list-request/list-request.compon
 import { EditRequestComponent } from './request/edit-request/edit-request.component';
 import { CancelRequestComponent } from './request/cancel-request/cancel-request.component';
 import { ReviewRequestComponent } from './request/review-request/review-request.component';
-import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
 import { EditContractsComponent } from './contracts/edit-contracts/edit-contracts.component';
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
@@ -36,6 +35,7 @@ import { CreateGuarantorComponent } from './guarantor/create-guarantor/create-gu
 import { DeleteGuarantorComponent } from './guarantor/delete-guarantor/delete-guarantor.component';
 import { EditGuarantorComponent } from './guarantor/edit-guarantor/edit-guarantor.component';
 import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guarantor.component';
+import { CreateRequestComponent } from './request/create-request/create-request.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,6 @@ import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guaranto
     EditRequestComponent,
     CancelRequestComponent,
     ReviewRequestComponent,
-    CreateRequestClientComponent,
     EditContractsComponent,
     ListContractsComponent,
     DeleteContractsComponent,
@@ -71,6 +70,7 @@ import { ListGuarantorComponent } from './guarantor/list-guarantor/list-guaranto
     DeleteGuarantorComponent,
     EditGuarantorComponent,
     ListGuarantorComponent,
+    CreateRequestComponent,
   ],
   imports: [
     CommonModule,

@@ -108,10 +108,10 @@ export class PropertiesComponent {
 
   getPhoto(id: number) {
     let photos = this.photos.filter((photo) => photo.propertyId === id);
-    if (photos[0] != undefined) {
+    if (photos.length > 0) {
       return photos[0].route;
     }
-    return 'photo1.jpg';
+    return Error;
   }
 
   handleImageError(event: Event) {

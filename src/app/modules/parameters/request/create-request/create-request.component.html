@@ -1,0 +1,109 @@
+<div class="container">
+  <h1>Create Request</h1>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="showImage center-align">
+          <div class="carousel">
+            <a class="carousel-item" *ngFor="let file of fileNames">
+              <img src="{{ logicUrl }}/GetFiles/1/{{ file.route }}" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <div class="row">
+        <H5>Property Information</H5>
+        <div class="col s6">
+          <p><strong>Property Type:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.propertyType.name }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Address: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.address }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Ubication: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.city.name }}, {{ property.city.department.name }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Description: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="row">
+        <H5>Adviser Information</H5>
+        <div class="col s6">
+          <p><strong>Name:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ adviser.firstName }} {{ adviser.firstLastname }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Document: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ adviser.document }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Email: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ adviser.email }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="row">
+        <H5>Request Info</H5>
+        <div class="col s6">
+          <p><strong>Sale Price:</strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.salePrice }}</p>
+        </div>
+        <div class="col s6">
+          <p><strong>Rent Price: </strong></p>
+        </div>
+        <div class="col s6">
+          <p>{{ property.rentalPrice }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row separator"></div>
+  <div class="row">
+    <div class="col s12" *ngIf="user.roleId == clientRoleId">
+      <div class="row">
+        <div class="col s6">
+          <button class="btn reject" routerLink="/properties">CANCEL</button>
+        </div>
+        <div class="col s3" *ngIf="property.sell == true">
+          <button class="btn" (click)="request(1)">Sell Request</button>
+        </div>
+        <div class="col s3" *ngIf="property.rent == true">
+          <button class="btn" (click)="request(2)">Rent Request</button>
+        </div>
+        <div
+          class="col s6"
+          *ngIf="property.sell == false && property.rent == false"
+        >
+          <button class="btn notAvailable">NOT AVAILABLE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

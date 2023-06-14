@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreatePropertyComponent } from './property/create-property/create-property.component';
 import { EditPropertyComponent } from './property/edit-property/edit-property.component';
 import { ActiveSessionGuard } from 'src/app/guardians/active-session.guard';
-import { CreateRequestClientComponent } from './requestClient/create-request-client/create-request-client.component';
 import { CreateContractsComponent } from './contracts/create-contracts/create-contracts.component';
 import { ListContractsComponent } from './contracts/list-contracts/list-contracts.component';
 import { DeleteContractsComponent } from './contracts/delete-contracts/delete-contracts.component';
@@ -34,6 +33,7 @@ import { ListRequestComponent } from './request/list-request/list-request.compon
 import { ReviewRequestComponent } from './request/review-request/review-request.component';
 import { HomeComponent } from 'src/app/public/home/home.component';
 import { CancelRequestComponent } from './request/cancel-request/cancel-request.component';
+import { CreateRequestComponent } from './request/create-request/create-request.component';
 
 const routes: Routes = [
   /** Property CRUD */
@@ -167,11 +167,9 @@ const routes: Routes = [
     component: CancelRequestComponent,
     canActivate: [ActiveSessionGuard],
   },
-
-  /*CRUD Request*/
   {
-    path: 'create-request', // create Request path
-    component: CreateRequestClientComponent,
+    path: 'create-request/:id', // Create Request path
+    component: CreateRequestComponent,
     canActivate: [ActiveSessionGuard],
   },
 

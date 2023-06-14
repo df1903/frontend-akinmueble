@@ -29,7 +29,7 @@
               currentPage: page,
               totalItems: total }" >
       <div class="card sticky-action">
-        <div class="card-image waves-effect waves-block waves-light">
+        <div class="card-image waves-effect waves-block waves-light" routerLink="/parameters/create-request/{{property.id}}">
           <div *ngIf="property.rent" class="card rent-card">
             <p>Rent</p>
           </div>

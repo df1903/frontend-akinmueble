@@ -161,7 +161,10 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="user.roleId == clientRoleId">
+      <div
+        class="row"
+        *ngIf="user.roleId == clientRoleId && request.contractId == 1"
+      >
         <div class="col s12">
           <button class="btn edit" (click)="goToContract(request.id)">
             UPLOAD CONTRACT AND/OR GUARANTOR
