@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ContactFormModel } from '../models/ContactForm.model';
 import { RoutesBackendConfig } from '../config/routes-backend.config';
 import { PagerConfig } from '../config/pager.config';
-import { ChangeContactModel } from '../models/ChangeContact.model copy';
+import { ChangeContactModel } from '../models/ChangeContact.model';
 
 @Injectable({
   providedIn: 'root',

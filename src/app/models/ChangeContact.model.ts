@@ -1,5 +1,4 @@
-export class GeneralVariablesModel {
-  realEstateName?: string;
-  administratorEmail?: string;
-  administratorName?: string;
+export class ChangeContactModel {
+  name?: string;
+  email?: string;
 }

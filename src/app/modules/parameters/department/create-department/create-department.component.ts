@@ -3,14 +3,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { DepartmentModel } from 'src/app/models/department.model';
+import { DepartmentModel } from 'src/app/models/Department.model';
 import { DepartmentService } from 'src/app/services/parameters/department.service';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-create-department',
   templateUrl: './create-department.component.html',
-  styleUrls: ['./create-department.component.css']
+  styleUrls: ['./create-department.component.css'],
 })
 export class CreateDepartmentComponent {
   dataFG: FormGroup = new FormGroup({});
@@ -24,15 +24,12 @@ export class CreateDepartmentComponent {
     private router: Router,
     private security: SecurityService,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     let data = this.security.sessionValidation();
     if (data != null) {
-      if (
-        data.user?.roleId == RolesConfig.administratorId
-      ) {
+      if (data.user?.roleId == RolesConfig.administratorId) {
         this.buildDataFG();
       } else {
         this.router.navigate(['']);

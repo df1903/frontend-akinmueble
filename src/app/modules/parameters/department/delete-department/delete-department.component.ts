@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { DepartmentModel } from 'src/app/models/department.model';
+import { DepartmentModel } from 'src/app/models/Department.model';
 import { DepartmentService } from 'src/app/services/parameters/department.service';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-delete-department',
   templateUrl: './delete-department.component.html',
-  styleUrls: ['./delete-department.component.css']
+  styleUrls: ['./delete-department.component.css'],
 })
 export class DeleteDepartmentComponent {
   departmentId = 0;
@@ -29,9 +29,7 @@ export class DeleteDepartmentComponent {
     let data = this.security.sessionValidation();
     if (data != null) {
       console.log(data.user);
-      if (
-        data.user?.roleId == RolesConfig.administratorId
-      ) {
+      if (data.user?.roleId == RolesConfig.administratorId) {
         this.getDepartment();
       } else {
         this.router.navigate(['']);
@@ -48,7 +46,7 @@ export class DeleteDepartmentComponent {
         this.router.navigate(['parameters/list-department']);
       },
       error: (err: any) => {
-        alert("ERROR: The file can't be accessed or can't be deleted")
+        alert("ERROR: The file can't be accessed or can't be deleted");
       },
     });
   }

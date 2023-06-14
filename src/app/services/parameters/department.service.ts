@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { DepartmentModel } from 'src/app/models/department.model';
+import { DepartmentModel } from 'src/app/models/Department.model';
 
 @Injectable({
   providedIn: 'root',

@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { CityModel } from 'src/app/models/city.model';
-import { DepartmentModel } from 'src/app/models/department.model';
+import { CityModel } from 'src/app/models/City.model';
+import { DepartmentModel } from 'src/app/models/Department.model';
 import { CityService } from 'src/app/services/parameters/city.service';
 import { DepartmentService } from 'src/app/services/parameters/department.service';
 import { SecurityService } from 'src/app/services/security.service';
@@ -14,20 +14,19 @@ declare var M: any;
 @Component({
   selector: 'app-edit-city',
   templateUrl: './edit-city.component.html',
-  styleUrls: ['./edit-city.component.css']
+  styleUrls: ['./edit-city.component.css'],
 })
-
 export class EditCityComponent {
   dataFG: FormGroup = new FormGroup({});
   logicUrl: String = RoutesBackendConfig.urlBusinessLogic;
   city: CityModel = {};
   cityId = 0;
-  departments: DepartmentModel[] = []
+  departments: DepartmentModel[] = [];
 
   constructor(
     private fb: FormBuilder,
     private service: CityService,
-    private departmentSvc : DepartmentService,
+    private departmentSvc: DepartmentService,
     private router: Router,
     private security: SecurityService,
     private route: ActivatedRoute
@@ -38,9 +37,7 @@ export class EditCityComponent {
   ngOnInit() {
     let data = this.security.sessionValidation();
     if (data != null) {
-      if (
-        data.user?.roleId == RolesConfig.administratorId
-      ) {
+      if (data.user?.roleId == RolesConfig.administratorId) {
         this.getCity();
         this.buildDataFG();
       } else {
@@ -59,7 +56,7 @@ export class EditCityComponent {
   buildDataFG() {
     this.dataFG = this.fb.group({
       name: ['', [Validators.required]],
-      department: ["", [Validators.required]]
+      department: ['', [Validators.required]],
     });
   }
 
@@ -104,8 +101,8 @@ export class EditCityComponent {
           return 0;
         });
         this.departments = array;
-        console.log(this.departments)
-        this.refresh()
+        console.log(this.departments);
+        this.refresh();
       },
       error: (err) => {
         console.log(err);

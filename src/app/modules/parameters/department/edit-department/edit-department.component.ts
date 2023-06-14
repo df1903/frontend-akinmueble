@@ -4,15 +4,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
 import { AdviserModel } from 'src/app/models/Adviser.model';
-import { CityModel } from 'src/app/models/city.model';
-import { DepartmentModel } from 'src/app/models/department.model';
+import { CityModel } from 'src/app/models/City.model';
+import { DepartmentModel } from 'src/app/models/Department.model';
 import { DepartmentService } from 'src/app/services/parameters/department.service';
 import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-edit-department',
   templateUrl: './edit-department.component.html',
-  styleUrls: ['./edit-department.component.css']
+  styleUrls: ['./edit-department.component.css'],
 })
 export class EditDepartmentComponent {
   dataFG: FormGroup = new FormGroup({});
@@ -33,9 +33,7 @@ export class EditDepartmentComponent {
   ngOnInit() {
     let data = this.security.sessionValidation();
     if (data != null) {
-      if (
-        data.user?.roleId == RolesConfig.administratorId
-      ) {
+      if (data.user?.roleId == RolesConfig.administratorId) {
         this.getDepartment();
         this.buildDataFG();
       } else {

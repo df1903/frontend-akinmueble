@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RolesConfig } from 'src/app/config/roles.config';
 import { RoutesBackendConfig } from 'src/app/config/routes-backend.config';
-import { GeneralVariablesModel } from 'src/app/models/ChangeContact.model';
-import { ChangeContactModel } from 'src/app/models/ChangeContact.model copy';
+import { GeneralVariablesModel } from 'src/app/models/GeneralVariables.model';
+import { ChangeContactModel } from 'src/app/models/ChangeContact.model';
 import { BusinessLogicService } from 'src/app/services/business-logic.service';
 import { SecurityService } from 'src/app/services/security.service';
 

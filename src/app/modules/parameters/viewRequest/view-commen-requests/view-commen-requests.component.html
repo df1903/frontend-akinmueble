@@ -1,46 +1,41 @@
 <div class="title" *ngIf="activeSession">
-    <h1 class="ProfileTitle">
-        My Profile
-    </h1>
+  <h1 class="ProfileTitle">My Profile</h1>
 </div>
 <div class="ComponentePrin" *ngIf="activeSession">
-        <div class="imgs"*ngIf="property.photo" >
-            <img src="{{property.photo[0]}}" alt="">
-            <img src="{{property.photo[1]}}" alt="">
-            <img src="{{property.photo[2]}}" alt="">
-        </div>
-    <div class="Contenido2">
-        <div class="component">
-            <div class="Information">
-                <h1>General Information</h1>
-                <p> + Precio Venta         &nbsp; &nbsp; &nbsp;    $ {{property.salePrice}} </p>
-                <p> + Precio Alquiler       &nbsp; &nbsp; &nbsp;   $ {{property.rentalPrice}} </p>
-                <p *ngIf="property.sell" >+ Gestión   &nbsp; &nbsp; &nbsp;                      VENTA</p>
-                <p *ngIf="property.rent"> + Gestión               &nbsp; &nbsp; &nbsp;   ALQUILER</p>
-                <p> + Ciudad                 &nbsp; &nbsp; &nbsp;      {{property.address}} </p>
-            </div>
-        </div>
-        <div class="component">
-            <div class="Description">
-                <h1>Description</h1>
-                <p>{{property.description}}
-                </p>
-            </div>
-        </div>
+  <div class="Contenido2">
+    <div class="component">
+      <div class="Information">
+        <h1>General Information</h1>
+        <p>+ Precio Venta &nbsp; &nbsp; &nbsp; $ {{ property.salePrice }}</p>
+        <p>
+          + Precio Alquiler &nbsp; &nbsp; &nbsp; $ {{ property.rentalPrice }}
+        </p>
+        <p *ngIf="property.sell">+ Gestión &nbsp; &nbsp; &nbsp; VENTA</p>
+        <p *ngIf="property.rent">+ Gestión &nbsp; &nbsp; &nbsp; ALQUILER</p>
+        <p>+ Ciudad &nbsp; &nbsp; &nbsp; {{ property.address }}</p>
+      </div>
     </div>
-
-    <div class="Coment">
-
-        <div class="ComentAdviser">
-            <h1>Adviser Comment</h1>
-            <p> {{requestClient.comment}}
-            </p>
-        </div>
-
+    <div class="component">
+      <div class="Description">
+        <h1>Description</h1>
+        <p>{{ property.description }}</p>
+      </div>
     </div>
+  </div>
 
-    <div class="Botones">
-        <a class="waves-effect waves-light btn-large">Accepted</a>
-        <a class="waves-effect waves-light btn-large" routerLink="/parameters/create-contracts">Contract</a>
+  <div class="Coment">
+    <div class="ComentAdviser">
+      <h1>Adviser Comment</h1>
+      <p>{{ requestClient.comment }}</p>
     </div>
+  </div>
+
+  <div class="Botones">
+    <a class="waves-effect waves-light btn-large">Accepted</a>
+    <a
+      class="waves-effect waves-light btn-large"
+      routerLink="/parameters/create-contracts"
+      >Contract</a
+    >
+  </div>
 </div>

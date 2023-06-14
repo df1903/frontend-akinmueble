@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagerConfig } from 'src/app/config/pager.config';
 import { RolesConfig } from 'src/app/config/roles.config';
-import { DepartmentModel } from 'src/app/models/department.model';
+import { DepartmentModel } from 'src/app/models/Department.model';
 import { DepartmentService } from 'src/app/services/parameters/department.service';
 import { SecurityService } from 'src/app/services/security.service';
 

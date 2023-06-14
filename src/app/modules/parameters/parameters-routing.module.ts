@@ -39,7 +39,6 @@ import { ReviewRequestComponent } from './request/review-request/review-request.
 import { HomeComponent } from 'src/app/public/home/home.component';
 import { CancelRequestComponent } from './request/cancel-request/cancel-request.component';
 
-
 const routes: Routes = [
   /** Property CRUD */
   {
@@ -175,7 +174,7 @@ const routes: Routes = [
 
   /*CRUD Request*/
   {
-    path: 'create-requestClient', // create Request path
+    path: 'create-request', // create Request path
     component: CreateRequestClientComponent,
     canActivate: [ActiveSessionGuard],
   },
@@ -183,14 +182,12 @@ const routes: Routes = [
     path: 'list-requestClient', // List Request path
     component: ListRequestClientComponent,
     canActivate: [ActiveSessionGuard],
-  }
-  ,
+  },
   {
     path: 'delete-requestClient', // Delete Request path
     component: DeleteRequestClientComponent,
     canActivate: [ActiveSessionGuard],
-  }
-  ,
+  },
   {
     path: 'edit-requestClient', // Edit Request path
     component: EditRequestClientComponent,
@@ -207,19 +204,18 @@ const routes: Routes = [
     path: 'list-contracts', // List contracts path
     component: ListContractsComponent,
     canActivate: [ActiveSessionGuard],
-  }
-  ,
+  },
   {
     path: 'delete-contracts', // Delete contracts path
     component: DeleteContractsComponent,
     canActivate: [ActiveSessionGuard],
-  }
-  ,
+  },
   {
     path: 'edit-contracts', // Edit contracts path
     component: EditContractsComponent,
     canActivate: [ActiveSessionGuard],
   },
+
   /*CRUD Guarantor*/
   {
     path: 'create-guarantor', // create contracts path
@@ -230,14 +226,12 @@ const routes: Routes = [
     path: 'list-guarantor', // List contracts path
     component: ListGuarantorComponent,
     canActivate: [ActiveSessionGuard],
-  }
-  ,
+  },
   {
     path: 'delete-guarantor', // Delete contracts path
     component: DeleteGuarantorComponent,
     canActivate: [ActiveSessionGuard],
-  }
-  ,
+  },
   {
     path: 'edit-guarantor', // Edit contracts path
     component: EditGuarantorComponent,
@@ -247,7 +241,7 @@ const routes: Routes = [
     path: 'view-requestClient', // view request Client
     component: ViewCommenRequestsComponent,
     canActivate: [ActiveSessionGuard],
-  }
+  },
 ];
 
 @NgModule({
